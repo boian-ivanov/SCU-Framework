@@ -1,5 +1,1 @@
-<?php
-
-class Loader {
-
-}
+<?phpclass Loader {}
