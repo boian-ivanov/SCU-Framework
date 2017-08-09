@@ -1,0 +1,10 @@
+FallbackResource /index.php
+#<IfModule mod_rewrite.c>
+#   Options +FollowSymLinks
+
+#   RewriteEngine on
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteRule ^(.*)_(.*)$ index.php?p=$1&%{QUERY_STRING}&c=$2&%{QUERY_STRING} [NC,L]
+#   RewriteRule ^(.*)$ index.php/$1 [L]
+#</IfModule>
