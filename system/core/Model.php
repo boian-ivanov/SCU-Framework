@@ -1,5 +1,1 @@
-<?php
-
-class Model {
-
-}
+<?phpclass Model {}
