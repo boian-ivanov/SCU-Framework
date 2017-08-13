@@ -3,7 +3,8 @@
 class ControllerCommonIndex extends Controller{
 
     public function index() {
-        echo "FUCK UYEH";
-//        $this->redirect('another/controller');
+        $model = $this->load->model('common/index');
+
+        $model->index();
     }
 }

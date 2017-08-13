@@ -1,1 +1,1 @@
-<?phpclass Model {}
+<?phpclass Model {    protected $db;    protected $table;    protected $fields = array();    public function __construct($table){        $this->db = new Db();    }}
