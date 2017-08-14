@@ -1,1 +1,1 @@
-<?phpclass Db {    protected $conn = false;    protected $sql;    /*public function __construct($config ) {            }*/    public function create($data) {    }}
+<?phpclass Db {    protected $conn = false;    protected $sql;    public function __construct($config ) {    }    public function create($data) {    }}
