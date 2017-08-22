@@ -10,4 +10,8 @@ class Registry {
     public function get($key) {
         return (isset($this->registry[$key]) ? $this->registry[$key] : null);
     }
+
+    public function has($key) {
+        return isset($this->registry[$key]);
+    }
 }
