@@ -3,8 +3,9 @@
 class ControllerCommonIndex extends Controller{
 
     public function index() {
-        $model = $this->load->model('common/index');
+        /*$model = $this->load->model('common/index');
 
-        $model->index();
+        $model->index();*/
+        echo "Hellow worlds";
     }
 }
