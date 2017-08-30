@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?php echo $heading ?></title>
+    <link rel="stylesheet" href="public/css/shoelace.css">
+    <script src="public/js/shoelace.js"></script>
+</head>
+<body>

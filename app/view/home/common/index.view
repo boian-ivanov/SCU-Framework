@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-</head>
-<body>
-    <h1><?php echo $hello; ?></h1>
-    <h2><?php echo $data; ?></h2>
-</body>
-</html>
+<?php echo $header ?>
+<h1><?php echo $hello; ?></h1>
+<h2><?php echo $data; ?></h2>
+<?php echo $footer ?>
