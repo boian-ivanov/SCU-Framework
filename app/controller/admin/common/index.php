@@ -6,9 +6,9 @@ class ControllerCommonIndex extends Controller{
         /*$model = $this->load->model('common/index');
 
         $model->index();*/
-        $data['hello'] = "Hellow worlds";
-        $data['data'] = 'diz iz views, iz last mvc step. mi iz hepi';
 
-        return $this->load->view('common/index', $data);
+        echo "THis iz admin. Pliz no enter!!!!";
+
+//        return $this->load->view('common/index', $data);
     }
 }
