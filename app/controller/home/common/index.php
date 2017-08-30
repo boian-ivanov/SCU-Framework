@@ -6,6 +6,8 @@ class ControllerCommonIndex extends Controller{
         /*$model = $this->load->model('common/index');
 
         $model->index();*/
-        echo "Hellow worlds";
+        $data['hello'] = "Hellow worlds";
+
+        return $this->load->view('common/index', $data);
     }
 }
