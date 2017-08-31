@@ -5,5 +5,11 @@
     <title><?php echo $heading ?></title>
     <link rel="stylesheet" href="public/css/shoelace.css">
     <script src="public/js/shoelace.js"></script>
+    <?php foreach ($links as $link){ ?>
+        <link rel="<?php echo $link['rel']; ?>" href="<?php echo $link['href']; ?>" type="<?php echo $link['type']; ?>" />
+    <?php } ?>
+    <?php foreach ($scripts as $script){ ?>
+        <script src="<?php echo $script; ?>" type="text/javascript"></script>
+    <?php } ?>
 </head>
 <body>
