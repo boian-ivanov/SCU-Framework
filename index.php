@@ -1,1 +1,1 @@
-<?phprequire "system/core/Framework.php";Framework::run();
+<?phprequire "system/core/Framework.php";new Framework();//Framework::run();
