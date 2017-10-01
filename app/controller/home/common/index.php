@@ -21,6 +21,14 @@ class ControllerCommonIndex extends Controller{
         $data['data'] = 'diz iz views, iz last mvc step. mi iz hepi';
         $data['heading'] = 'Me iz title';
 
+        $this->head->addLinks([
+            'rel'  => 'stylesheet',
+            'href' => 'public/css/shoelace.css'
+        ]);
+
+        $data['scripts'] = $this->head->getScripts();
+        $data['links'] = $this->head->getLinks();
+
         $data['header'] = $this->load->view('common/header', $data);
         $data['footer'] = $this->load->view('common/footer', $data);
 
