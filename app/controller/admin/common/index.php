@@ -18,12 +18,18 @@ class ControllerCommonIndex extends Controller{
             'href' => '/public/css/font-awesome.css'
         ]);
 
+        $this->head->addScript('public/js/jquery-3.2.1.min.js');
+//        $this->head->addScript('http://zeptojs.com/zepto.min.js');
         $this->head->addScript('public/js/shoelace.js');
 
         $data['scripts'] = $this->head->getScripts();
         $data['links'] = $this->head->getLinks();
 
-        $data['form_link'] = $this->full_url($_SERVER) . DS . 'common/login';
+        $data['form_link'] = $this->full_url($_SERVER) . '/common/login';
+        $data['forgotten_link'] = $this->full_url($_SERVER) . '/common/reset';
+
+        /*  TODO : URL library for url generation
+        $data['form_link'] = $this->url->generate('common/login') . 'common/login';*/
 
         $data['header'] = $this->load->view('common/header', $data);
         $data['footer'] = $this->load->view('common/footer', $data);

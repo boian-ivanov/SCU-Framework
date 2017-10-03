@@ -1,6 +1,7 @@
 <?php echo $header ?>
 <h1><?php echo $hello; ?></h1>
 <h2><?php echo $data; ?></h2>
+<div class="container">
     <div class="row row-center">
         <div class="col-6">
             <form action="<?php echo $form_link ?>" method="post">
@@ -20,9 +21,13 @@
                             <input type="password" name="password">
                         </div>
                     </div>
+                    <div class="link">
+                        <a target="_blank" href="<?php echo $forgotten_link ?>">Forgot your password ?</a>
+                    </div>
                     <button type="submit">Submit</button>
                 </fieldset>
             </form>
         </div>
     </div>
+</div>
 <?php echo $footer ?>
