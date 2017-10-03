@@ -38,6 +38,8 @@ class ControllerCommonIndex extends Controller{
         $data['links'] = $this->head->getLinks();
 
         $data['header'] = $this->load->view('common/header', $data);
+        $data['top_wrapper'] = $this->load->view('common/top_wrapper', $data);
+
         $data['footer'] = $this->load->view('common/footer', $data);
 
         echo $this->load->view('common/index', $data);

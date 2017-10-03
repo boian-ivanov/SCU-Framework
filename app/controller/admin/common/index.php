@@ -32,6 +32,7 @@ class ControllerCommonIndex extends Controller{
         $data['form_link'] = $this->url->generate('common/login') . 'common/login';*/
 
         $data['header'] = $this->load->view('common/header', $data);
+
         $data['footer'] = $this->load->view('common/footer', $data);
 
         $data['data'] = "You have entered the admin panel";
