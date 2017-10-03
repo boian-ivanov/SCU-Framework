@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo $heading ?></title>
-<!--    <link rel="stylesheet" href="public/css/shoelace.css">-->
-    <script src="public/js/shoelace.js"></script>
     <?php foreach ($links as $link){ ?>
         <?php echo $link; ?>
     <?php } ?>

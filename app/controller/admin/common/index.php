@@ -15,7 +15,7 @@ class ControllerCommonIndex extends Controller{
 
         $this->head->addLinks([
             'rel'  => 'stylesheet',
-            'href' => '/public/css/font-awesome.css'
+            'href' => '/public/css/font-awesome.min.css'
         ]);
 
         $this->head->addScript('public/js/jquery-3.2.1.min.js');

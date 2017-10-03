@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo $heading ?></title>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <?php foreach ($links as $link){ ?>
         <?php echo $link; ?>
     <?php } ?>
