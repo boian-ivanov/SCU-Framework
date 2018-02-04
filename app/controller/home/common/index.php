@@ -23,7 +23,7 @@ class ControllerCommonIndex extends Controller{
 
         $this->head->addLinks([
             'rel'  => 'stylesheet',
-            'href' => 'public/css/shoelace.css'
+            'href' => '/public/css/bootstrap.min.css'
         ]);
 
         $this->head->addLinks([
@@ -31,8 +31,8 @@ class ControllerCommonIndex extends Controller{
             'href' => '/public/css/font-awesome.min.css'
         ]);
 
-        $this->head->addScript('public/js/jquery-3.2.1.min.js');
-        $this->head->addScript('public/js/shoelace.js');
+        $this->head->addScript('/public/js/jquery-3.2.1.min.js');
+        $this->head->addScript('/public/js/bootstrap.min.js');
 
         $data['scripts'] = $this->head->getScripts();
         $data['links'] = $this->head->getLinks();
