@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $heading ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo $heading ?? '' ?></title>
     <?php foreach ($links as $link){ ?>
         <?php echo $link; ?>
     <?php } ?>
     <?php foreach ($scripts as $script){ ?>
         <?php echo $script; ?>
     <?php } ?>
-
-
 </head>
 <body>

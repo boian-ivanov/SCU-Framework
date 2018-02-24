@@ -1,5 +1,3 @@
-<?php echo $header ?>
-<?php echo $top_wrapper; ?>
 <h1><?php echo $hello; ?></h1>
 <h2><?php echo $data; ?></h2>
 <?php echo $footer ?>

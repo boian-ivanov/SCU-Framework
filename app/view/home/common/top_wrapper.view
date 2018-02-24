@@ -1,50 +1,25 @@
-<!--<div class="header">
-    <div class="container">
-        <div class="row row-center">
-            <img src="http://deadneon.uchenici.bg/EasyDent/img/logo.png" alt=""><h1>EasyDent</h1>
+<header>
+    <div class="container-fluid" style="background-color: #69E000;color:#fff;">
+        <div class="row justify-content-center py-2">
+            <div class="col-auto">
+                <img class="img-fluid" style="max-height: 100px" src="/public/images/logo.jpg">
+                <h1 class="pt-3 d-sm-inline">Easy Dent</h1>
+            </div>
         </div>
     </div>
-</div>-->
-<header>
-    <div class="container">
-        <nav class="navbar navbar-expand-md no-gutters">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="col-4 col-md-2 text-right text-md-center order-lg-6">
-                <img src="http://easydent.bg/logo.png" height="30" alt="image">
-                <span>Easy Dent</span>
-            </div>
-
-            <div class="collapse navbar-collapse col-12 col-md-5 order-lg-1" id="navbarNav2">
-                <ul class="navbar-nav col-5">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="https://www.froala.com">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.froala.com">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.froala.com">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.froala.com">Team</a>
-                    </li>
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <a class="navbar-brand d-sm-none" href="#">Easy Dent</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbar">
+            <div class="col-auto">
+                <ul class="navbar-nav mr-auto">
+                    <?php foreach ($nav as $text => $links) {?>
+                        <li class="nav-item px-3 py-2 px-md-4 px-md-3"><a class="w-100 h-100" href="<?= $links ?>"><?= $text ?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
-
-            <ul class="navbar-nav justify-content-end col-sm-5 order-lg-12 d-none d-md-flex">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.froala.com"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.froala.com"><i class="fa fa-github"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.froala.com"><i class="fa fa-slack"></i></a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+        </div>
+    </nav>
 </header>

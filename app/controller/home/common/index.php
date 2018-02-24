@@ -21,27 +21,11 @@ class ControllerCommonIndex extends Controller{
         $data['data'] = 'diz iz views, iz last mvc step. mi iz hepi';
         $data['heading'] = 'Me iz title';
 
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => '/public/css/bootstrap.min.css'
-        ]);
-
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => '/public/css/font-awesome.min.css'
-        ]);
-
-        $this->head->addScript('/public/js/jquery-3.2.1.min.js');
-        $this->head->addScript('/public/js/bootstrap.min.js');
-
-        $data['scripts'] = $this->head->getScripts();
-        $data['links'] = $this->head->getLinks();
-
-        $data['header'] = $this->load->view('common/header', $data);
-        $data['top_wrapper'] = $this->load->view('common/top_wrapper', $data);
+        $this->load->controller('common/header/index');
+        $this->load->controller('common/top_wrapper/index');
 
         $data['footer'] = $this->load->view('common/footer', $data);
 
-        echo $this->load->view('common/index', $data);
+        return $this->load->view('common/index', $data);
     }
 }
