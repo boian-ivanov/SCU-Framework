@@ -1,0 +1,25 @@
+<header>
+    <div class="container-fluid" style="background-color: #69E000;color:#fff;">
+        <div class="row justify-content-center py-2">
+            <div class="col-auto">
+                <img class="img-fluid" style="max-height: 100px" src="/public/images/logo.jpg">
+                <h1 class="pt-3 d-sm-inline">Easy Dent</h1>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <a class="navbar-brand d-sm-none" href="#">Easy Dent</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbar">
+            <div class="col-auto">
+                <ul class="navbar-nav mr-auto">
+                    <?php foreach ($nav as $text => $links) {?>
+                        <li class="nav-item px-3 py-2 px-md-4 px-md-3"><a class="w-100 h-100" href="<?= $links ?>"><?= $text ?></a></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
