@@ -8,7 +8,7 @@
         </div>
     </div>
     <nav class="navbar navbar-expand-sm navbar-light">
-        <a class="navbar-brand d-sm-none" href="#">Easy Dent</a>
+        <a class="navbar-brand d-sm-none" href="#">Menu</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
