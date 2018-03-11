@@ -1,14 +1,32 @@
-<?php echo $header ?>
+<?php echo $header; ?>
 
-<?php echo $slider ?>
-<div class="container-fluid my-4">
+<?php echo $slider; ?>
+<div class="container-fluid main">
+    <div class="row pt-5 pb-2 justify-content-center">
+        <div class="col-lg-10 col-12 pt-4">
+            <div class="row">
+                <?php echo $actions; ?>
+            </div>
+        </div>
+    </div>
+    <?php echo $seperator; ?>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-12">
+            <div class="row justify-content-center">
+                <h2 class="title">Testimonials</h2>
+                <?php echo $testimonials; ?>
+            </div>
+        </div>
+    </div>
+    <?php echo $seperator; ?>
     <div class="row justify-content-center">
         <div class="col-lg-10 col-12">
             <div class="row">
-                <?php echo $for_us?>
+                <h2 class="title">Contact Us</h2>
+                <?php echo $contact_form; ?>
             </div>
         </div>
     </div>
 </div>
 
-<?php echo $footer ?>
+<?php echo $footer; ?>

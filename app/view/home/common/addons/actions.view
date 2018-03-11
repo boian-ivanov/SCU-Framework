@@ -1,0 +1,13 @@
+<?php foreach($columns as $column) {?>
+    <div class="col-md-3 col-12 text-center">
+<!--        <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">-->
+        <div class="icon_holder pb-4">
+            <div class="fa-stack fa-3x" style="font-size: 45px;">
+                <i class="fa <?= $column['icon']; ?> fa-stack-1x"></i>
+            </div>
+        </div>
+        <h2><?= $column['title']; ?></h2>
+        <p><?= $column['text']; ?></p>
+        <p><a class="btn btn-secondary" href="<?= $column['link']; ?>" role="button"><?= $column['button']; ?> »</a></p>
+    </div>
+<?php }?>

@@ -1,0 +1,9 @@
+<?php echo $header; ?>
+
+<div class="container-fluid main">
+    <div class="row">
+        <img class="w-100" src="http://via.placeholder.com/1280x300">
+    </div>
+</div>
+
+<?php echo $footer; ?>

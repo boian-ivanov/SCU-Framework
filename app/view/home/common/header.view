@@ -12,3 +12,4 @@
     <?php } ?>
 </head>
 <body>
+<?php echo $top_wrapper; ?>

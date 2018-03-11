@@ -1,0 +1,31 @@
+<div id="testimonials" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <?php for($i = 0; $i < count($testimonials); $i++) { ?>
+            <li data-target="#testimonials" data-slide-to="<?= $i; ?>" <?php if($i === 0) echo 'class="active"'?>></li>
+        <?php } ?>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <?php foreach ($testimonials as $key => $testimonial) { ?>
+            <div class="carousel-item text-center p-4 <?= $key == 0 ? 'active' : '' ?>">
+                <div class="row">
+                    <?php if($key % 2 == 0) {?>
+                    <div class="col-3">
+                        <img class="img-thumbnail" src="<?= $testimonial['image']; ?>" alt="<?= $testimonial['name']; ?>">
+                    </div>
+                    <?php } ?>
+                    <div class="col-9">
+                        <p><?= $testimonial['text']; ?></p>
+                    </div>
+                    <?php if($key % 2 == 1) {?>
+                        <div class="col-3">
+                            <img class="img-thumbnail" src="<?= $testimonial['image']; ?>" alt="<?= $testimonial['name']; ?>">
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+    <script>
+        $("#testimonials").bcSwipe({ threshold: 50 });
+    </script>
+</div>

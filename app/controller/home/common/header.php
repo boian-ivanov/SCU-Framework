@@ -24,8 +24,28 @@ class ControllerCommonHeader extends Controller {
             'href' => '/public/css/master.css'
         ]);
 
+        $this->head->addLinks([
+            'rel'  => 'stylesheet',
+            'href' => 'http://fonts.googleapis.com/css?family=Roboto:400,700',
+            'type' => 'text/css'
+        ]);
+
+        $this->head->addLinks([
+            'rel'  => 'stylesheet',
+            'href' => 'http://fonts.googleapis.com/css?family=Open+Sans',
+            'type' => 'text/css'
+        ]);
+
+        $this->head->addLinks([
+            'rel'  => 'stylesheet',
+            'href' => 'https://fonts.googleapis.com/css?family=Lobster|Oswald|Raleway|PT+Sans&subset=latin,cyrillic',
+            'type' => 'text/css'
+        ]);
+
         $this->head->addScript('/public/js/jquery-3.2.1.min.js');
         $this->head->addScript('/public/js/bootstrap.min.js');
+        $this->head->addScript('/public/js/jquery.bcSwipe.min.js');
+        /*$this->head->addScript('/public/js/jquery.paroller.min.js');*/
 
         $data['scripts'] = $this->head->getScripts();
         $data['links'] = $this->head->getLinks();
@@ -38,7 +58,8 @@ class ControllerCommonHeader extends Controller {
             'Contacts' => ''
         ];
 
-        echo $this->load->view('common/header', $data);
-        return $this->load->view('common/top_wrapper', $nav);
+        $data['top_wrapper'] = $this->load->view('common/top_wrapper', $nav);
+
+        return $this->load->view('common/header', $data);
     }
 }

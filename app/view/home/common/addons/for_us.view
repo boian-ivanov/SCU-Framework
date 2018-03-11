@@ -1,8 +1,0 @@
-<?php foreach($people as $person) {?>
-    <div class="col-lg-4 col-4 text-center">
-        <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-        <h2><?= $person['name']; ?></h2>
-        <p><?= $person['description']; ?></p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-    </div>
-<?php }?>

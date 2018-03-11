@@ -16,7 +16,11 @@ class ControllerCommonIndex extends Controller{
         $data['header'] = $this->load->controller('common/header/index');
 
         $data['slider'] = $this->slider();
-        $data['for_us'] = $this->for_us();
+        $data['actions'] = $this->actions();
+        $data['testimonials'] = $this->testimonials();
+        $data['contact_form'] = $this->contact_form();
+
+        $data['seperator'] = $this->load->view('common/addons/seperator');
 
         $data['footer'] = $this->load->controller('common/footer/index');
 
@@ -33,23 +37,41 @@ class ControllerCommonIndex extends Controller{
         return $this->load->view('common/slider', $data);
     }
 
-    private function for_us() {
-        $data['people'][0] = [
-            'name' => 'Rumen Gradinarov',
-            'description' => 'Занимава се предимно в сферата на протетичната стоматология-снемаеми и неснемаеми конструции, терапия- кариесология, ендодонтия и естетично възстановяване на разрушени зъби.',
-            'img' => ''
-        ];
-        $data['people'][1] = [
-            'name' => 'Rumen Gradinarov',
-            'description' => 'Занимава се предимно в сферата на протетичната стоматология-снемаеми и неснемаеми конструции, терапия- кариесология, ендодонтия и естетично възстановяване на разрушени зъби.',
-            'img' => ''
-        ];
-        $data['people'][2] = [
-            'name' => 'Rumen Gradinarov',
-            'description' => 'Занимава се предимно в сферата на протетичната стоматология-снемаеми и неснемаеми конструции, терапия- кариесология, ендодонтия и естетично възстановяване на разрушени зъби.',
-            'img' => ''
-        ];
+    private function actions() {
 
-        return $this->load->view('common/addons/for_us', $data);
+        for ($i = 0; $i < 4; $i++) {
+            $data['columns'][] = [
+                'icon' => 'fa-smile-o',
+                'title'  => 'What we do',
+                'text'   => 'Ubi est emeritis habitio?Sunt monses captis clemens, barbatus indictioes.Tabes peregrinationes, tanquam altus zelus.',
+                'button' => 'Show more',
+                'link'   => 'catalog'
+            ];
+        }
+
+        return $this->load->view('common/addons/actions', $data);
+    }
+
+    private function testimonials() {
+        $data['heading'] = 'Testimonials';
+
+        $i = 0;
+        while($i++ < 5) {
+            $data['testimonials'][] = [
+                'name' => 'Lorem Ipsum, Burgas',
+                'text' => 'Danistas crescere! Pol, regius ausus! Vae, flavum solem! Cum barcas credere, omnes hippotoxotaes carpseris mirabilis, bi-color liberies. A falsis, candidatus emeritis vortex. Nunquam manifestum genetrix.',
+                'image' => 'public/images/testimonials/img_1.jpg'
+            ];
+
+        }
+
+        return $this->load->view('common/testimonials', $data);
+    }
+
+    public function contact_form() {
+
+        //$data[''] =
+
+        return $this->load->view('common/addons/contact');
     }
 }
