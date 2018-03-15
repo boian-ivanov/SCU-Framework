@@ -7,19 +7,21 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-sm navbar-light">
-        <a class="navbar-brand d-sm-none" href="#">Menu</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbar">
-            <div class="col-auto">
-                <ul class="navbar-nav mr-auto">
-                    <?php foreach ($nav as $text => $links) {?>
-                        <li class="nav-item px-3 py-2 px-md-4 px-md-3"><a class="w-100 h-100" href="<?= $links ?>"><?= $text ?></a></li>
-                    <?php } ?>
-                </ul>
+    <div id="nav_wrap" style="height: 56px;">
+        <nav class="navbar navbar-expand-sm navbar-light">
+            <a class="navbar-brand d-sm-none" href="#">Menu</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbar">
+                <div class="col-auto">
+                    <ul class="navbar-nav mr-auto">
+                        <?php foreach ($nav as $text => $links) {?>
+                            <li class="nav-item px-3 py-2 px-md-4 px-md-3"><a class="w-100 h-100" href="<?= $links ?>"><?= $text ?></a></li>
+                        <?php } ?>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </header>

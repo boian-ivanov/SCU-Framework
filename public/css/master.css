@@ -2,6 +2,14 @@
     background-color: #ddd;
 }
 
+.sticky {
+    position: fixed;
+    top:0;
+    background-color: #fff;
+    z-index: 1;
+    width: 100%;
+}
+
 .title {
     width: 100%;
     text-align: center;
@@ -10,10 +18,22 @@
     color: #555;
 }
 
+#front-images {
+    /*height: 586px;*/
+}
+
+#reservation-popup{
+    background-color: #69E000;
+    color: #fff;
+}
+#reservation-popup .col.mr-auto {
+    font: 30px 'Lobster' ,cursive;
+}
+
 .carousel-inner > .carousel-item > img {
     width: 100%;
     object-fit: cover;
-    height: 586px;
+    height: 700px;
 }
 
 .fa-footer-icons i {

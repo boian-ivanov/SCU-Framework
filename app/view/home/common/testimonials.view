@@ -8,19 +8,23 @@
         <?php foreach ($testimonials as $key => $testimonial) { ?>
             <div class="carousel-item text-center p-4 <?= $key == 0 ? 'active' : '' ?>">
                 <div class="row">
-                    <?php if($key % 2 == 0) {?>
+                    <?php /*if($key % 2 == 0) {*/?><!--
                     <div class="col-3">
-                        <img class="img-thumbnail" src="<?= $testimonial['image']; ?>" alt="<?= $testimonial['name']; ?>">
+                        <img class="img-thumbnail" src="<?/*= $testimonial['image']; */?>" alt="<?/*= $testimonial['name']; */?>">
                     </div>
-                    <?php } ?>
-                    <div class="col-9">
+                    --><?php /*} */?>
+                    <div class="col-12">
+                        <div class="justify-content-center">
+                            <img style="height: 150px;" class="img-thumbnail" src="<?= $testimonial['image']; ?>" alt="<?= $testimonial['name']; ?>">
+                        </div>
+                        <div class="row justify-content-center pb-2" style="font-size: 24px;"><?= $testimonial['heading']; ?></div>
                         <p><?= $testimonial['text']; ?></p>
                     </div>
-                    <?php if($key % 2 == 1) {?>
+                    <?php /*if($key % 2 == 1) {*/?><!--
                         <div class="col-3">
-                            <img class="img-thumbnail" src="<?= $testimonial['image']; ?>" alt="<?= $testimonial['name']; ?>">
+                            <img class="img-thumbnail" src="<?/*= $testimonial['image']; */?>" alt="<?/*= $testimonial['name']; */?>">
                         </div>
-                    <?php } ?>
+                    --><?php /*} */?>
                 </div>
             </div>
         <?php } ?>

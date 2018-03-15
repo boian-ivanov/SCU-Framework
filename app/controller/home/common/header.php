@@ -45,7 +45,7 @@ class ControllerCommonHeader extends Controller {
         $this->head->addScript('/public/js/jquery-3.2.1.min.js');
         $this->head->addScript('/public/js/bootstrap.min.js');
         $this->head->addScript('/public/js/jquery.bcSwipe.min.js');
-        /*$this->head->addScript('/public/js/jquery.paroller.min.js');*/
+        $this->head->addScript('/public/js/main.js');
 
         $data['scripts'] = $this->head->getScripts();
         $data['links'] = $this->head->getLinks();
