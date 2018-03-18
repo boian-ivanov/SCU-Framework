@@ -6,7 +6,7 @@
         <div class="col mr-auto">
             <div class="row">За да резервирате час, моля натиснете <span>&nbsp;<a href="#contact">тук</a></span>.</div>
         </div>
-        <div class="col-auto" onclick="$('#reservation-popup').fadeOut()"><i class="fa fa-times"></i></div>
+        <div class="col-auto my-auto" style="font-size: 20px;" onclick="$('#reservation-popup').fadeOut()"><i class="fa fa-times"></i></div>
     </div>
     <div class="row pt-5 pb-2 justify-content-center">
         <div class="col-lg-10 col-12 pt-4">

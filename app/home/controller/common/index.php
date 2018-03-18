@@ -59,7 +59,8 @@ class ControllerCommonIndex extends Controller{
         while($i++ < 5) {
             $data['testimonials'][] = [
                 'name' => 'Lorem Ipsum, Burgas',
-                'text' => 'Danistas crescere! Pol, regius ausus! Vae, flavum solem! Cum barcas credere, omnes hippotoxotaes carpseris mirabilis, bi-color liberies. A falsis, candidatus emeritis vortex. Nunquam manifestum genetrix.',
+                'heading' => 'Eheu, teres idoleum!',
+                'text' => 'Danistas crescere! Pol, regius ausus! Vae, flavum solem! Cum barcas credere, omnes hippotoxotaes carpseris mirabilis, bi-color liberies. A falsis, candidatus emeritis vortex. Nunquam manifestum genetrix. Nunquam pugna nomen. Victrixs trabem in rugensis civitas!',
                 'image' => 'public/images/testimonials/img_1.jpg'
             ];
 
