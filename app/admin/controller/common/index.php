@@ -7,6 +7,9 @@ class ControllerCommonIndex extends Controller{
 
         $model->index();*/
 
+        /*$model = $this->load->model('common/index');
+        $model->index();*/
+
         $this->head->addLinks([
             'rel'  => 'stylesheet',
             'href' => $this->url->root . '/public/css/bootstrap.min.css'
@@ -23,22 +26,30 @@ class ControllerCommonIndex extends Controller{
         $data['scripts'] = $this->head->getScripts();
         $data['links'] = $this->head->getLinks();
 
-        $data['form_link'] = $this->url->root . '/admin/common/login';
-        $data['forgotten_link'] = $this->url->root . '/admin/common/reset';
+        if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {
+            echo '<pre>' . __FILE__ . ' : ' . __LINE__ . ' -> ' . __METHOD__ . '<br>';
+            var_dump($_SESSION); // logged in
+            die();
+        } else {
+            $data['root_url'] = $this->url->root;
 
-        $data['root_url'] = $this->url->root;
+            $data['form_link'] = $this->url->root . '/admin/account/login'; // TODO : maybe rework url library
+            $data['forgotten_link'] = $this->url->root . '/admin/account/reset';
 
-        /*  TODO : URL library for url generation
-        $data['form_link'] = $this->url->generate('common/login') . 'common/login';*/
+            $data['hello'] = "Welcome to SCU Framework Admin Panel";
 
-        $data['hello'] = "Welcome to SCU Framework Admin Panel";
+            $data['data'] = "You have entered the admin panel";
 
-        $data['data'] = "You have entered the admin panel";
+            if(isset($_SESSION['error'])) {
+                $data['error'] = $_SESSION['error'];
+                unset($_SESSION['error']);
+            }
 
-        $data['header'] = $this->load->view('common/header', $data);
+            $data['header'] = $this->load->view('common/header', $data);
 
-        $data['footer'] = $this->load->view('common/footer', $data);
+            $data['footer'] = $this->load->view('common/footer', $data);
 
-        return $this->load->view('common/index', $data);
+            return $this->load->view('common/index', $data);
+        }
     }
 }

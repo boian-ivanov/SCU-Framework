@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $heading ?></title>
+    <title><?php echo isset($heading) ?? ''  ?></title>
     <?php foreach ($links as $link){ ?>
         <?php echo $link; ?>
     <?php } ?>
     <?php foreach ($scripts as $script){ ?>
         <?php echo $script; ?>
     <?php } ?>
-
-
 </head>
 <body>
