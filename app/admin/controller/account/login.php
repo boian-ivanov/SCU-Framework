@@ -47,7 +47,8 @@ class ControllerAccountLogin extends Controller {
 //            header('HTTP/1.1 401 Unauthorized');
             $_SESSION['error'] = $e->getMessage();
         }
+        $location = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/admin';
         header('HTTP/1.1 302 Redirect');
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location: ' . $location);
     }
 }

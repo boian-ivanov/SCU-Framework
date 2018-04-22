@@ -23,13 +23,11 @@ class ControllerCommonIndex extends Controller{
         $this->head->addScript($this->url->root . '/public/js/jquery-3.2.1.min.js');
         $this->head->addScript($this->url->root . '/public/js/bootstrap.min.js');
 
-        $data['scripts'] = $this->head->getScripts();
-        $data['links'] = $this->head->getLinks();
-
         if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {
-            echo '<pre>' . __FILE__ . ' : ' . __LINE__ . ' -> ' . __METHOD__ . '<br>';
-            var_dump($_SESSION); // logged in
-            die();
+
+//            $this->getDashboard($data);
+
+            $view_path = 'common/index';
         } else {
             $data['root_url'] = $this->url->root;
 
@@ -45,11 +43,20 @@ class ControllerCommonIndex extends Controller{
                 unset($_SESSION['error']);
             }
 
-            $data['header'] = $this->load->view('common/header', $data);
-
-            $data['footer'] = $this->load->view('common/footer', $data);
-
-            return $this->load->view('common/index', $data);
+            $view_path = 'common/login';
         }
+
+        $data['scripts'] = $this->head->getScripts();
+        $data['links'] = $this->head->getLinks();
+
+        $data['header'] = $this->load->view('common/header', $data);
+
+        $data['footer'] = $this->load->view('common/footer', $data);
+
+        return $this->load->view($view_path, $data);
+    }
+
+    protected function getDashboard(&$data) {
+
     }
 }
