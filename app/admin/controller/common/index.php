@@ -4,12 +4,7 @@ class ControllerCommonIndex extends Controller{
 
     public function index() {
         /*$model = $this->load->model('common/index');
-
         $model->index();*/
-
-        /*$model = $this->load->model('common/index');
-        $model->index();*/
-
         $this->head->addLinks([
             'rel'  => 'stylesheet',
             'href' => $this->url->root . '/public/css/bootstrap.min.css'
@@ -20,12 +15,27 @@ class ControllerCommonIndex extends Controller{
             'href' => $this->url->root . '/public/css/font-awesome.min.css'
         ]);
 
+        $this->head->addLinks([
+            'rel'  => 'stylesheet',
+            'href' => $this->url->root . '/public/css/master.css'
+        ]);
+
         $this->head->addScript($this->url->root . '/public/js/jquery-3.2.1.min.js');
         $this->head->addScript($this->url->root . '/public/js/bootstrap.min.js');
 
         if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {
+            $this->head->addLinks([
+                'rel'  => 'stylesheet',
+                'href' => $this->url->root . '/public/css/admin.css'
+            ]);
 
-//            $this->getDashboard($data);
+            $this->head->addScript($this->url->root . '/public/js/admin.js');
+
+            $model = $this->load->model('account/user');
+
+            $user = $model->getUserById($_SESSION['user_id']);
+
+            $data['display_name'] = $user->display_name;
 
             $view_path = 'common/index';
         } else {
@@ -33,10 +43,6 @@ class ControllerCommonIndex extends Controller{
 
             $data['form_link'] = $this->url->root . '/admin/account/login'; // TODO : maybe rework url library
             $data['forgotten_link'] = $this->url->root . '/admin/account/reset';
-
-            $data['hello'] = "Welcome to SCU Framework Admin Panel";
-
-            $data['data'] = "You have entered the admin panel";
 
             if(isset($_SESSION['error'])) {
                 $data['error'] = $_SESSION['error'];

@@ -49,6 +49,10 @@
     vertical-align: middle;
 }
 
+.ez-primary {
+    background-color: #69E000;
+}
+
 .ezd-seperator{
     text-align: center;
     margin: 30px 0px;

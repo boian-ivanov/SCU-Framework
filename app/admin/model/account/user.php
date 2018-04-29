@@ -11,6 +11,14 @@ class ModelAccountUser extends Model {
         return $this->user;
     }
 
+    public function getUserById($user_id) {
+        $query = "SELECT * FROM `" . DB_PREFIX . "users` WHERE `user_id` = :user_id";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['user_id' => $user_id]);
+        $this->user = $stmt->fetchObject();
+        return $this->user;
+    }
+
     public function save($user_id, $user_details = array()) {
         if(!empty($user_details)) {
             $query = "UPDATE `" . DB_PREFIX . "users` SET ";

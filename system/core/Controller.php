@@ -1,6 +1,7 @@
 <?php
 
 class Controller {
+    // TODO : a way to redirect to a controller with included data
     protected $load;
     protected $head;
     protected $url;

@@ -40,7 +40,7 @@ class ControllerAccountLogin extends Controller {
 
             // Save login status to session
             $_SESSION['user_logged_in'] = 'yes';
-            $_SESSION['user_email'] = $email;
+            $_SESSION['user_id'] = $user->user_id;
 
             // Redirect to profile page
         } catch (Exception $e) {
