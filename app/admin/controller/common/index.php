@@ -31,11 +31,9 @@ class ControllerCommonIndex extends Controller{
 
             $this->head->addScript($this->url->root . '/public/js/admin.js');
 
-            $model = $this->load->model('account/user');
+            $data['nav'] = $this->getNav();
 
-            $user = $model->getUserById($_SESSION['user_id']);
-
-            $data['display_name'] = $user->display_name;
+            $data['sidebar'] = $this->getSideNav();
 
             $view_path = 'common/index';
         } else {
@@ -62,7 +60,23 @@ class ControllerCommonIndex extends Controller{
         return $this->load->view($view_path, $data);
     }
 
-    protected function getDashboard(&$data) {
+    public function getNav() {
+        $model = $this->load->model('account/user');
 
+        $user = $model->getUserById($_SESSION['user_id']);
+
+        $data['display_name'] = $user->display_name;
+
+        return $this->load->view('common/nav', $data);
+    }
+
+    public function getSideNav() {
+        /*$model = $this->load->model('account/user');
+
+        $user = $model->getUserById($_SESSION['user_id']);*/
+
+        $data = [];
+
+        return $this->load->view('common/sidebar', $data);
     }
 }
