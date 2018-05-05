@@ -31,6 +31,10 @@ class Loader{
         return $controller->$method(array(&$data));
     }
 
+    /**
+     * @param $model
+     * @return $obj
+     */
     public function model($model) {
         $model = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$model);
         require_once APP_PATH . CURR_DIR . MODEL . "$model.php";
@@ -40,9 +44,13 @@ class Loader{
         foreach (explode('/', $model) as $value) $class .= ucfirst($value);
 
         try{
-            return new $class;
+            $obj = new $class;
+            if(is_a($obj, 'Model'))
+                return $obj;
+            else
+                throw new Exception('Object is not part of Model');
         } catch (Exception $e){
-            return $e;
+            return $e->getMessage();
         }
     }
 

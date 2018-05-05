@@ -24,9 +24,15 @@ class Head {
     public function addLinks($data) {
         $link = '<link';
 
-        if(!empty($data['rel']))  $link .= ' rel="'  . $data['rel']  . '"';
-        if(!empty($data['href'])) $link .= ' href="' . $data['href'] . '"';
-        if(!empty($data['type'])) $link .= ' type="' . $data['type'] . '"';
+        if(!is_array($data)) {
+            $data = [
+                'href' => $data,
+                'rel' => 'stylesheet'
+            ];
+        }
+        if (!empty($data['rel'])) $link .= ' rel="' . $data['rel'] . '"';
+        if (!empty($data['href'])) $link .= ' href="' . $data['href'] . '"';
+        if (!empty($data['type'])) $link .= ' type="' . $data['type'] . '"';
 
         $link .= ' />';
 

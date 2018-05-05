@@ -1,39 +1,29 @@
 <?php
 
-class ControllerCommonIndex extends Controller{
+class ControllerCommonIndex extends Controller {
+    private $user;
 
     public function index() {
-        /*$model = $this->load->model('common/index');
-        $model->index();*/
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => $this->url->root . '/public/css/bootstrap.min.css'
-        ]);
-
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => $this->url->root . '/public/css/font-awesome.min.css'
-        ]);
-
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => $this->url->root . '/public/css/master.css'
-        ]);
+        $this->head->addLinks($this->url->root . '/public/css/bootstrap.min.css');
+        $this->head->addLinks($this->url->root . '/public/css/font-awesome.min.css');
+        $this->head->addLinks($this->url->root . '/public/css/master.css');
 
         $this->head->addScript($this->url->root . '/public/js/jquery-3.2.1.min.js');
         $this->head->addScript($this->url->root . '/public/js/bootstrap.min.js');
 
         if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {
-            $this->head->addLinks([
-                'rel'  => 'stylesheet',
-                'href' => $this->url->root . '/public/css/admin.css'
-            ]);
+            $this->head->addLinks($this->url->root . '/public/css/admin.css');
 
             $this->head->addScript($this->url->root . '/public/js/admin.js');
 
             $data['nav'] = $this->getNav();
 
             $data['sidebar'] = $this->getSideNav();
+
+            $model = $this->load->model('common/index');
+
+            // Admin Dashboard Logic
+            $data['welcome'] = sprintf($model->getWelcomeMessage(), $this->user->display_name);
 
             $view_path = 'common/index';
         } else {
@@ -63,19 +53,17 @@ class ControllerCommonIndex extends Controller{
     public function getNav() {
         $model = $this->load->model('account/user');
 
-        $user = $model->getUserById($_SESSION['user_id']);
+        $this->user = $model->getUserById($_SESSION['user_id']);
 
-        $data['display_name'] = $user->display_name;
+        $data['display_name'] = $this->user->display_name;
 
         return $this->load->view('common/nav', $data);
     }
 
     public function getSideNav() {
-        /*$model = $this->load->model('account/user');
+        $model = $this->load->model('common/index');
 
-        $user = $model->getUserById($_SESSION['user_id']);*/
-
-        $data = [];
+        $data['nav_items'] = $model->getNavItems();
 
         return $this->load->view('common/sidebar', $data);
     }

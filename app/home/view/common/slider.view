@@ -1,13 +1,13 @@
 <div id="front-images" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <?php for($i = 0; $i < count($images); $i++) { ?>
-            <li data-target="#front-images" data-slide-to="<?= $i; ?>" <?php if($i === 0) echo 'class="active"'?>></li>
+            <li data-target="#front-images" data-slide-to="<?php echo $i; ?>" <?php if($i === 0) echo 'class="active"'?>></li>
         <?php } ?>
     </ol>
     <div class="carousel-inner" role="listbox" style="z-index: -1">
         <?php foreach ($images as $image) { ?>
-            <div class="carousel-item <?= $images[0] === $image ? 'active' : '' ?>">
-                <img class="img-fluid" src="<?= $image ?>" alt="First slide">
+            <div class="carousel-item <?php echo $images[0] === $image ? 'active' : '' ?>">
+                <img class="img-fluid" src="<?php echo $image ?>" alt="First slide">
             </div>
         <?php } ?>
     </div>

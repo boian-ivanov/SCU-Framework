@@ -1,12 +1,12 @@
 <div id="testimonials" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <?php for($i = 0; $i < count($testimonials); $i++) { ?>
-            <li data-target="#testimonials" data-slide-to="<?= $i; ?>" <?php if($i === 0) echo 'class="active"'?>></li>
+            <li data-target="#testimonials" data-slide-to="<?php echo $i; ?>" <?php if($i === 0) echo 'class="active"'?>></li>
         <?php } ?>
     </ol>
     <div class="carousel-inner" role="listbox">
         <?php foreach ($testimonials as $key => $testimonial) { ?>
-            <div class="carousel-item text-center p-4 <?= $key == 0 ? 'active' : '' ?>">
+            <div class="carousel-item text-center p-4 <?php echo $key == 0 ? 'active' : '' ?>">
                 <div class="row">
                     <?php /*if($key % 2 == 0) {*/?><!--
                     <div class="col-3">
@@ -15,10 +15,10 @@
                     --><?php /*} */?>
                     <div class="col-12">
                         <div class="justify-content-center">
-                            <img style="height: 150px;" class="img-thumbnail" src="<?= $testimonial['image']; ?>" alt="<?= $testimonial['name']; ?>">
+                            <img style="height: 150px;" class="img-thumbnail" src="<?php echo $testimonial['image']; ?>" alt="<?php echo $testimonial['name']; ?>">
                         </div>
-                        <div class="row justify-content-center pb-2" style="font-size: 24px;"><?= $testimonial['heading']; ?></div>
-                        <p><?= $testimonial['text']; ?></p>
+                        <div class="row justify-content-center pb-2" style="font-size: 24px;"><?php echo $testimonial['heading']; ?></div>
+                        <p><?php echo $testimonial['text']; ?></p>
                     </div>
                     <?php /*if($key % 2 == 1) {*/?><!--
                         <div class="col-3">

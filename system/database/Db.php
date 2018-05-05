@@ -54,22 +54,6 @@ class Db {
         return $this->conn->real_escape_string($var);
     }
 
-    /*public function exec() {
-        $res = $this->conn->query($this->sql);
-
-        if($res) {
-            $return = [];
-
-            while ($row = $res->fetch_assoc()) {
-                $return[] = $row;
-            }
-
-            return $return;
-        } else {
-            return null;
-        }
-    }*/
-
     public function exec($i = '') {
         $res = $this->conn->query($this->sql);
 
@@ -114,9 +98,9 @@ class Db {
                 }
                 $sql .= ','.PHP_EOL;
             }
-            $sql .= ' PRIMARY KEY (`' . $primary_key . '`)) ENGINE='.$data['engine'].';'.PHP_EOL;
+            $sql .= ' PRIMARY KEY (`' . $primary_key . '`)) ENGINE='.$data['engine'].';';
 
-            if($data['debug'] === true) return $sql;
+            if(isset($data['debug']) && $data['debug'] === true) return $sql;
 
             return $this->conn->query($sql);
         } else {

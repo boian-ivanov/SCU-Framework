@@ -53,12 +53,12 @@
     <div class="container text-center">
         <form class="form-signin" action="<?php echo $form_link ?>" method="post">
             <div class="d-inline-block" style="height: 100px; background-color: #69E000; border-radius: 35px;">
-                <img class="mb-4" src="<?= $root_url; ?>/public/images/logo.svg" alt=""
+                <img class="mb-4" src="<?php echo $root_url; ?>/public/images/logo.svg" alt=""
                      style="max-height: 100px;">
             </div>
             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <?php if(isset($error)) {?>
-                <div class="alert alert-danger"><?= $error; ?></div>
+                <div class="alert alert-danger"><?php echo $error; ?></div>
             <?php } ?>
             <label for="inputEmail" class="sr-only">Email address</label>
             <input type="text" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -70,7 +70,7 @@
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted"><?= date('Y'); ?></p>
+            <p class="mt-5 mb-3 text-muted"><?php echo date('Y'); ?></p>
         </form>
     </div>
 <?php echo $footer ?>

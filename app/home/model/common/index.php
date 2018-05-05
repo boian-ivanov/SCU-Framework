@@ -3,7 +3,6 @@
 class ModelCommonIndex extends Model{
 
     public function index() {
-        echo "Fuckin model";
         var_dump($this->db->create([
             'name' => 'x',
             'cols' => [
