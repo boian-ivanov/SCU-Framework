@@ -36,13 +36,13 @@ class ModelCommonIndex extends Model {
     }
 
     public function getUserLocation() {
-        $json  = file_get_contents("https://api.ipdata.co");
+        $json  = file_get_contents("http://ip-api.com/json/" . $this->get_client_ip());
         $json  =  json_decode($json ,true);
         $city = $json['city'];
         return $this->location = $city;
     }
 
-    /*private function get_client_ip() {
+    private function get_client_ip() {
         $ipaddress = '';
         if (isset($_SERVER['HTTP_CLIENT_IP']))
             $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
@@ -59,7 +59,7 @@ class ModelCommonIndex extends Model {
         else
             $ipaddress = 'UNKNOWN';
         return $ipaddress;
-    }*/
+    }
 
     public function getNavItems() {
         /*$arr =[
