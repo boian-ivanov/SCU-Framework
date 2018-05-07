@@ -1,0 +1,21 @@
+<?php echo $header; ?>
+<?php echo $nav; ?>
+    <div class="d-flex">
+    <?php echo $sidebar; ?>
+        <div class="content p-4">
+            <div id="calendar"></div>
+            <script>
+                (function ( $ ) {
+
+                    // page is now ready, initialize the calendar...
+
+                    $('#calendar').fullCalendar({
+                        // put your options and callbacks here
+                    })
+
+                }( jQuery ));
+            </script>
+
+        </div>
+    </div>
+<?php echo $footer; ?>

@@ -26,13 +26,16 @@ class ModelCommonIndex extends Model {
         return $welcome . ", %s! Currently at " . $location . " the date is " . $date . " and the weather is set to be " . $weather['main'] . " with " . $weather['description'] . ".$icon";
     }
 
-    public function getUserWeatherData() {
+    public function getUserWeatherData($defalt = 'city') {
         $appid = 'e4834a68505cb92baf641b01d35d63fd';
         $city = $this->getUserLocation();
-        $json = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$appid"); // e4834a68505cb92baf641b01d35d63fd
+        $json = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$appid"); // e4834a68505cb92baf641b01d35d63fd
         $json = json_decode($json, true);
-        
-        return $json['weather'][0];
+        if($defalt == 'city') {
+            return $json['weather'][0];
+        } else if ($defalt == 'full') {
+            return $json;
+        }
     }
 
     public function getUserLocation() {
@@ -54,10 +57,10 @@ class ModelCommonIndex extends Model {
             $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
         else if(isset($_SERVER['HTTP_FORWARDED']))
             $ipaddress = $_SERVER['HTTP_FORWARDED'];
-        else if(isset($_SERVER['REMOTE_ADDR']))
+        else if(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] != '::1')
             $ipaddress = $_SERVER['REMOTE_ADDR'];
         else
-            $ipaddress = 'UNKNOWN';
+            $ipaddress = false;
         return $ipaddress;
     }
 
@@ -70,7 +73,7 @@ class ModelCommonIndex extends Model {
             ],
             [
                 'name' => 'Calendar',
-                'link' => '/calendar',
+                'link' => '/admin/calendar',
                 'icon' => 'fa-calendar'
             ],
             [
