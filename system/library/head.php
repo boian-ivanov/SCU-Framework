@@ -9,9 +9,23 @@ class Head {
         $this->links = [];
     }
 
-    public function addScript($script) {
-        if($script)
-            $this->scripts[] = '<script src="' . $script . '" type="text/javascript"></script>';
+    public function addScript($data) {
+        $script = '<script';
+
+        if (!is_array($data)) {
+            $data = [
+                'src' => $data,
+                'type' => 'text/javascript'
+            ];
+        }
+
+        foreach ($data as $key => $d) {
+            $script .= ' '.$key.'="' . $d . '"';
+        }
+
+        $script .= '></script>';
+
+        $this->scripts[] = $script;
     }
 
     public function getScripts($key = '') {
@@ -24,17 +38,18 @@ class Head {
     public function addLinks($data) {
         $link = '<link';
 
-        if(!is_array($data)) {
+        if (!is_array($data)) {
             $data = [
                 'href' => $data,
                 'rel' => 'stylesheet'
             ];
         }
-        if (!empty($data['rel'])) $link .= ' rel="' . $data['rel'] . '"';
-        if (!empty($data['href'])) $link .= ' href="' . $data['href'] . '"';
-        if (!empty($data['type'])) $link .= ' type="' . $data['type'] . '"';
 
-        $link .= ' />';
+        foreach ($data as $key => $d) {
+            $link .= ' '.$key.'="' . $d . '"';
+        }
+
+        $link .= '/>';
 
         $this->links[] = $link;
     }

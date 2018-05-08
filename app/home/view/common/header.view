@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $heading ?? '' ?></title>
     <?php foreach ($links as $link){ ?>
-        <?php echo $link; ?>
+        <?php echo $link.PHP_EOL; ?>
     <?php } ?>
     <?php foreach ($scripts as $script){ ?>
-        <?php echo $script; ?>
+        <?php echo $script.PHP_EOL; ?>
     <?php } ?>
 </head>
 <body>

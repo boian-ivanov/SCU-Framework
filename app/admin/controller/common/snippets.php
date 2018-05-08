@@ -3,12 +3,19 @@
 class ControllerCommonSnippets extends Controller {
 
     public function header() {
-        $this->head->addLinks($this->url->root . '/public/css/bootstrap.min.css');
-        $this->head->addLinks($this->url->root . '/public/css/font-awesome.min.css');
+        $this->head->addLinks([
+            'rel' => 'stylesheet',
+            'href' => "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css",
+            'integrity' => "sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4",
+            'crossorigin' =>"anonymous"
+        ]);
+
+        $this->head->addLinks('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
         $this->head->addLinks($this->url->root . '/public/css/master.css');
 
         $this->head->addScript($this->url->root . '/public/js/jquery.min.js');
-        $this->head->addScript($this->url->root . '/public/js/bootstrap.min.js');
+        $this->head->addScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js');
+        $this->head->addScript('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js');
 
         $this->head->addLinks($this->url->root . '/public/css/admin.css');
         $this->head->addScript($this->url->root . '/public/js/admin.js');

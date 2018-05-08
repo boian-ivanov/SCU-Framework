@@ -10,19 +10,14 @@ class ControllerCommonHeader extends Controller {
 
     public function index() {
         $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => '/public/css/bootstrap.min.css'
+            'rel' => 'stylesheet',
+            'href' => "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css",
+            'integrity' => "sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4",
+            'crossorigin' =>"anonymous"
         ]);
 
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => '/public/css/font-awesome.min.css'
-        ]);
-
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => '/public/css/master.css'
-        ]);
+        $this->head->addLinks('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        $this->head->addLinks($this->url->root . '/public/css/master.css');
 
         $this->head->addLinks([
             'rel'  => 'stylesheet',
@@ -42,10 +37,11 @@ class ControllerCommonHeader extends Controller {
             'type' => 'text/css'
         ]);
 
-        $this->head->addScript('/public/js/jquery-3.2.1.min.js');
-        $this->head->addScript('/public/js/bootstrap.min.js');
-        $this->head->addScript('/public/js/jquery.bcSwipe.min.js');
-        $this->head->addScript('/public/js/main.js');
+        $this->head->addScript($this->url->root . '/public/js/jquery.min.js');
+        $this->head->addScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js');
+        $this->head->addScript('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js');
+        $this->head->addScript($this->url->root . '/public/js/jquery.bcSwipe.min.js');
+        $this->head->addScript($this->url->root . '/public/js/main.js');
 
         $data['scripts'] = $this->head->getScripts();
         $data['links'] = $this->head->getLinks();
