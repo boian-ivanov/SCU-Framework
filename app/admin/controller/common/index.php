@@ -5,7 +5,7 @@ class ControllerCommonIndex extends Controller {
 
     public function index() {
         if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {
-            $data['nav'] = $this->load->controller('common/snippets/navbar');
+            $data['nav'] = $this->load->controller('common/snippets/navbar', 'Dashboard');
 
             $data['sidebar'] = $this->load->controller('common/snippets/sidenav');
 

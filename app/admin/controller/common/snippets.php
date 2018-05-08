@@ -13,9 +13,9 @@ class ControllerCommonSnippets extends Controller {
         $this->head->addLinks($this->url->root . '/public/css/admin.css');
         $this->head->addScript($this->url->root . '/public/js/admin.js');
 
-        $this->head->addScript($this->url->root . '/public/js/moment.min.js');
-        $this->head->addScript($this->url->root . '/public/js/fullcalendar.js');
-        $this->head->addLinks($this->url->root . '/public/css/fullcalendar.css');
+        $this->head->addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js');
+        $this->head->addScript('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js');
+        $this->head->addLinks('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css');
 
         $data['scripts'] = $this->head->getScripts();
         $data['links'] = $this->head->getLinks();
@@ -23,13 +23,17 @@ class ControllerCommonSnippets extends Controller {
         return $this->load->view('common/header', $data);
     }
 
-    public function navbar() {
+    public function navbar($title = '') {
+        if(empty($title))
+            $title = '';
+
         $model = $this->load->model('account/user');
         $user = $model->getUserById($_SESSION['user_id']);
 
         $model = $this->load->model('common/index');
         $data['weather'] = $model->getUserWeatherData('full');
         $data['display_name'] = $user->display_name;
+        $data['title'] = $title;
 
         return $this->load->view('common/nav', $data);
     }

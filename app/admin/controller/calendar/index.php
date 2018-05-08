@@ -9,7 +9,7 @@ class ControllerCalendarIndex extends Controller {
 
 
             $data['header'] = $this->load->controller('common/snippets/header');
-            $data['nav'] = $this->load->controller('common/snippets/navbar');
+            $data['nav'] = $this->load->controller('common/snippets/navbar', 'Calendar');
             $data['sidebar'] = $this->load->controller('common/snippets/sidenav');
             $data['footer'] = $this->load->view('common/footer');
 

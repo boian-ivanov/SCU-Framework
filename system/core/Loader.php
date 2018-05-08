@@ -28,7 +28,11 @@ class Loader{
 
         require_once APP_PATH . CURR_DIR . CONTROLLER . substr($path, 0, strrpos($path, '/')). ".php";
         $controller = new $contr_name();
-        return $controller->$method(array(&$data));
+        if(method_exists($controller, $method)) {
+            return $controller->$method($data);
+        } else {
+            throw new Exception("Method \"$method\" does not exist!");
+        }
     }
 
     /**

@@ -12,10 +12,12 @@ class ModelCommonIndex extends Model {
 
     public function getWelcomeMessage() {
         $weather = $this->getUserWeatherData();
-        $icon = "<img src='http://openweathermap.org/img/w/".$weather['icon'].".png'>";
-        $location = $this->location ?? $this->getUserLocation();
-        $date = date('l jS \of F Y');
-        $hour = date('H');
+        $icon = $weather['icon'] ? "<img src='http://openweathermap.org/img/w/".$weather['icon'].".png'>" : false;
+        $location = $this->getUserLocation('full');
+        $city = $location['weather'][0];
+        $date = new DateTime(null, $location['timezone'] ? new DateTimeZone($location['timezone']) : null);
+
+        $hour = $date->format('H');
         if($hour > 0 && $hour <= 12)
             $welcome = "Good morning";
         else if($hour > 12 && $hour <= 17)
@@ -23,13 +25,13 @@ class ModelCommonIndex extends Model {
         else
             $welcome = "Good evening";
 
-        return $welcome . ", %s! Currently at " . $location . " the date is " . $date . " and the weather is set to be " . $weather['main'] . " with " . $weather['description'] . ".$icon";
+        return $welcome . ", %s! Currently at " . $city . " the date is " . $date->format('l jS \of F Y') . " and the weather is set to be " . $weather['main'] . " with " . $weather['description'] . ".$icon";
     }
 
     public function getUserWeatherData($defalt = 'city') {
         $appid = 'e4834a68505cb92baf641b01d35d63fd';
         $city = $this->getUserLocation();
-        $json = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$appid"); // e4834a68505cb92baf641b01d35d63fd
+        $json = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$appid");
         $json = json_decode($json, true);
         if($defalt == 'city') {
             return $json['weather'][0];
@@ -38,11 +40,15 @@ class ModelCommonIndex extends Model {
         }
     }
 
-    public function getUserLocation() {
+    public function getUserLocation($defalt = 'city') {
         $json  = file_get_contents("http://ip-api.com/json/" . $this->get_client_ip());
         $json  =  json_decode($json ,true);
-        $city = $json['city'];
-        return $this->location = $city;
+        $city = explode(' ', $json['city']);
+        if($defalt == 'city') {
+            return $this->location = $city[0];
+        } else if ($defalt == 'full') {
+            return $json;
+        }
     }
 
     private function get_client_ip() {

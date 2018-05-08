@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-dark ez-primary">
     <a class="sidebar-toggle text-light mr-3" style="cursor: pointer;"><i class="fa fa-bars"></i></a>
 
-    <a class="navbar-brand" href="#"><i class="fa fa-code-branch"></i> Admin Panel</a>
+    <a class="navbar-brand" href="#"><i class="fa fa-code-branch"></i> <?php echo $title; ?></a>
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
