@@ -67,14 +67,4 @@ class Loader{
         require_once APP_PATH . CURR_DIR . VIEW . $path . ".view";
         return ob_get_clean();
     }
-
-    public function library($lib) {
-        $lib = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$lib);
-        require_once LIB_PATH . "$lib.php";
-    }
-
-    public function helper($helper) {
-        $helper = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$helper);
-        require_once HELPER_PATH . "{$helper}_helper.php";
-    }
 }

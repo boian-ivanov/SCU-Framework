@@ -17,7 +17,6 @@ define("VIEW", "view" . DS);
 define("CONFIG_PATH", SYSTEM_PATH . "config" . DS);
 define("CORE_PATH"  , SYSTEM_PATH . 'core' . DS);
 define("DB_PATH"    , SYSTEM_PATH . 'database' . DS);
-define("HELPER_PATH", SYSTEM_PATH . "helper" . DS);
 define("LIB_PATH"   , SYSTEM_PATH . "library" . DS);
 
 define("UPLOAD_PATH", PUBLIC_PATH . "uploads" . DS);
