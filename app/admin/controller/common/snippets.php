@@ -3,29 +3,25 @@
 class ControllerCommonSnippets extends Controller {
 
     public function header() {
-        $this->head->addLinks([
-            'rel' => 'stylesheet',
-            'href' => "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css",
-            'integrity' => "sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4",
-            'crossorigin' =>"anonymous"
-        ]);
+        $links = [
+            '/node_modules/bootstrap/dist/css/bootstrap.min.css',
+            '/node_modules/font-awesome/css/font-awesome.min.css',
+            '/node_modules/fullcalendar/dist/fullcalendar.min.css',
+            $this->url->root . '/public/css/master.css',
+            $this->url->root . '/public/css/admin.css'
+        ];
 
-        $this->head->addLinks('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-        $this->head->addLinks($this->url->root . '/public/css/master.css');
+        $scripts = [
+            '/node_modules/jquery/dist/jquery.min.js',
+            '/node_modules/popper.js/dist/umd/popper.min.js',
+            '/node_modules/bootstrap/dist/js/bootstrap.min.js',
+            '/node_modules/moment/moment.js',
+            '/node_modules/fullcalendar/dist/fullcalendar.min.js',
+            $this->url->root . '/public/js/admin.js'
+        ];
 
-        $this->head->addScript($this->url->root . '/public/js/jquery.min.js');
-        $this->head->addScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js');
-        $this->head->addScript('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js');
-
-        $this->head->addLinks($this->url->root . '/public/css/admin.css');
-        $this->head->addScript($this->url->root . '/public/js/admin.js');
-
-        $this->head->addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js');
-        $this->head->addScript('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js');
-        $this->head->addLinks('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css');
-
-        $data['scripts'] = $this->head->getScripts();
-        $data['links'] = $this->head->getLinks();
+        $data['links'] = $this->head->addLinks($links);
+        $data['scripts'] = $this->head->addScripts($scripts);
 
         return $this->load->view('common/header', $data);
     }
@@ -38,7 +34,7 @@ class ControllerCommonSnippets extends Controller {
         $user = $model->getUserById($_SESSION['user_id']);
 
         $model = $this->load->model('common/index');
-        $data['weather'] = $model->getUserWeatherData('full');
+        $data['weather'] = $model->getUserWeatherData();
         $data['display_name'] = $user->display_name;
         $data['title'] = $title;
 

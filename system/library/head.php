@@ -28,6 +28,13 @@ class Head {
         $this->scripts[] = $script;
     }
 
+    public function addScripts($data = array()) {
+        foreach($data as $d) {
+            $this->addScript($d);
+        }
+        return $this->getScripts();
+    }
+
     public function getScripts($key = '') {
         if($key === '')
             return $this->scripts;
@@ -35,7 +42,7 @@ class Head {
             return $this->scripts[$key];
     }
 
-    public function addLinks($data) {
+    public function addLink($data) {
         $link = '<link';
 
         if (!is_array($data)) {
@@ -52,6 +59,13 @@ class Head {
         $link .= '/>';
 
         $this->links[] = $link;
+    }
+
+    public function addLinks($data = array()) {
+        foreach($data as $d) {
+            $this->addLink($d);
+        }
+        return $this->getLinks();
     }
 
     public function getLinks($key = '') {

@@ -9,42 +9,26 @@ class ControllerCommonHeader extends Controller {
     }*/
 
     public function index() {
-        $this->head->addLinks([
-            'rel' => 'stylesheet',
-            'href' => "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css",
-            'integrity' => "sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4",
-            'crossorigin' =>"anonymous"
-        ]);
+        $links = [
+            '/node_modules/bootstrap/dist/css/bootstrap.min.css',
+            '/node_modules/font-awesome/css/font-awesome.min.css',
+            'http://fonts.googleapis.com/css?family=Roboto:400,700',
+            'http://fonts.googleapis.com/css?family=Open+Sans',
+            'https://fonts.googleapis.com/css?family=Lobster|Oswald|Raleway|PT+Sans&subset=latin,cyrillic',
+            $this->url->root . '/public/css/master.css'
+        ];
 
-        $this->head->addLinks('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-        $this->head->addLinks($this->url->root . '/public/css/master.css');
+        $scripts = [
+            '/node_modules/jquery/dist/jquery.min.js',
+            '/node_modules/popper.js/dist/umd/popper.min.js',
+            '/node_modules/bootstrap/dist/js/bootstrap.min.js',
+            '/node_modules/moment/moment.js',
+            $this->url->root . '/public/js/jquery.bcSwipe.min.js',
+            $this->url->root . '/public/js/admin.js'
+        ];
 
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => 'http://fonts.googleapis.com/css?family=Roboto:400,700',
-            'type' => 'text/css'
-        ]);
-
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => 'http://fonts.googleapis.com/css?family=Open+Sans',
-            'type' => 'text/css'
-        ]);
-
-        $this->head->addLinks([
-            'rel'  => 'stylesheet',
-            'href' => 'https://fonts.googleapis.com/css?family=Lobster|Oswald|Raleway|PT+Sans&subset=latin,cyrillic',
-            'type' => 'text/css'
-        ]);
-
-        $this->head->addScript($this->url->root . '/public/js/jquery.min.js');
-        $this->head->addScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js');
-        $this->head->addScript('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js');
-        $this->head->addScript($this->url->root . '/public/js/jquery.bcSwipe.min.js');
-        $this->head->addScript($this->url->root . '/public/js/main.js');
-
-        $data['scripts'] = $this->head->getScripts();
-        $data['links'] = $this->head->getLinks();
+        $data['links'] = $this->head->addLinks($links);
+        $data['scripts'] = $this->head->addScripts($scripts);
 
         $nav['nav'] = [
             'Home' => '#body',
