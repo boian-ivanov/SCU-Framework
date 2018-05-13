@@ -23,7 +23,7 @@ class ControllerCommonSnippets extends Controller {
         $data['links'] = $this->head->addLinks($links);
         $data['scripts'] = $this->head->addScripts($scripts);
 
-        return $this->load->view('common/header', $data);
+        return $this->load->view('common/head', $data);
     }
 
     public function navbar($title = '') {

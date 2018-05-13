@@ -11,8 +11,8 @@ class ControllerCommonIndex extends Controller {
 
             $model = $this->load->model('common/index');
 
-            $u_model = $this->load->model('account/user'); // load user model & data
-            $this->user = $u_model->getUserById($_SESSION['user_id']);
+            $user_model = $this->load->model('account/user'); // load user model & data
+            $this->user = $user_model->getUserById($_SESSION['user_id']);
 
             // Admin Dashboard Logic
             $data['welcome'] = sprintf($model->getWelcomeMessage(), $this->user->display_name);

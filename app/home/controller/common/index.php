@@ -61,7 +61,7 @@ class ControllerCommonIndex extends Controller{
                 'name' => 'Lorem Ipsum, Burgas',
                 'heading' => 'Eheu, teres idoleum!',
                 'text' => 'Danistas crescere! Pol, regius ausus! Vae, flavum solem! Cum barcas credere, omnes hippotoxotaes carpseris mirabilis, bi-color liberies. A falsis, candidatus emeritis vortex. Nunquam manifestum genetrix. Nunquam pugna nomen. Victrixs trabem in rugensis civitas!',
-                'image' => 'public/images/testimonials/img_1.jpg'
+                'image' => $this->url->root . '/public/images/testimonials/img_1.jpg'
             ];
 
         }

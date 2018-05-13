@@ -1,0 +1,3 @@
+<?php echo $header; ?>
+<h1>ECHO</h1>
+<?php echo $footer; ?>
