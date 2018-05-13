@@ -35,7 +35,7 @@ class ModelInstallDbinit extends Model {
         foreach($this->tables as $t_name => $columns) {
             $messages[] = $this->createTable($t_name, $columns);
         }
-        return $messages ?? null;
+        return isset($messages) ? $messages : null;
     }
 
     public function createTable($t_name, $columns) {
