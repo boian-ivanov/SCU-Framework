@@ -17,7 +17,8 @@ class ControllerCommonSnippets extends Controller {
             '/node_modules/bootstrap/dist/js/bootstrap.min.js',
             '/node_modules/moment/moment.js',
             '/node_modules/fullcalendar/dist/fullcalendar.min.js',
-            $this->url->root . '/public/js/admin.js'
+            $this->url->root . '/public/js/admin.js',
+            $this->url->root . '/public/js/speed.js'
         ];
 
         $data['links'] = $this->head->addLinks($links);
