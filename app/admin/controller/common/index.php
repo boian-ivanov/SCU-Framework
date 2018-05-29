@@ -5,9 +5,11 @@ class ControllerCommonIndex extends Controller {
 
     public function index() {
         if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {
-            $data['nav'] = $this->load->controller('common/snippets/navbar', 'Dashboard');
+            if(!$_SERVER['HTTP_ASYNC']) {
+                $data['nav'] = $this->load->controller('common/snippets/navbar', 'Dashboard');
 
-            $data['sidebar'] = $this->load->controller('common/snippets/sidenav');
+                $data['sidebar'] = $this->load->controller('common/snippets/sidenav');
+            }
 
             $model = $this->load->model('common/index');
 
@@ -32,9 +34,10 @@ class ControllerCommonIndex extends Controller {
             $view_path = 'common/login';
         }
 
-        $data['header'] = $this->load->controller('common/snippets/header');
-
-        $data['footer'] = $this->load->view('common/footer', $data); // TODO : at some point maybe load footer from controller too (maybe)
+        if(!$_SERVER['HTTP_ASYNC']) {
+            $data['header'] = $this->load->controller('common/snippets/header');
+            $data['footer'] = $this->load->view('common/footer', $data); // TODO : at some point maybe load footer from controller too (maybe)
+        }
 
         return $this->load->view($view_path, $data);
     }

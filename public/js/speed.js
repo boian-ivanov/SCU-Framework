@@ -23,6 +23,7 @@ function asyncCall(link) {
         };
         xhr.onerror = reject;
         xhr.open('GET', link, true);
+        xhr.setRequestHeader('Async', 'true');
         xhr.send();
     });
 }
@@ -33,7 +34,7 @@ function getPageLinks () {
     for (let link of a) {
         if(link.attributes.href) {
             let href = link.attributes.href.nodeValue;
-            if(href.charAt(0) == '/' && href.search('logout') == -1) {
+            if(href.charAt(0) == '/' && href.search('logout') == -1) { // just so it doesn't
                 links.push(href);
                 asyncCall(href)
                     .then(function(result) {
@@ -51,11 +52,11 @@ function getPageLinks () {
 function addDataToLink(link, data) {
     link.addEventListener("click", function(e) {
         e.preventDefault();
-        var html = document.getElementsByTagName('html');
-        var newHtml = document.createElement('html');
+        var html = document.querySelector('.content');
+        var newHtml = document.createElement('div');
+        newHtml.className = 'content p-4';
         newHtml.innerHTML = data;
-        html[0].parentNode.replaceChild(newHtml, html[0]);
-
+        html.parentNode.replaceChild(newHtml, html);
         window.history.pushState({}, '', link.attributes.href.nodeValue);
     });
 }

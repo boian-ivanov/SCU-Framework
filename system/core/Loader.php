@@ -60,8 +60,10 @@ class Loader{
 
     public function view($path, $_ = array()) {
         ob_start();
-        foreach($_ as $key=>$result){
-            $$key = $result;
+        if(!empty($_)) {
+            foreach ($_ as $key => $result) {
+                $$key = $result;
+            }
         }
 
         require_once APP_PATH . CURR_DIR . VIEW . $path . ".view";
