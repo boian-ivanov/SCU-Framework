@@ -24,7 +24,7 @@ class ControllerCommonHeader extends Controller {
             '/node_modules/bootstrap/dist/js/bootstrap.min.js',
             '/node_modules/moment/moment.js',
             $this->url->root . '/public/js/jquery.bcSwipe.min.js',
-            $this->url->root . '/public/js/speed.js'
+//            $this->url->root . '/public/js/speed.js'
         ];
 
         $data['links'] = $this->head->addLinks($links);
