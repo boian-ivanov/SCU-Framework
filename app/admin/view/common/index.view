@@ -1,27 +1,20 @@
 <?php echo $header; ?>
-<?php echo $nav; ?>
-    <div class="d-flex">
-        <?php echo $sidebar; ?>
-        <div class="content p-4">
-<!--            <h1 class="display-5 mb-4">Hello, world!</h1>-->
-            <h1 class="display-5 mb-4"><?php echo $welcome; ?></h1>
+    <h1 class="display-5 mb-4"><?php echo $welcome; ?></h1>
 
-            <div class="row justify-content-center">
-                <div class="col-12 col-sm-4 my-3 mx-auto">
-                    <div class="row w-100 py-2 m-auto border rounded justify-content-center">
-                        TEST TEST TEST TEST
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4 my-3 mx-auto">
-                    <div class="row w-100 py-2 m-auto border rounded justify-content-center">
-                        TEST TEST TEST TEST
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4 my-3 mx-auto">
-                    <div class="row w-100 py-2 m-auto border rounded justify-content-center">
-                        TEST TEST TEST TEST
-                    </div>
-                </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-4 my-3 mx-auto">
+            <div class="row w-100 py-2 m-auto border rounded justify-content-center">
+                TEST TEST TEST TEST
+            </div>
+        </div>
+        <div class="col-12 col-sm-4 my-3 mx-auto">
+            <div class="row w-100 py-2 m-auto border rounded justify-content-center">
+                TEST TEST TEST TEST
+            </div>
+        </div>
+        <div class="col-12 col-sm-4 my-3 mx-auto">
+            <div class="row w-100 py-2 m-auto border rounded justify-content-center">
+                TEST TEST TEST TEST
             </div>
         </div>
     </div>

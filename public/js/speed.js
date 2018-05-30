@@ -6,57 +6,84 @@
  * TODO : add a way to initialize the js/jQuery in the new dom (if not yet initialized)
  * TODO : better way of detecting links (currently it can brake if link to page doesn't have '/' at the beginning)
  * TODO : maybe refactor at some point
+ *
+ * Order of work,
+ * 1) Get into page and load each of the links (currently made to find every one of them and load them asynchronously).
+ * 2) Go to another page find links not loaded currently & load them as well.
+ * 3) At some point have every page cached fo an easy experience.
+ *  - Add TTL on cache.
+ *  - Maybe add a way to not cache specific pages.
  */
 
-window.onload = init;
+var speed = {
 
-function init () {
-    getPageLinks();
-    // asyncCall(links);
-}
 
-function asyncCall(link) {
-    return new Promise(function(resolve, reject) {
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            resolve(this.responseText);
-        };
-        xhr.onerror = reject;
-        xhr.open('GET', link, true);
-        xhr.setRequestHeader('Async', 'true');
-        xhr.send();
-    });
-}
+    init : function () {
+        speed.getPageLinks();
+    },
 
-function getPageLinks () {
-    let a = document.getElementsByTagName('a');
-    let links = [];
-    for (let link of a) {
-        if(link.attributes.href) {
-            let href = link.attributes.href.nodeValue;
-            if(href.charAt(0) == '/' && href.search('logout') == -1) { // just so it doesn't
-                links.push(href);
-                asyncCall(href)
-                    .then(function(result) {
-                        addDataToLink(link, result);
-                    })
-                    .catch(function() {
-                        // An error occurred
-                    });
+    asyncCall : function (link) {
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                resolve(speed.responseText);
+            };
+            xhr.onerror = reject;
+            xhr.open('GET', link, true);
+            xhr.setRequestHeader('Async', 'true');
+            xhr.send();
+        });
+    },
+
+    getPageLinks : function () {
+        let a = document.getElementsByTagName('a');
+        let links = [];
+        for (let link of a) {
+            if (link.attributes.href) {
+                let href = link.attributes.href.nodeValue;
+                if (href.charAt(0) == '/' && href.search('logout') == -1) { // just so it doesn't trigger logout page load
+                    if (href != window.location.pathname) {
+                        links.push(href);
+                        speed.asyncCall(href)
+                            .then(function (result) {
+                                speed.addDataToLink(link, result);
+                            })
+                            .catch(function () {
+                                // An error occurred
+                            });
+                    } else {
+                        // cache current page and on click load it
+
+                        // speed.cacheCurrentPage(link);
+                    }
+                }
             }
         }
-    }
-    return links;
-}
+        return links;
+    },
 
-function addDataToLink(link, data) {
-    link.addEventListener("click", function(e) {
-        e.preventDefault();
-        var html = document.querySelector('.content');
-        var newHtml = document.createElement('div');
-        newHtml.className = 'content p-4';
-        newHtml.innerHTML = data;
-        html.parentNode.replaceChild(newHtml, html);
-        window.history.pushState({}, '', link.attributes.href.nodeValue);
-    });
-}
+    addDataToLink : function (link, data) {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            var html = document.querySelector('#wrapper');
+            var newHtml = document.createElement('div');
+            newHtml.setAttribute("id", "wrapper");
+            newHtml.innerHTML = data;
+            html.parentNode.replaceChild(newHtml, html);
+            window.history.pushState({}, '', link.attributes.href.nodeValue);
+        });
+    },
+
+    /*cacheCurrentPage : function (link) {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            var html = document.querySelector('#wrapper');
+            html.parentNode.replaceChild(newHtml, html);
+            window.history.pushState({}, '', link.attributes.href.nodeValue);
+        });
+    },*/
+};
+
+var cache = {};
+
+window.onload = speed.init;

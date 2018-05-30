@@ -3,3 +3,4 @@
 <div class="d-flex">
     <?php echo $sidebar; ?>
     <div class="content p-4">
+        <div id="wrapper">

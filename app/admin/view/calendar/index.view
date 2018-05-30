@@ -1,4 +1,5 @@
 <?php echo $header; ?>
+    <h1>ASD</h1>
     <div id="calendar"></div>
     <script>
         (function($){
