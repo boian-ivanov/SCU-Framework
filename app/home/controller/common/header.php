@@ -7,6 +7,7 @@ class ControllerCommonHeader extends Controller {
         parent::__construct();
         $this->registry = $registry;
     }*/
+    /* https://realfavicongenerator.net/favicon_result?file_id=p1cfslp8chvhjtbk1t29jak18f97#.WyEjR0gvy71 */
 
     public function index() {
         $links = [
@@ -24,6 +25,7 @@ class ControllerCommonHeader extends Controller {
             '/node_modules/bootstrap/dist/js/bootstrap.min.js',
             '/node_modules/moment/moment.js',
             $this->url->root . '/public/js/jquery.bcSwipe.min.js',
+            $this->url->root . '/public/js/main.js',
 //            $this->url->root . '/public/js/speed.js'
         ];
 
