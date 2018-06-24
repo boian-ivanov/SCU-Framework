@@ -82,6 +82,14 @@ var speed = {
             window.history.pushState({}, '', link.attributes.href.nodeValue);
         });
     },*/
+
+    /*
+    *  How to deal with script tags in a document :
+    *
+    *  var script = document.createElement('script');
+    *  script.append('$(document).ready(function(){console.log(\'test1\')});');
+    *  document.querySelector('body').append(script);
+    * */
 };
 
 var cache = {};

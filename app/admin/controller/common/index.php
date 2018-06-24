@@ -13,10 +13,10 @@ class ControllerCommonIndex extends Controller {
             // Admin Dashboard Logic
             $data['welcome'] = sprintf($model->getWelcomeMessage(), $this->user->display_name);
 
-            if(!$_SERVER['HTTP_ASYNC']) {
+//            if(!$_SERVER['HTTP_ASYNC']) {
                 $data['header'] = $this->load->controller('common/header/index', 'Dashboard');
                 $data['footer'] = $this->load->view('common/footer');
-            }
+//            }
 
             return $this->load->view('common/index', $data);
         } else {
