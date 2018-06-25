@@ -1,0 +1,14 @@
+<?php foreach($columns as $column) {?>
+    <div class="col-md-3 col-12 text-center team">
+        <div class="inner shadow-sm my-2 my-sm-0" style="background-color: #FFFFFF">
+            <img class="img-fluid border-0 w-100" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="placeholder">
+            <div class="border-bottom fs-26 lobster mx-4 pb-2 pt-3">
+                <?php echo $column['title']; ?>
+            </div>
+            <div class="text-center px-3 py-3 fs-14"><?php echo $column['text']; ?></div>
+            <div>
+                <a class="w-100 btn border-top" href="<?php echo $column['link']; ?>" role="button"><?php echo $column['button']; ?> »</a>
+            </div>
+        </div>
+    </div>
+<?php }?>

@@ -16,7 +16,8 @@ class ControllerCommonHeader extends Controller {
             'http://fonts.googleapis.com/css?family=Roboto:400,700',
             'http://fonts.googleapis.com/css?family=Open+Sans',
             'https://fonts.googleapis.com/css?family=Lobster|Oswald|Raleway|PT+Sans&subset=latin,cyrillic',
-            $this->url->root . '/public/css/master.css'
+            $this->url->root . '/public/css/master.css',
+            $this->url->root . '/public/css/extended.css',
         ];
 
         $scripts = [

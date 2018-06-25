@@ -1,0 +1,6 @@
+<div class="google_map w-100">
+    <iframe class="w-100" style="height: 400px;" frameborder="0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAmvM4YkfcLTykN7uw7NKxXq7AXAWNEfUU&q=Bulevard+Stefan+Stambolov+73+Burgas"
+            allowfullscreen>
+    </iframe>
+</div>

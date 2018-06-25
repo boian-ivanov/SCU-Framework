@@ -2,22 +2,30 @@
     <div class="container-fluid" style="background-color: #69E000;color:#fff;">
         <div class="row justify-content-center py-2">
             <div class="col-auto">
-                <img class="img-fluid" style="max-height: 100px" src="/public/images/logo.svg">
-                <h1 class="pt-3 d-sm-inline">Easy Dent</h1>
+                <div class="row">
+                    <div class="col-auto">
+                        <img class="img-fluid" style="max-height: 100px" src="/public/images/logo.svg">
+                    </div>
+                    <h1 class="col-auto century-gothic font-weight-bold pl-0"
+                        style="margin-left: -15px;padding-top: 40px;">Easy Dent</h1>
+                </div>
             </div>
         </div>
     </div>
     <div id="nav_wrap" style="height: 56px;">
         <nav class="navbar navbar-expand-sm navbar-light bg-white">
             <a class="navbar-brand d-sm-none" href="#">Menu</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbar">
                 <div class="col-auto">
                     <ul class="navbar-nav mr-auto">
-                        <?php foreach ($nav as $text => $links) {?>
-                            <li class="nav-item px-3 py-2 px-md-4 px-md-3"><a class="w-100 h-100" href="<?php echo $links ?>"><?php echo $text ?></a></li>
+                        <?php foreach ($nav as $text => $links) { ?>
+                            <li class="nav-item px-3 py-2 px-sm-4 px-md-5">
+                                <a class="w-100 h-100" href="<?php echo $links ?>"><?php echo $text ?></a>
+                            </li>
                         <?php } ?>
                     </ul>
                 </div>

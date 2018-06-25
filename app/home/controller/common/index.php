@@ -16,15 +16,23 @@ class ControllerCommonIndex extends Controller{
         $data['header'] = $this->load->controller('common/header/index');
 
         $data['slider'] = $this->slider();
-        $data['actions'] = $this->actions();
+//        $data['actions'] = $this->actions();
+        $data['team'] = $this->ourTeam();
         $data['testimonials'] = $this->testimonials();
         $data['contact_form'] = $this->contact_form();
+        $data['cards'] = $this->cards();
+        $data['map'] = $this->map();
 
         $data['seperator'] = $this->load->view('common/addons/seperator');
 
         $data['footer'] = $this->load->controller('common/footer/index');
 
         return $this->load->view('common/index', $data);
+    }
+
+    private function cards() {
+
+        return $this->load->view('common/addons/cards');
     }
 
     private function slider() {
@@ -67,6 +75,23 @@ class ControllerCommonIndex extends Controller{
         }
 
         return $this->load->view('common/testimonials', $data);
+    }
+
+    private function ourTeam() {
+        for ($i = 0; $i < 3; $i++) {
+            $data['columns'][] = [
+                'title'  => 'Д-р Ц. Младенова',
+                'text'   => 'Преобладаващ интерес към детската стоматология- занимава се с профилактика и превантивнто им лечение. Терапия, пародонтология и ендодонтия на постоянното съзъбие.',
+                'button' => 'Show more',
+                'link'   => 'catalog'
+            ];
+        }
+
+        return $this->load->view('common/addons/team', $data);
+    }
+
+    private function map() {
+        return $this->load->view('common/addons/map');
     }
 
     public function contact_form() {
