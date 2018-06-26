@@ -43,10 +43,14 @@
     </div>
     <?php echo $seperator; ?>
     <div class="row justify-content-center">
+        <h2 class="title">Contact Us</h2>
         <div class="col-md-12 col-11">
             <div class="row">
-                <h2 class="title">Contact Us</h2>
                 <?php echo $map; ?>
+            </div>
+        </div>
+        <div class="col-lg-10 col-12">
+            <div class="row">
                 <?php echo $contact_form; ?>
             </div>
         </div>

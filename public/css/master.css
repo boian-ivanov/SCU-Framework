@@ -140,6 +140,93 @@ body {
     border-radius: 45px;
 }
 
+.contact-form .form-control,
+.contact-form .input-group-text {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    background-color: #fff;
+    border: 0;
+}
+
+.contact-form .input-group-text i,
+.contact-form .form-control::placeholder {
+    color: #69E000;
+}
+
+.contact-form .input-group-text{
+    width: 46px;
+    padding: 5px 16px;
+}
+
+.contact-form .input-group {
+    border: 1px solid #f5f5f5;
+    background-color: #fff;
+    padding: 10px 2px;
+    height: 58px;
+    margin-bottom: 14px;
+}
+
+.contact-form .input-group.textbox {
+    height: 93%;
+    width: 100%;
+}
+
+.contact-form .input-group.textbox textarea{
+    float: left;
+    width: 80%;
+    height: 184px;
+}
+
+.contact-form .input-group.textbox .input-group-text {
+    display: block;
+}
+
+.contact-form .input-group .form-control {
+    border-left: 1px solid #69E000;
+}
+
+.input-group:focus-within,
+.check-container.checked {
+    border-color: #69E000;
+    box-shadow: 0 0 0 0.2rem rgba(105, 224, 0, 0.25);
+}
+
+.form-control:focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* custom radio button */
+.check-container {
+    display: block;
+    position: relative;
+    padding: 1rem 1rem 1rem 4rem;
+    cursor: pointer;
+    font-size: 17px;
+    -webkit-user-select: none; /* Chrome, Opera, Safari */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+    background-color: #fff;
+    border: 1px solid #FFFFFF;
+}
+
+/* Hide the browser's default checkbox */
+.check-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/*.check-container.checked {
+    border-color: #69E000;
+}*/
+/* custom radio button */
+
+
+/* MEDIA QUERIES */
 @media only screen and (max-width: 592px) {
     .ezd-seperator {
         margin: 20px 0px;
