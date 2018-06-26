@@ -1,71 +1,78 @@
 <div class="col-12 mt-4"><!--  меден рудник блок 185 , вход поликлиника , кабинет 3  -->
-    <form action="/" class="row contact-form">
-        <div class="col-12 col-md-6 my-2">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <label class="check-container checked">Address 1
-                        <input type="radio" name="radio" checked>
-                    </label>
+    <form action="/" class="contact-form">
+        <div class="row mb-md-3">
+            <div class="col-12 col-md-6 my-2">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <label class="check-container checked">Address 1
+                            <input type="radio" name="radio" checked>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 my-2">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <label class="check-container">Address 2
-                        <input type="radio" name="radio">
-                    </label>
+            <div class="col-12 col-md-6 my-2">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <label class="check-container">Address 2
+                            <input type="radio" name="radio">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <script>
-            var r = document.getElementsByName('radio');
-            r.forEach(function(e){
-                e.onclick = function(){
-                    r.forEach(function (value) {
-                        if(value.parentNode.classList.contains('checked')){
-                            value.parentNode.classList.remove('checked')
+            <script>
+                var r = document.getElementsByName('radio');
+                r.forEach(function (e) {
+                    e.onclick = function () {
+                        r.forEach(function (value) {
+                            if (value.parentNode.classList.contains('checked')) {
+                                value.parentNode.classList.remove('checked')
+                            }
+                        });
+                        if (this.checked) {
+                            this.parentNode.classList.add('checked');
                         }
-                    });
-                    if(this.checked){
-                        this.parentNode.classList.add('checked');
-                    }
-                };
-            });
-        </script>
-        <div class="col-12 col-md-6">
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-user"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Name" aria-label="Name">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                    </div>
-                    <input type="email" class="form-control" placeholder="E-mail" aria-label="Name">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Telephone" aria-label="Name">
-                </div>
-            </div>
+                    };
+                });
+            </script>
         </div>
-        <div class="col-12 col-md-6">
-            <div class="form-group">
-                <div class="input-group textbox mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-pencil"></i></span>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Name" aria-label="Name">
                     </div>
-                    <textarea class="form-control" placeholder="Message" name="" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="E-mail" aria-label="Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Telephone" aria-label="Name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <div class="input-group textbox mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-pencil"></i></span>
+                        </div>
+                        <textarea class="form-control" placeholder="Message" name="" id="" cols="30"
+                                  rows="10"></textarea>
+                    </div>
                 </div>
             </div>
         </div>

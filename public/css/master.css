@@ -220,6 +220,49 @@ body {
     cursor: pointer;
 }
 
+/* Create a custom radio button */
+.radiobtn{
+    position: absolute;
+    /*top: 0;*/
+    left: 30px;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.check-container:hover input ~ .radiobtn{
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.check-container input:checked ~ .radiobtn{
+    background-color: #69E000;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radiobtn:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.check-container input:checked ~ .radiobtn:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.check-container .radiobtn:after {
+    top: 6px;
+    left: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+}
+
 /*.check-container.checked {
     border-color: #69E000;
 }*/
