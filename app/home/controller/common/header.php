@@ -34,8 +34,8 @@ class ControllerCommonHeader extends Controller {
         $data['scripts'] = $this->head->addScripts($scripts);
 
         $nav['nav'] = [
-            'Home' => '#body',
-            'Work' => '#work',
+            'Home' => '#head',
+            'Our team' => '#work',
             'Prices' => '',
             'About Us' => '',
             'Contacts' => ''

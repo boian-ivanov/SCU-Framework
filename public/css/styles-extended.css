@@ -1,0 +1,258 @@
+/* BEGIN font size */
+.fs-10 {
+  font-size: 10px; }
+
+.fs-11 {
+  font-size: 11px; }
+
+.fs-12 {
+  font-size: 12px; }
+
+.fs-13 {
+  font-size: 13px; }
+
+.fs-14 {
+  font-size: 14px; }
+
+.fs-15 {
+  font-size: 15px; }
+
+.fs-16 {
+  font-size: 16px; }
+
+.fs-17 {
+  font-size: 17px; }
+
+.fs-18 {
+  font-size: 18px; }
+
+.fs-19 {
+  font-size: 19px; }
+
+.fs-20 {
+  font-size: 20px; }
+
+.fs-21 {
+  font-size: 21px; }
+
+.fs-22 {
+  font-size: 22px; }
+
+.fs-23 {
+  font-size: 23px; }
+
+.fs-24 {
+  font-size: 24px; }
+
+.fs-25 {
+  font-size: 25px; }
+
+.fs-26 {
+  font-size: 26px; }
+
+.fs-27 {
+  font-size: 27px; }
+
+.fs-28 {
+  font-size: 28px; }
+
+.fs-29 {
+  font-size: 29px; }
+
+.fs-30 {
+  font-size: 30px; }
+
+.fs-31 {
+  font-size: 31px; }
+
+.fs-32 {
+  font-size: 32px; }
+
+.fs-33 {
+  font-size: 33px; }
+
+.fs-34 {
+  font-size: 34px; }
+
+.fs-35 {
+  font-size: 35px; }
+
+.fs-36 {
+  font-size: 36px; }
+
+.fs-37 {
+  font-size: 37px; }
+
+.fs-38 {
+  font-size: 38px; }
+
+.fs-39 {
+  font-size: 39px; }
+
+.fs-40 {
+  font-size: 40px; }
+
+.fs-41 {
+  font-size: 41px; }
+
+.fs-42 {
+  font-size: 42px; }
+
+.fs-43 {
+  font-size: 43px; }
+
+.fs-44 {
+  font-size: 44px; }
+
+.fs-45 {
+  font-size: 45px; }
+
+/* END font size */
+/* BEGIN font family*/
+.lobster {
+  font-family: 'Lobster'; }
+
+.oswald {
+  font-family: 'Oswald', sans-serif; }
+
+.century-gothic {
+  font-family: 'Century Gothic', sans-serif; }
+
+/* END font family*/
+/* BEGIN color */
+.c-000 {
+  color: #000000; }
+
+.c-111 {
+  color: #111111; }
+
+.c-222 {
+  color: #222222; }
+
+.c-333 {
+  color: #333333; }
+
+.c-444 {
+  color: #444444; }
+
+.c-555 {
+  color: #555555; }
+
+.c-666 {
+  color: #666666; }
+
+.c-777 {
+  color: #777777; }
+
+.c-888 {
+  color: #888888; }
+
+.c-999 {
+  color: #999999; }
+
+.c-aaa {
+  color: #aaaaaa; }
+
+.c-bbb {
+  color: #bbbbbb; }
+
+.c-ccc {
+  color: #cccccc; }
+
+.c-ddd {
+  color: #dddddd; }
+
+.c-eee {
+  color: #eeeeee; }
+
+.c-fff {
+  color: #ffffff; }
+
+/* BTN colors */
+/* btn-main */
+.btn-main {
+  color: #FFFFFF;
+  background-color: #69E000;
+  border-color: #FFFFFF; }
+
+.btn-main:hover,
+.btn-main:focus,
+.btn-main:active,
+.btn-main.active,
+.open .dropdown-toggle.btn-main {
+  color: #FFFFFF;
+  background-color: #56B800;
+  border-color: #FFFFFF; }
+
+.btn-main:active,
+.btn-main.active,
+.open .dropdown-toggle.btn-main {
+  background-image: none; }
+
+.btn-main.disabled,
+.btn-main[disabled],
+fieldset[disabled] .btn-main,
+.btn-main.disabled:hover,
+.btn-main[disabled]:hover,
+fieldset[disabled] .btn-main:hover,
+.btn-main.disabled:focus,
+.btn-main[disabled]:focus,
+fieldset[disabled] .btn-main:focus,
+.btn-main.disabled:active,
+.btn-main[disabled]:active,
+fieldset[disabled] .btn-main:active,
+.btn-main.disabled.active,
+.btn-main[disabled].active,
+fieldset[disabled] .btn-main.active {
+  background-color: #69E000;
+  border-color: #FFFFFF; }
+
+.btn-main .badge {
+  color: #69E000;
+  background-color: #FFFFFF; }
+
+/* btn-main */
+/* btn-sec */
+.btn-sec {
+  color: #69E000;
+  background-color: initial;
+  border-color: #69E000; }
+
+.btn-sec:hover,
+.btn-sec:focus,
+.btn-sec:active,
+.btn-sec.active,
+.open .dropdown-toggle.btn-sec {
+  color: #56B800;
+  border-color: #56B800; }
+
+.btn-sec:active,
+.btn-sec.active,
+.open .dropdown-toggle.btn-sec {
+  background-image: none; }
+
+.btn-sec.disabled,
+.btn-sec[disabled],
+fieldset[disabled] .btn-sec,
+.btn-sec.disabled:hover,
+.btn-sec[disabled]:hover,
+fieldset[disabled] .btn-sec:hover,
+.btn-sec.disabled:focus,
+.btn-sec[disabled]:focus,
+fieldset[disabled] .btn-sec:focus,
+.btn-sec.disabled:active,
+.btn-sec[disabled]:active,
+fieldset[disabled] .btn-sec:active,
+.btn-sec.disabled.active,
+.btn-sec[disabled].active,
+fieldset[disabled] .btn-sec.active {
+  background-color: initial;
+  border-color: #69E000; }
+
+.btn-sec .badge {
+  color: #FFFFFF;
+  background-color: #69E000; }
+
+/* btn-sec */
+
+/*# sourceMappingURL=styles-extended.css.map */

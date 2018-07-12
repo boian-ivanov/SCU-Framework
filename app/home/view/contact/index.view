@@ -14,7 +14,7 @@
                 <h3 class="line-bottom mt-0 mb-30">Interested in discussing?</h3>
 
                 <!-- Contact Form -->
-                <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post" novalidate="novalidate">
+                <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post" novalidate>
 
                     <div class="row">
                         <div class="col-sm-6">
@@ -56,6 +56,24 @@
                         <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Reset</button>
                     </div>
                 </form>
+                <script>
+                    (function() {
+                        'use strict';
+                        window.addEventListener('load', function() {
+                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                            var form = document.getElementById('contact_form');
+
+                            form.addEventListener('submit', function(event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            }, false);
+
+                        }, false);
+                    })();
+                </script>
                 <!--
                 <script type="text/javascript">
                     $("#contact_form").validate({
