@@ -13,9 +13,9 @@
                 </a>
                 <?php if(isset($item['submenu']) && !empty($item['submenu'])) {?>
                     <ul id="<?php echo $id ?>" class="list-unstyled collapse">
-                        <?php foreach ($item['submenu'] as $subitem) {?>
+                        <?php foreach ($item['submenu'] as $subitem) { ?>
                             <li>
-                                <a href="<?php isset($subitem['link']) ? $subitem['link'] : '#'?>">
+                                <a href="<?php echo isset($subitem['link']) ? $subitem['link'] : '#'?>">
                                     <?php if(isset($subitem['icon'])) {?>
                                         <i class="fa fa-fw <?php echo $subitem['icon'] ?>"></i>
                                     <?php } ?>

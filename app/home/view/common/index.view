@@ -15,8 +15,8 @@
             </div>
         </div>
     </div>
-    <?php //echo $seperator; ?>
-    <!--<div class="row pb-2 justify-content-center">
+    <?php /*echo $seperator; */?><!--
+    <div class="row pb-2 justify-content-center">
         <div class="col-lg-10 col-12 pt-4">
             <div class="row justify-content-center">
                 <?php /*echo $actions; */?>
@@ -51,7 +51,7 @@
         </div>
         <div class="col-lg-10 col-12">
             <div class="row">
-                <?php echo $contact_form; ?>
+                <?php echo $form; ?>
             </div>
         </div>
     </div>

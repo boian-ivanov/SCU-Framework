@@ -34,11 +34,11 @@ class ControllerCommonHeader extends Controller {
         $data['scripts'] = $this->head->addScripts($scripts);
 
         $nav['nav'] = [
-            'Home' => '#head',
-            'Our team' => '#work',
+            'Home' => $this->url->root,
+            'Our team' => '/team',
             'Prices' => '',
             'About Us' => '',
-            'Contacts' => ''
+            'Contacts' => '/contact'
         ];
 
         $data['top_wrapper'] = $this->load->view('common/top_wrapper', $nav);

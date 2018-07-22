@@ -3,11 +3,11 @@
         <div class="row justify-content-center py-2">
             <div class="col-auto">
                 <div class="row">
-                    <div class="col-auto">
+                    <div class="col-auto p-0">
                         <img class="img-fluid" style="max-height: 100px" src="/public/images/logo.svg">
                     </div>
-                    <h1 class="col-auto century-gothic font-weight-bold pl-0"
-                        style="margin-left: -15px;padding-top: 40px;">Easy Dent</h1>
+                    <h1 class="col-auto century-gothic font-weight-bold px-0"
+                        style="padding-top: 40px;">Easy Dent</h1>
                 </div>
             </div>
         </div>

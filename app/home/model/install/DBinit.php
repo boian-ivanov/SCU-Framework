@@ -17,6 +17,14 @@ class ModelInstallDbinit extends Model {
             'status' => 'INT(11) NOT NULL',
             'token' => 'VARCHAR(255) NOT NULL'
         ],
+        'doctors' => [
+            'doctor_id' => 'INT(11) NOT NULL',
+            'name' => 'VARCHAR(100) NOT NULL',
+            'short_description' => 'VARCHAR(255) NOT NULL',
+            'description' => 'TEXT NULL',
+            'additional_data' => 'TEXT NULL',
+            'image' => 'VARCHAR(255) NOT NULL'
+        ],
         'user_status' => [
             'status_id' => 'INT(11) NOT NULL',
             'status_message' => 'VARCHAR(50) NOT NULL DEFAULT \'0\'',

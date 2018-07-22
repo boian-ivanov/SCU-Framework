@@ -16,12 +16,13 @@ class ControllerCommonIndex extends Controller{
         $data['header'] = $this->load->controller('common/header/index');
 
         $data['slider'] = $this->slider();
-//        $data['actions'] = $this->actions();
+        $data['actions'] = $this->actions();
         $data['team'] = $this->ourTeam();
         $data['testimonials'] = $this->testimonials();
-        $data['contact_form'] = $this->contact_form();
         $data['cards'] = $this->cards();
-        $data['map'] = $this->map();
+
+        $data['map'] = $this->load->view('contact/map');
+        $data['form'] = $this->load->view('contact/form');
 
         $data['seperator'] = $this->load->view('common/addons/seperator');
 
@@ -88,16 +89,5 @@ class ControllerCommonIndex extends Controller{
         }
 
         return $this->load->view('common/addons/team', $data);
-    }
-
-    private function map() {
-        return $this->load->view('common/addons/map');
-    }
-
-    public function contact_form() {
-
-        //$data[''] =
-
-        return $this->load->view('common/addons/contact');
     }
 }

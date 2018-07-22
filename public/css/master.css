@@ -11,13 +11,13 @@ body {
     color: #555;
 }*/
 
-.navbar a {
+#nav_wrap .navbar a {
     font: 1em 'Century Gothic', sans-serif;
     font-weight: bold;
     color: #777777;
 }
 
-.navbar a:hover {
+#nav_wrap .navbar a:hover {
     text-decoration: none;
     color: #69E000;
 }
