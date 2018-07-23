@@ -17,13 +17,13 @@ class ModelInstallDbinit extends Model {
             'status' => 'INT(11) NOT NULL',
             'token' => 'VARCHAR(255) NOT NULL'
         ],
-        'doctors' => [
-            'doctor_id' => 'INT(11) NOT NULL',
+        'team' => [
+            'member_id' => 'INT(11) NOT NULL',
             'name' => 'VARCHAR(100) NOT NULL',
-            'short_description' => 'VARCHAR(255) NOT NULL',
+            'short_description' => 'TEXT NOT NULL',
             'description' => 'TEXT NULL',
             'additional_data' => 'TEXT NULL',
-            'image' => 'VARCHAR(255) NOT NULL'
+            'image' => 'VARCHAR(256) NOT NULL'
         ],
         'user_status' => [
             'status_id' => 'INT(11) NOT NULL',

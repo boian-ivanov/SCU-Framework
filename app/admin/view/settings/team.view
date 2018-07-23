@@ -1,4 +1,22 @@
 <?php echo $header; ?>
+    <?php if(isset($messages)) {?>
+        <?php foreach ($messages as $key=>$message) {?>
+            <?php if($key == 'success') {?>
+            <div class="alert alert-success">
+                <?php foreach($message as $item){?>
+                    <div class="row"><?php echo $item?></div>
+                <?php }?>
+            </div>
+            <?php }?>
+            <?php if($key == 'error') {?>
+            <div class="alert alert-danger">
+                <?php foreach($message as $item){?>
+                    <div class="row"><?php echo $item?></div>
+                <?php }?>
+            </div>
+            <?php }?>
+        <?php }?>
+    <?php }?>
     <h2>Team members</h2>
     <table class="table table-striped">
         <thead>

@@ -22,8 +22,8 @@ class fileUpload {
 
     public function upload($file = null) {
         if($file === null) $file = $this->files;
-
-        $target_file = $this->path . basename($file["name"]);
+        $filename = basename($file["name"]);
+        $target_file = $this->path . $filename;
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         // Check if image file is a actual image or fake image
@@ -34,8 +34,8 @@ class fileUpload {
         }
         // Check if file already exists
         if (file_exists($target_file)) {
-            throw new Exception("Sorry, file already exists.");
-            $uploadOk = 0;
+            $filename = md5(date('now')) . '.' . $imageFileType;
+            $target_file = $this->path . $filename;
         }
         // Check file size
         if ($file["size"] > $this->getMaximumFileUploadSize()) {
@@ -54,7 +54,7 @@ class fileUpload {
         // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($file["tmp_name"], $target_file)) {
-                return basename($file["name"]);
+                return $filename;
             } else {
                 throw new Exception("Sorry, there was an error uploading your file.");
             }
