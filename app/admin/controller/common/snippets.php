@@ -8,6 +8,7 @@ class ControllerCommonSnippets extends Controller {
             '/node_modules/font-awesome/css/font-awesome.min.css',
             '/node_modules/fullcalendar/dist/fullcalendar.min.css',
             $this->url->root . '/public/css/master.css',
+            $this->url->root . '/public/css/styles-extended.css',
             $this->url->root . '/public/css/admin.css'
         ];
 

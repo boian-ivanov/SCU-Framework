@@ -9,9 +9,9 @@ class ControllerSettingsTeam extends Controller {
             $data['header'] = $this->load->controller('common/header/index', 'Settings > Team');
             $data['footer'] = $this->load->view('common/footer');
 
+            $model = $this->load->model('settings/team');
             if(isset($this->request->get['id']) && $this->request->get['id'] != ''){
                 $id = $this->request->get['id'];
-                $model = $this->load->model('settings/team');
 
                 $data['member_data'] = $model->getMemberData($id);
                 $data['image_path'] = $this->url->root . '/public/images/profile_images/';
@@ -23,6 +23,11 @@ class ControllerSettingsTeam extends Controller {
                 if(!empty($session_storage_data)) {
                     $data['messages'] = $session_storage_data;
                 }
+
+                $data['members'] = $model->getMembers();
+                $data['edit_link'] = $this->url->admin . "/settings/team?id=";
+                $data['delete_link'] = $this->url->admin . "/settings/team/delete?id=";
+
                 return $this->load->view('settings/team', $data);
             }
         } else {
@@ -31,7 +36,21 @@ class ControllerSettingsTeam extends Controller {
     }
 
     public function create() {
+        if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {
+//            $this->load->model('');
 
+            $data['header'] = $this->load->controller('common/header/index', 'Settings > Team');
+            $data['footer'] = $this->load->view('common/footer');
+
+            if(!empty($this->request->post)) {
+
+            } else {
+                $data['form_post_link'] = $this->url->admin . "/settings/team/create";
+                return $this->load->view('settings/team_form', $data);
+            }
+        } else {
+            $this->redirect('/admin');
+        }
     }
 
     public function edit() {

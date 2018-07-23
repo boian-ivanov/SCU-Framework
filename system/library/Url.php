@@ -1,6 +1,5 @@
 <?php
 
-
 class Url {
 
     public $root;

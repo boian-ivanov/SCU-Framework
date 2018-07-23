@@ -1,47 +1,61 @@
 <?php echo $header; ?>
-    <?php if(isset($messages)) {?>
-        <?php foreach ($messages as $key=>$message) {?>
-            <?php if($key == 'success') {?>
+<?php if (isset($messages)) { ?>
+    <?php foreach ($messages as $key => $message) { ?>
+        <?php if ($key == 'success') { ?>
             <div class="alert alert-success">
-                <?php foreach($message as $item){?>
-                    <div class="row"><?php echo $item?></div>
-                <?php }?>
+                <?php foreach ($message as $item) { ?>
+                    <div class="row"><?php echo $item ?></div>
+                <?php } ?>
             </div>
-            <?php }?>
-            <?php if($key == 'error') {?>
+        <?php } ?>
+        <?php if ($key == 'error') { ?>
             <div class="alert alert-danger">
-                <?php foreach($message as $item){?>
-                    <div class="row"><?php echo $item?></div>
-                <?php }?>
+                <?php foreach ($message as $item) { ?>
+                    <div class="row"><?php echo $item ?></div>
+                <?php } ?>
             </div>
-            <?php }?>
-        <?php }?>
-    <?php }?>
-    <h2>Team members</h2>
-    <table class="table table-striped">
-        <thead>
+        <?php } ?>
+    <?php } ?>
+<?php } ?>
+    <div class="row py-2">
+        <div class="col mr-auto fs-35">Team members</div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-main">
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>image path</th>
+                <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-            </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <?php foreach ($members as $member) { ?>
+                <tr>
+                    <td><?php echo $member['member_id']; ?></td>
+                    <td><?php echo $member['name']; ?></td>
+                    <td><?php echo $member['short_description']; ?></td>
+                    <td><?php echo $member['image']; ?></td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Edit">
+                            <a href="<?php echo $edit_link . $member['member_id'] ?>">
+                                <button type="button" class="btn btn-main"><i class="fa fa-pencil"></i></button>
+                            </a>
+                            <a href="<?php echo $delete_link . $member['member_id'] ?>">
+                                <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    </div>
 <?php echo $footer; ?>

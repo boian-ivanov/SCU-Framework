@@ -2,6 +2,10 @@
 
 class ModelSettingsTeam extends Model {
 
+    public function getMembers() {
+        return $this->db->query("SELECT * FROM `".DB_PREFIX."team`")->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getMemberData($id) {
         $stmt = $this->db->prepare("SELECT * FROM `" . DB_PREFIX . "team` WHERE `member_id` = :id");
         $stmt->execute(['id' => $id]);

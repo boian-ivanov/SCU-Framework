@@ -41,7 +41,7 @@ class Controller {
     }
 
     protected function getStorage() {
-        if(session_id() != '') {
+        if(session_id() != '' && isset($_SESSION['storage_data'])) {
             $data = $_SESSION['storage_data'];
             unset($_SESSION['storage_data']);
             return $data;
