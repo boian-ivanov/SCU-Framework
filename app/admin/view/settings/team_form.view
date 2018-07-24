@@ -1,6 +1,5 @@
 <?php echo $header; ?>
-    <h2 class="pb-3">Edit<?php if (isset($member_data['name'])) echo " <span>" . $member_data['name'] . "'s</span>" ?>
-        profile</h2>
+    <h2 class="pb-3"><?php echo $title; ?></h2>
     <form method="post" action="<?php echo $form_post_link; ?>" enctype="multipart/form-data">
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Name</label>

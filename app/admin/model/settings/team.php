@@ -14,13 +14,9 @@ class ModelSettingsTeam extends Model {
 
     public function updateMemberData($id, $data) {
         if($this->teamMemberExists($id)) {
-            $allowed = ["name", "short_description", "description", "additional_data"];
-
             $query = "UPDATE `" . DB_PREFIX . "team` SET ";
             foreach($data as $key => $datum) {
-                if(in_array($key, $allowed)) {
-                    $query .= "`$key` = :$key,";
-                }
+                $query .= "`$key` = :$key,";
             }
             if(substr($query, -1) === ',') $query = substr($query, 0, -1);
             $query .= " WHERE `member_id` = :id";
@@ -36,6 +32,27 @@ class ModelSettingsTeam extends Model {
             return $stmt->execute(['image'=> $imagePath , 'id' => $id]);
         }
         throw new Exception("User with id '$id' does not exist.");
+    }
+
+    public function addMember($data) {
+        $query = "INSERT INTO `" . DB_PREFIX . "team` SET ";
+        foreach($data as $key => $datum) {
+            $query .= "`$key` = :$key,";
+        }
+        if(substr($query, -1) === ',') $query = substr($query, 0, -1);
+        $stmt = $this->db->prepare($query);
+        if($stmt->execute($data)) {
+            return $this->db->lastInsertId();
+        } else {
+            return 0;
+        }
+    }
+
+    public function deleteMember($id) {
+        $query = "DELETE FROM `" . DB_PREFIX . "team` WHERE member_id = :id ;";
+
+        $stmt = $this->db->prepare($query);
+        return $stmt->execute(['id'=>$id]);
     }
 
     private function teamMemberExists($id) {
