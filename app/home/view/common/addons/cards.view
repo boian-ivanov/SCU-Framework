@@ -1,6 +1,6 @@
-<div class="col-11 col-md-4 my-3 my-md-0">
+<div class="col-12 col-md-4 my-3 my-md-0">
     <div class="row">
-        <div class="col inside-card mx-2 py-2 c-fff century-gothic" style="background-color: #82E42C;">
+        <div class="col inside-card mx-2 py-2 c-fff century-gothic p-0 p-sm-2" style="background-color: #82E42C;">
             <div class="card-title">График на зъболекар</div>
             <div class="row border-bottom py-4 mx-3 fs-18">
                 <div class="col-auto mr-auto">Понеделник - Петък</div>
@@ -10,14 +10,14 @@
                 <div class="col-auto mr-auto">Понеделник - Петък</div>
                 <div class="col-auto"> 9:00 - 18:00</div>
             </div>
-            <div class="row border-bottom py-4 mx-3 fs-18">
+            <div class="row py-4 mx-3 fs-18">
                 <div class="col-auto mr-auto">Понеделник - Петък</div>
                 <div class="col-auto"> 9:00 - 18:00</div>
             </div>
         </div>
     </div>
 </div>
-<div class="col-11 col-md-4 my-3 my-md-0">
+<div class="col-12 col-md-4 my-3 my-md-0">
     <div class="row">
         <div class="col inside-card mx-2 py-2 c-fff" style="background-color: #69E000;">
             <div class="card-title">Преглед при нас</div>
@@ -34,7 +34,7 @@
         </div>
     </div>
 </div>
-<div class="col-11 col-md-4 my-3 my-md-0">
+<div class="col-12 col-md-4 my-3 my-md-0">
     <div class="row">
         <div class="col inside-card mx-2 py-2 c-fff" style="background-color: #56B800;">
             <div class="card-title">Телефон за връзка</div>
@@ -46,7 +46,7 @@
                 <div class="col-auto mr-auto">Д-р Р. Градинаров</div>
                 <div class="col-auto">088 914 6226</div>
             </div>
-            <div class="row border-bottom py-4 mx-3 fs-18">
+            <div class="row py-4 mx-3 fs-18">
                 <div class="col-auto mr-auto">Д-р Ив. Ангелов</div>
                 <div class="col-auto">088 334 8048</div>
             </div>

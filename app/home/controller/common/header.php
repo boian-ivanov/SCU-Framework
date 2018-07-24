@@ -13,13 +13,13 @@ class ControllerCommonHeader extends Controller {
         $links = [
             '/node_modules/bootstrap/dist/css/bootstrap.min.css',
             '/node_modules/font-awesome/css/font-awesome.min.css',
-            '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
-            '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css',
             'http://fonts.googleapis.com/css?family=Roboto:400,700',
             'http://fonts.googleapis.com/css?family=Open+Sans',
             'https://fonts.googleapis.com/css?family=Lobster|Oswald|Raleway|PT+Sans&subset=latin,cyrillic',
             $this->url->root . '/public/css/master.css',
             $this->url->root . '/public/css/extended.css',
+            $this->url->root . '/public/css/slick.css',
+            $this->url->root . '/public/css/slick-theme.css'
         ];
 
         $scripts = [
@@ -27,10 +27,9 @@ class ControllerCommonHeader extends Controller {
             '/node_modules/popper.js/dist/umd/popper.min.js',
             '/node_modules/bootstrap/dist/js/bootstrap.min.js',
             '/node_modules/moment/moment.js',
-            '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
             $this->url->root . '/public/js/jquery.bcSwipe.min.js',
             $this->url->root . '/public/js/main.js',
-            $this->url->root . '/public/js/slickConf.js',
+            $this->url->root . '/public/js/slick.min.js'
 //            $this->url->root . '/public/js/speed.js'
         ];
 
