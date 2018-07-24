@@ -34,7 +34,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>image path</th>
+                <th>Active</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -44,7 +44,7 @@
                     <td><?php echo $member['member_id']; ?></td>
                     <td><?php echo $member['name']; ?></td>
                     <td><?php echo $member['short_description']; ?></td>
-                    <td><?php echo $member['image']; ?></td>
+                    <td><?php echo $member['active'] ? 'yes' : 'no'; ?></td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Edit">
                             <a href="<?php echo $edit_link . $member['member_id'] ?>">

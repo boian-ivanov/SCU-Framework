@@ -79,14 +79,11 @@ class ControllerCommonIndex extends Controller{
     }
 
     private function ourTeam() {
-        for ($i = 0; $i < 3; $i++) {
-            $data['columns'][] = [
-                'title'  => 'Д-р Ц. Младенова',
-                'text'   => 'Преобладаващ интерес към детската стоматология- занимава се с профилактика и превантивнто им лечение. Терапия, пародонтология и ендодонтия на постоянното съзъбие.',
-                'button' => 'Show more',
-                'link'   => 'catalog'
-            ];
-        }
+        $model = $this->load->model('common/team');
+
+        $data['columns'] = $model->getActiveTeam();
+
+        $data['image_path'] = $this->url->root . "/public/images/profile_images/";
 
         return $this->load->view('common/addons/team', $data);
     }

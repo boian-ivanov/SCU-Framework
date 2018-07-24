@@ -50,6 +50,7 @@ class ControllerSettingsTeam extends Controller {
 
                 if($this->request->files['profileImage']['name'] != '') { // image file update
                     $this->fileupload->setter($this->request->files['profileImage'], PUBLIC_PATH . 'images/profile_images/');
+                    $this->fileupload->setResolution('300');
                     try {
                         if($image_name = $this->fileupload->upload()){
                             $messages['success'][] = "Image has been uploaded successfully.";
@@ -129,13 +130,17 @@ class ControllerSettingsTeam extends Controller {
     }
 
     private function validate($data) {
-        $allowed_fields = ['name', 'short_description', 'description'];
+        $allowed_fields = ['name', 'short_description', 'description', 'active'];
         $return = array();
         foreach($data as $key => $item) {
             if(in_array($key, $allowed_fields)) {
                 $return[$key] = filter_var($item, FILTER_SANITIZE_STRING);
             }
         }
+        if(isset($data['active']))
+            $return['active'] = 1;
+        else
+            $return['active'] = 0;
         return $return;
     }
 }

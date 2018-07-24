@@ -58,7 +58,7 @@ body {
     padding-top: 0.8em;
 }
 
-.team > .inner{
+.team > .inner > div{
     -webkit-transition: -webkit-transform 0.3s,-webkit-box-shadow 0.3s;
     transition: -webkit-transform 0.3s,-webkit-box-shadow 0.3s;
     -o-transition: transform 0.3s,box-shadow 0.3s;
@@ -66,7 +66,7 @@ body {
     transition: transform 0.3s,box-shadow 0.3s,-webkit-transform 0.3s,-webkit-box-shadow 0.3s;
 }
 
-.team > .inner:hover {
+.team > .inner > div:hover {
     -webkit-box-shadow: 0 4px 4px rgba(0,0,0,0.24), 0 0 4px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.12);
     box-shadow: 0 4px 4px rgba(0,0,0,0.24), 0 0 4px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.12);
     cursor: pointer;
@@ -124,6 +124,29 @@ body {
     background-repeat: no-repeat;
     display: inline-block;
 }
+
+.team_image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.team_details {
+    min-height: 250px;
+}
+
+.team_details .text {
+    margin-bottom: auto;
+}
+
+.team_details .team_details-btn {
+    margin-top: auto;
+    max-height: 38px;
+}
+
+/*.team_image img {
+    width: 100%;
+    margin: -75px 0 0 -100px;
+}*/
 
 .ezd-left,
 .ezd-right {
