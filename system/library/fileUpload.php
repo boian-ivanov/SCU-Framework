@@ -1,9 +1,10 @@
 <?php
+include_once ('SimpleImage.php');
 
-
-class fileUpload {
+class fileUpload extends SimpleImage {
     private $files;
     private $path;
+    private $ratio = array();
 
     public function __construct() {
 
@@ -12,6 +13,16 @@ class fileUpload {
     public function setter($files, $path) {
         $this->files = $files;
         $this->path = $path;
+    }
+
+    public function setRatio($width, $height = 0) {
+        if($height === 0)
+            $height = $width;
+
+        $this->ratio = array(
+            'width' => $width,
+            'height' => $height
+        );
     }
 
     public function process_multiple() {
@@ -53,7 +64,11 @@ class fileUpload {
             throw new Exception("Sorry, your file was not uploaded.");
         // if everything is ok, try to upload file
         } else {
-            if (move_uploaded_file($file["tmp_name"], $target_file)) {
+            $this->load($file['tmp_name']);
+            if(!empty($this->ratio)){
+                $this->resizeToHeight($this->ratio['height']);
+            }
+            if ($this->save($target_file)) {
                 return $filename;
             } else {
                 throw new Exception("Sorry, there was an error uploading your file.");

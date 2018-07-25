@@ -21,7 +21,10 @@
     </a>
     <script>
         $(document).ready(function(){
-            $('#front-images').height($(window).height() - $('header').height() + 50);
+            var added_height = $(window).height() - $('header').height() + 50;
+            if($('#front-images').height() > added_height) {
+                $('#front-images').height(added_height);
+            }
         });
         $("#front-images").bcSwipe({ threshold: 50 });
     </script>

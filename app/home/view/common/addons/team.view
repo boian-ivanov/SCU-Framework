@@ -1,17 +1,21 @@
 <?php foreach ($columns as $column) { ?>
-    <div class="col-xl-3 col-md-4 col-sm-6 col-12 text-center team">
+    <div class="col-xl-3 col-md-4 col-sm-6 col-12 text-center team my-2">
         <div class="row inner my-2 my-sm-0 justify-content-center">
             <div class="col-11 shadow-sm" style="background-color: #FFFFFF">
                 <div class="team_image row d-block">
+                    <?php if($column['image'] != '' || $column['image'] != null) { ?>
                     <img class="img-fluid border-0 w-100 " src="<?php echo $image_path . $column['image']; ?>"
+                         alt="<?php echo $column['name']; ?>">
+                    <?php } else {?>
+                    <img class="img-fluid border-0 w-100 " src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                          alt="placeholder">
+                    <?php } ?>
                 </div>
-                <!-- data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw== -->
                 <div class="team_details row">
                     <div class="col mb-auto team_details-title border-bottom fs-26 lobster pb-2 pt-3"><?php echo $column['name']; ?></div>
                     <div class="text text-center px-3 py-3 fs-14"><?php echo $column['short_description']; ?></div>
                     <div class="team_details-btn col">
-                        <a class="w-100 btn border-top" href="<?php echo $column['id']; ?>" role="button">Show more
+                        <a class="w-100 btn border-top" href="<?php echo $column['member_id']; ?>" role="button">Show more
                             »</a>
                     </div>
                 </div>

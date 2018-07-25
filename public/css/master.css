@@ -130,6 +130,11 @@ body {
     overflow: hidden;
 }
 
+.team_image img {
+    object-fit: cover;
+    height: 100%;
+}
+
 .team_details {
     min-height: 250px;
 }
@@ -142,11 +147,6 @@ body {
     margin-top: auto;
     max-height: 38px;
 }
-
-/*.team_image img {
-    width: 100%;
-    margin: -75px 0 0 -100px;
-}*/
 
 .ezd-left,
 .ezd-right {
@@ -312,5 +312,11 @@ body {
         margin: 0px 15px;
         display: inline-block;
         vertical-align: text-top;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .team_image img {
+        /*height: auto;*/
     }
 }

@@ -50,7 +50,7 @@ class ControllerSettingsTeam extends Controller {
 
                 if($this->request->files['profileImage']['name'] != '') { // image file update
                     $this->fileupload->setter($this->request->files['profileImage'], PUBLIC_PATH . 'images/profile_images/');
-                    $this->fileupload->setResolution('300');
+                    $this->fileupload->setRatio('250');
                     try {
                         if($image_name = $this->fileupload->upload()){
                             $messages['success'][] = "Image has been uploaded successfully.";
@@ -88,6 +88,7 @@ class ControllerSettingsTeam extends Controller {
             $model = $this->load->model('settings/team');
             if($this->request->files['profileImage']['name'] != '') { // image file update
                 $this->fileupload->setter($this->request->files['profileImage'], PUBLIC_PATH . 'images/profile_images/');
+                $this->fileupload->setRatio('250');
                 try {
                     $image_name = $this->fileupload->upload();
                     if($res = $model->updateMemberImage($this->request->get['id'], $image_name)){
