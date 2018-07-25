@@ -7,7 +7,7 @@ class Loader{
         $this->registry = $registry;
     }*/
 
-    public $methods = array();
+    private $methods = array();
 
     public function __construct() {
         $this->autoload();
@@ -78,7 +78,11 @@ class Loader{
 
     public function __call($name, $arguments) {
         if(in_array($name, $this->methods)){
-            return $this->$name = new $name($arguments);
+            if(empty($arguments)) {
+                return $this->$name = new $name();
+            } else {
+                return $this->$name = new $name($arguments[0]);
+            }
         }
     }
 
@@ -89,20 +93,6 @@ class Loader{
     private function autoload() {
         $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(LIB_PATH));
 
-//        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
-        /*while($it->valid()) {
-            if (!$it->isDot() && !$it->isDir()) {
-                if(file_exists($it->key()) && $it->valid()) {
-                    var_dump($it->key());
-                    require_once($it->key());
-                    $name = pathinfo($it->getSubPathName(), PATHINFO_FILENAME);
-                    $name = strtolower($name);
-                    if(!in_array($name, $this->methods))
-                        $this->methods[] = $name;
-                }
-            }
-            $it->next();
-        }*/
         foreach ($it as $file) {
             if ($file->isDir()){
                 continue;
@@ -113,7 +103,6 @@ class Loader{
                 if(!in_array($method, $this->methods))
                     $this->methods[] = $method;
             }
-            //var_dump($file->getFilename(), $file->getPathname(), pathinfo($file->getPathname()));
         }
     }
 }

@@ -49,16 +49,21 @@ class ControllerSettingsTeam extends Controller {
                 $model = $this->load->model('settings/team');
 
                 if($this->request->files['profileImage']['name'] != '') { // image file update
-                    $this->fileupload->setter($this->request->files['profileImage'], PUBLIC_PATH . 'images/profile_images/');
-                    $this->fileupload->setRatio('250');
-                    try {
-                        if($image_name = $this->fileupload->upload()){
+                    $this->upload($this->request->files['profileImage']);
+                    if($this->upload->uploaded){
+                        $this->upload->file_new_name_body = md5(date('now'));
+                        $this->upload->image_resize = true;
+                        $this->upload->image_ratio_crop = true;
+                        $this->upload->image_x = '250';
+                        $this->upload->image_y = '250';
+                        $this->upload->process(PUBLIC_PATH . 'images/profile_images/');
+                        if($this->upload->processed){
                             $messages['success'][] = "Image has been uploaded successfully.";
+                            $image_name = $this->upload->file_dst_name;
+                            $this->upload->clean();
                         } else {
-                            $messages['error'][] = "Image has not been uploaded. Please try again.";
+                            $messages['error'][] = "Image has not been uploaded. Please try again. [Error : ".$this->upload->error."]";
                         }
-                    } catch (Exception $e) {
-                        $messages['error'][] = $e->getMessage();
                     }
                 }
 

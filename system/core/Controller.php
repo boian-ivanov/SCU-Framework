@@ -31,18 +31,11 @@ class Controller {
         return null;
     }
 
-    /*public function __set($name, $value) {
-        // TODO: Implement __set() method.
-//        $this->$name = $value;
-    }*/
-
     public function __call($name, $arguments) {
-        // TODO: Implement __call() method.
-        return $this->$name = $this->load->$name($arguments);
+        return $this->$name = $this->load->$name($arguments[0]);
     }
 
     public function __get($name) {
-        // TODO: Implement __get() method.
         return $this->$name = $this->load->$name;
     }
 }
