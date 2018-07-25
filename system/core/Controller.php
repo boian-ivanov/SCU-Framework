@@ -8,8 +8,6 @@ class Controller {
 
     public function __construct(){
         $this->load = new Loader();
-
-        $this->autoload();
     }
 
     public function redirect($url, $data = array()){
@@ -18,22 +16,6 @@ class Controller {
             $this->store($data);
         }
         exit;
-    }
-
-    private function autoload() {
-        $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(LIB_PATH));
-
-        while($it->valid()) {
-            if (!$it->isDot()) {
-                if(file_exists($it->key()) && $it->valid()) {
-                    require_once($it->key());
-                    $name = pathinfo($it->getSubPathName(), PATHINFO_FILENAME);
-                    $name = strtolower($name);
-                    $this->$name = new $name();
-                }
-            }
-            $it->next();
-        }
     }
 
     private function store($data) {
@@ -47,5 +29,20 @@ class Controller {
             return $data;
         }
         return null;
+    }
+
+    /*public function __set($name, $value) {
+        // TODO: Implement __set() method.
+//        $this->$name = $value;
+    }*/
+
+    public function __call($name, $arguments) {
+        // TODO: Implement __call() method.
+        return $this->$name = $this->load->$name($arguments);
+    }
+
+    public function __get($name) {
+        // TODO: Implement __get() method.
+        return $this->$name = $this->load->$name;
     }
 }

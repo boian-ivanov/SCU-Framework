@@ -7,6 +7,12 @@ class Loader{
         $this->registry = $registry;
     }*/
 
+    public $methods = array();
+
+    public function __construct() {
+        $this->autoload();
+    }
+
     public function controller($path, $data = array()) {
         $path = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$path);
         $contr_name = trim(ucfirst(CONTROLLER), DS);
@@ -68,5 +74,46 @@ class Loader{
 
         require_once APP_PATH . CURR_DIR . VIEW . $path . ".view";
         return ob_get_clean();
+    }
+
+    public function __call($name, $arguments) {
+        if(in_array($name, $this->methods)){
+            return $this->$name = new $name($arguments);
+        }
+    }
+
+    public function __get($name) {
+        return $this->$name();
+    }
+
+    private function autoload() {
+        $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(LIB_PATH));
+
+//        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
+        /*while($it->valid()) {
+            if (!$it->isDot() && !$it->isDir()) {
+                if(file_exists($it->key()) && $it->valid()) {
+                    var_dump($it->key());
+                    require_once($it->key());
+                    $name = pathinfo($it->getSubPathName(), PATHINFO_FILENAME);
+                    $name = strtolower($name);
+                    if(!in_array($name, $this->methods))
+                        $this->methods[] = $name;
+                }
+            }
+            $it->next();
+        }*/
+        foreach ($it as $file) {
+            if ($file->isDir()){
+                continue;
+            } else if($file->isFile()){
+                require_once ($file->getPathname());
+                $name = pathinfo($file->getPathname());
+                $method = strtolower($name['filename']);
+                if(!in_array($method, $this->methods))
+                    $this->methods[] = $method;
+            }
+            //var_dump($file->getFilename(), $file->getPathname(), pathinfo($file->getPathname()));
+        }
     }
 }
