@@ -293,6 +293,13 @@ body {
 
 
 /* MEDIA QUERIES */
+@media only screen and (max-width: 649px) {
+    .ezd-left,
+    .ezd-right {
+        width: 38%;
+    }
+}
+
 @media only screen and (max-width: 592px) {
     .ezd-seperator {
         margin: 20px 0px;

@@ -12,10 +12,10 @@
                     <?php } ?>
                 </div>
                 <div class="team_details row">
-                    <div class="col mb-auto team_details-title border-bottom fs-26 lobster pb-2 pt-3"><?php echo $column['name']; ?></div>
-                    <div class="text text-center px-3 py-3 fs-14"><?php echo $column['short_description']; ?></div>
-                    <div class="team_details-btn col">
-                        <a class="w-100 btn border-top" href="<?php echo $column['member_id']; ?>" role="button">Show more
+                    <div class="col-12 mb-auto team_details-title border-bottom fs-26 lobster pb-2 pt-3"><?php echo $column['name']; ?></div>
+                    <div class="col-12 text text-center px-3 py-3 fs-14"><?php echo $column['short_description']; ?></div>
+                    <div class="col-12 team_details-btn border-top">
+                        <a class="w-100 btn" href="<?php echo $column['member_id']; ?>" role="button">Show more
                             »</a>
                     </div>
                 </div>

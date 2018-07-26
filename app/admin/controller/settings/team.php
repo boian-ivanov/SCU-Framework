@@ -92,17 +92,24 @@ class ControllerSettingsTeam extends Controller {
         if(isset($this->request->get['id'])) {
             $model = $this->load->model('settings/team');
             if($this->request->files['profileImage']['name'] != '') { // image file update
-                $this->fileupload->setter($this->request->files['profileImage'], PUBLIC_PATH . 'images/profile_images/');
-                $this->fileupload->setRatio('250');
-                try {
-                    $image_name = $this->fileupload->upload();
-                    if($res = $model->updateMemberImage($this->request->get['id'], $image_name)){
-                        $messages['success'][] = "Image has been updated successfully.";
+                $this->upload($this->request->files['profileImage']);
+                if($this->upload->uploaded){
+                    $this->upload->file_new_name_body = md5(date('now'));
+                    $this->upload->image_resize = true;
+                    $this->upload->image_ratio_crop = true;
+                    $this->upload->image_x = '250';
+                    $this->upload->image_y = '250';
+                    $this->upload->process(PUBLIC_PATH . 'images/profile_images/');
+                    if($this->upload->processed){
+                        if($res = $model->updateMemberImage($this->request->get['id'], $this->upload->file_dst_name)){
+                            $messages['success'][] = "Image has been updated successfully.";
+                        } else {
+                            $messages['error'][] = "Image has not been updated. Please try again.";
+                        }
+                        $this->upload->clean();
                     } else {
-                        $messages['error'][] = "Image has not been updated. Please try again.";
+                        $messages['error'][] = "Image has not been updated. Please try again. [Error : ".$this->upload->error."]";
                     }
-                } catch (Exception $e) {
-                    $messages['error'][] = $e->getMessage();
                 }
             }
             if(!empty($this->request->post)) {
