@@ -18,7 +18,6 @@ class ControllerSettingsTeam extends Controller {
                 $data['form_post_link'] = $this->url->admin . "/settings/team/edit?id=" . $id;
 
                 $data['title'] = "Edit profile";
-                //if (isset($member_data['name'])) echo \" <span>\" . $member_data['name'] . \"'s</span>\"
 
                 return $this->load->view('settings/team_form', $data);
             } else {
@@ -27,12 +26,12 @@ class ControllerSettingsTeam extends Controller {
                     $data['messages'] = $session_storage_data;
                 }
 
-                $data['members'] = $model->getMembers();
+                $data['members'] = $this->processMembers($model->getMembers());
                 $data['add_link'] = $this->url->admin . "/settings/team/add";
                 $data['edit_link'] = $this->url->admin . "/settings/team?id=";
                 $data['delete_link'] = $this->url->admin . "/settings/team/delete?id=";
 
-                return $this->load->view('settings/team', $data);
+                return $this->load->view('settings/team_list', $data);
             }
         } else {
             $this->redirect('/admin');
@@ -155,5 +154,16 @@ class ControllerSettingsTeam extends Controller {
         else
             $return['active'] = 0;
         return $return;
+    }
+
+    private function processMembers($members, $length = '50') {
+        foreach($members as $key => $member) {
+            if($member['short_description'] != ''
+                && $member['short_description'] != null
+                && mb_strlen($member['short_description']) > $length) {
+                $members[$key]['short_description'] = mb_substr(trim($member['short_description']), 0, $length) . "&hellip;";
+            }
+        }
+        return $members;
     }
 }

@@ -1,0 +1,63 @@
+<?php echo $header; ?>
+<?php if (isset($messages)) { ?>
+    <?php foreach ($messages as $key => $message) { ?>
+        <?php if ($key == 'success') { ?>
+            <div class="alert alert-success">
+                <?php foreach ($message as $item) { ?>
+                    <div class="row"><?php echo $item ?></div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <?php if ($key == 'error') { ?>
+            <div class="alert alert-danger">
+                <?php foreach ($message as $item) { ?>
+                    <div class="row"><?php echo $item ?></div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+    <?php } ?>
+<?php } ?>
+    <div class="row py-2">
+        <div class="col mr-auto fs-35">Team members</div>
+        <div class="col-auto">
+            <a href="<?php echo $add_link; ?>">
+                <button type="button" class="btn btn-main">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($settings as $setting) { ?>
+                <tr>
+                    <td><?php echo $setting['settings_id']; ?></td>
+                    <td><?php echo $setting['key']; ?></td>
+                    <td><?php //echo $member['short_description']; ?></td>
+                    <td><?php //echo $member['active'] ? 'yes' : 'no'; ?></td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Edit">
+                            <a href="<?php echo $edit_link . $setting['settings_id'] ?>">
+                                <button type="button" class="btn btn-main"><i class="fa fa-pencil"></i></button>
+                            </a>
+                            <a href="<?php echo $delete_link . $setting['settings_id'] ?>">
+                                <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    </div>
+<?php echo $footer; ?>
