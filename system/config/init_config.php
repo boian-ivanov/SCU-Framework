@@ -21,6 +21,7 @@ define("LIB_PATH"   , SYSTEM_PATH . "library" . DS);
 
 define("UPLOAD_PATH", PUBLIC_PATH . "uploads" . DS);
 
+require CORE_PATH . "Router.php";
 require CORE_PATH . "Controller.php";
 require CORE_PATH . "Loader.php";
 require DB_PATH   . "Db.php"; // Custom MySQLi class
