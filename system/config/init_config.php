@@ -6,10 +6,6 @@ define("APP_PATH"   , ROOT . 'app' . DS);
 define("PUBLIC_PATH", ROOT . 'public' . DS);
 define("SYSTEM_PATH", ROOT . 'system' . DS);
 
-/*define("CONTROLLER_PATH", APP_PATH . 'controller' . DS);
-define("MODEL_PATH"     , APP_PATH . 'model' . DS);
-define("VIEW_PATH"      , APP_PATH . 'view' . DS);*/
-
 define("CONTROLLER", "controller" . DS);
 define("MODEL", "model" . DS);
 define("VIEW", "view" . DS);
