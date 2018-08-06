@@ -1,14 +1,14 @@
 <?php
 
 class ControllerCommonIndex extends Controller{
-    private $registry;
+    /*private $registry;
 
     public function __construct($registry){
         parent::__construct();
         $this->registry = $registry;
     }*/
 
-    public function __rewrite() {
+    /*public function __rewrite() {
         return array(
             'test' => '/id',
             'index' => '/id',
@@ -19,7 +19,7 @@ class ControllerCommonIndex extends Controller{
         echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
         var_dump($_GET);
         die();
-    }
+    }*/
 
     public function index() {
         /*$model = $this->load->model('common/index');

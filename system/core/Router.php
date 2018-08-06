@@ -109,7 +109,16 @@ class Router {
                 if (method_exists($controller, $action_name)) {
                     return $controller->$action_name(); // lead controller method
                 } else {
-                    throw new Exception('Class method does not exists'); // throw exception
+                    $this->arguments = implode(array_splice($this->elements, -1, 1));
+                    $this->build_path();
+                    $controller_name = $this->getClassName();
+                    $action_name = $this->method;
+                    $controller = new $controller_name();
+                    if (method_exists($controller, '__rewrite')) {
+                        if ($this->rewrite($controller->__rewrite())) {
+                            return $controller->$action_name();
+                        }
+                    }
                 }
             } else {
                 $this->arguments = implode(array_splice($this->elements, -1, 1));
@@ -120,13 +129,10 @@ class Router {
                 if (method_exists($controller, '__rewrite')) {
                     if($this->rewrite($controller->__rewrite())) {
                         return $controller->$action_name();
-                    } else {
-                        throw new Exception('Class method does not exists'); // throw exception
                     }
-                } else {
-                    throw new Exception('Class method does not exists'); // throw exception
                 }
             }
+            throw new Exception('Class method does not exists'); // throw exception
 
             /*if(!class_exists($controller_name)) {
                 $this->arguments = implode(array_splice($this->elements, -1, 1));
