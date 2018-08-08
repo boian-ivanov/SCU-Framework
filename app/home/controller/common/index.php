@@ -96,6 +96,7 @@ class ControllerCommonIndex extends Controller{
 
         $data['columns'] = $model->getActiveTeam();
 
+        $data['team_link'] = $this->url->root . '/team/%s';
         $data['image_path'] = $this->url->root . "/public/images/profile_images/";
 
         return $this->load->view('common/addons/team', $data);

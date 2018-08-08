@@ -7,9 +7,9 @@ body {
     background-color: #ddd;
 }
 
-/*.navbar a {
-    color: #555;
-}*/
+.navbar {
+    z-index: 10;
+}
 
 #nav_wrap .navbar a {
     font: 1em 'Century Gothic', sans-serif;

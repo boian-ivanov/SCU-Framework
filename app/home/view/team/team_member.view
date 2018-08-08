@@ -1,0 +1,40 @@
+<?php echo $header; ?>
+    <div class="container-fluid main">
+        <style>
+            .background-parallax {
+                background-image: url("http://via.placeholder.com/1280x300");
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+        <div class="row justify-content-center background-parallax" style="height:300px">
+            <div class="col-auto my-auto pb-5">
+                <h2><?php echo $member['name']; ?></h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-11 col-sm-10">
+                <div class="row justify-content-center justify-content-sm-start mb-3" style="background-color: #fff;margin-top: -50px;height: 500px;">
+                    <div class="col-12 col-sm-6 col-md-4"> <!-- block 1 image -->
+                        <div class="team_image row d-block">
+                            <?php if($member['image'] != '' || $member['image'] != null) { ?>
+                                <img class="img-fluid border-0 w-100 " src="<?php echo $image_path . $member['image']; ?>"
+                                     alt="<?php echo $member['name']; ?>">
+                            <?php } else {?>
+                                <img class="img-fluid border-0 w-100 " src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                     alt="placeholder">
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4"> <!-- block 2 two buttons, hours and what not -->
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4"> <!-- block 3 text -->
+                        <div class="row text text-center px-3 py-3 fs-14"><?php echo $member['short_description']; ?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php echo $footer; ?>

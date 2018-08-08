@@ -14,8 +14,19 @@ class ControllerCommonTeam extends Controller {
 
         $model = $this->load->model('common/team');
 
-        $data['member'] = $model->getTeamMemberById($this->request->get['member_id']);
+        $data['image_path'] = $this->url->root . "/public/images/profile_images/";
 
-        return $this->load->view('common/team', $data);
+        if(isset($this->request->get['member_id'])) {
+            $data['member'] = $model->getTeamMemberById($this->request->get['member_id']);
+
+            return $this->load->view('team/team_member', $data);
+        } else {
+            $data['columns'] = $model->getActiveTeam();
+            $data['team_link'] = $this->url->root . '/team/%s';
+
+            $data['team'] = $this->load->view('common/addons/team', $data);
+
+            return $this->load->view('team/team_listing', $data);
+        }
     }
 }

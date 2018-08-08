@@ -10,6 +10,6 @@ class ModelCommonTeam extends Model {
         $query = "SELECT * FROM `" . DB_PREFIX . "team` WHERE `member_id` = :id";
         $stmt = $this->db->prepare($query);
         $stmt->execute(['id' => $id]);
-        return $stmt->fetchObject();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
