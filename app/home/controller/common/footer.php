@@ -23,6 +23,10 @@ class ControllerCommonFooter extends Controller {
             'fa-facebook' => 'https://www.facebook.com/eazydent/',
         );
 
-        return $this->load->view('common/footer', $data);
+        if($this->classLoaded()) {
+            return $this->load->view('common/footer', $data);
+        } else {
+            $this->load->controller('error/not_found/index');
+        }
     }
 }

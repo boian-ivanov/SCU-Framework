@@ -18,6 +18,11 @@ class Controller {
         exit;
     }
 
+    public function classLoaded() {
+        $trace = debug_backtrace();
+        return $trace[2]['class'] == 'Loader';
+    }
+
     private function store($data) {
         $_SESSION['storage_data'] = $data;
     }

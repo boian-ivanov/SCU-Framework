@@ -31,6 +31,7 @@ class Loader{
             }
             $method = "index";
         }
+        $contr_name = str_replace('_', '', $contr_name);
 
         require_once APP_PATH . CURR_DIR . CONTROLLER . substr($path, 0, strrpos($path, '/')). ".php";
         $controller = new $contr_name();

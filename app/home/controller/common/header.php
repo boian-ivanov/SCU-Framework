@@ -46,6 +46,10 @@ class ControllerCommonHeader extends Controller {
 
         $data['top_wrapper'] = $this->load->view('common/top_wrapper', $nav);
 
-        return $this->load->view('common/header', $data);
+        if($this->classLoaded()) {
+            return $this->load->view('common/header', $data);
+        } else {
+            $this->load->controller('error/not_found/index');
+        }
     }
 }
