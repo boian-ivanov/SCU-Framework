@@ -286,6 +286,16 @@ body {
     background: white;
 }
 
+.team-member__title {
+    height: 150px;
+    font-family: Lobster;
+}
+
+.team-member__block {
+    background-color: #fff;
+    min-height: 500px;
+}
+
 /*.check-container.checked {
     border-color: #69E000;
 }*/

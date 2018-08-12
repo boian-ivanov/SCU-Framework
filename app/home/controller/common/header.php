@@ -18,6 +18,7 @@ class ControllerCommonHeader extends Controller {
             'https://fonts.googleapis.com/css?family=Lobster|Oswald|Raleway|PT+Sans&subset=latin,cyrillic',
             $this->url->root . '/public/css/master.css',
             $this->url->root . '/public/css/extended.css',
+            $this->url->root . '/public/css/media-queries.css',
             $this->url->root . '/public/css/slick.css',
             $this->url->root . '/public/css/slick-theme.css'
         ];

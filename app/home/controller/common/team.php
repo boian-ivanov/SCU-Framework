@@ -18,6 +18,7 @@ class ControllerCommonTeam extends Controller {
 
         if(isset($this->request->get['member_id'])) {
             $data['member'] = $model->getTeamMemberById($this->request->get['member_id']);
+            $data['background_image'] = "http://via.placeholder.com/1280x300";//$this->url->root . '/public/images/team_member/background1.jpg';
 
             return $this->load->view('team/team_member', $data);
         } else {

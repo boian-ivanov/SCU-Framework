@@ -1,0 +1,7 @@
+@media (max-width: 575px) {
+  .team-member__title {
+    height: initial; }
+    .team-member__title h2 {
+      margin: 15px 0; } }
+
+/*# sourceMappingURL=media-queries.css.map */

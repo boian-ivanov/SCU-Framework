@@ -113,11 +113,17 @@ class Router {
                     $this->build_path();
                     $controller_name = $this->getClassName();
                     $action_name = $this->method;
-                    $controller = new $controller_name();
-                    if (method_exists($controller, '__rewrite')) {
-                        if ($this->rewrite($controller->__rewrite())) {
-                            return $controller->$action_name();
+                    if(class_exists($controller_name)) {
+                        $controller = new $controller_name();
+                        if (method_exists($controller, '__rewrite')) {
+                            if ($this->rewrite($controller->__rewrite())) {
+                                return $controller->$action_name();
+                            }
+                        } else {
+                            throw new Exception('Class method does not exists'); // throw exception
                         }
+                    } else {
+                        throw new Exception('Class method does not exists'); // throw exception
                     }
                 }
             } else {
@@ -125,11 +131,17 @@ class Router {
                 $this->build_path();
                 $controller_name = $this->getClassName();
                 $action_name = $this->method;
-                $controller = new $controller_name();
-                if (method_exists($controller, '__rewrite')) {
-                    if($this->rewrite($controller->__rewrite())) {
-                        return $controller->$action_name();
+                if(class_exists($controller_name)) {
+                    $controller = new $controller_name();
+                    if (method_exists($controller, '__rewrite')) {
+                        if ($this->rewrite($controller->__rewrite())) {
+                            return $controller->$action_name();
+                        }
+                    } else {
+                        throw new Exception('Class method does not exists'); // throw exception
                     }
+                } else {
+                    throw new Exception('Class method does not exists'); // throw exception
                 }
             }
             throw new Exception('Class method does not exists'); // throw exception
