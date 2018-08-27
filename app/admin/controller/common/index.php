@@ -22,7 +22,7 @@ class ControllerCommonIndex extends Controller {
         } else {
             $data['root_url'] = $this->url->root;
 
-            $data['form_link'] = $this->url->admin . '/account/login'; // TODO : maybe rework url library
+            $data['form_link'] = $this->url->admin . '/account/login/index'; // TODO : maybe rework url library
             $data['forgotten_link'] = $this->url->admin . '/account/reset';
 
             if (isset($_SESSION['error'])) {

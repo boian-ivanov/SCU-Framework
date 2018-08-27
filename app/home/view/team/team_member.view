@@ -24,6 +24,51 @@
                                      alt="placeholder">
                             <?php } ?>
                         </div>
+                        <div class="row justify-content-center">
+                            <div class="col-11">
+                                <div class="row">
+                                    <div class="col">
+                                        <h3 class="text-center">Working Hours</h3>
+                                    </div>
+                                </div>
+                                <hr class="w-100">
+                                <div class="row">
+                                    <div class="col-4">MONDAY</div>
+                                    <div class="col-4">08:00 - 14:00</div>
+                                    <div class="col-4">
+                                        <a href="/appointments">BOOK</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">TUESDAY</div>
+                                    <div class="col-4">08:00 - 14:00</div>
+                                    <div class="col-4">
+                                        <a href="/appointments">BOOK</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">WEDNESDAY</div>
+                                    <div class="col-4">08:00 - 14:00</div>
+                                    <div class="col-4">
+                                        <a href="/appointments">BOOK</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">THURSDAY</div>
+                                    <div class="col-4">08:00 - 14:00</div>
+                                    <div class="col-4">
+                                        <a href="/appointments">BOOK</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">FRIDAY</div>
+                                    <div class="col-4">08:00 - 14:00</div>
+                                    <div class="col-4">
+                                        <a href="/appointments">BOOK</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-8 team-member__description">
                         <div class="row my-auto my-sm-0 team-member__title">
@@ -39,7 +84,7 @@
                             <hr class="w-100"><!-- style="border: 1px solid #444;">-->
                         </div>
                         <div class="row p-3">
-                            <p><?php echo $member['description']?></p>
+                            <p><?php echo nl2br($member['description']); ?></p>
                         </div>
                     </div>
                     <!--<div class="col-12 col-sm-6 col-md-4">  block 2 two buttons, hours and what not

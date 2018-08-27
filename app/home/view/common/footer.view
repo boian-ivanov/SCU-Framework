@@ -1,35 +1,25 @@
-<!--<footer class="container">
-    <p class="float-right"><a href="#">Back to top</a></p>
-    <p>© 2017-2018 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-</footer>-->
 <footer class="container-fluid mt-2 py-3">
     <div class="row">
         <div class="col-12 col-md-5">
-            <?php foreach ($left_column as $icon => $value) {?>
-            <div class="row mx-3 fa-footer-icons">
-                <i class="fa <?php echo $icon; ?>"></i>
-                <p class="py-3"><?php echo $value; ?></p>
-            </div>
+            <?php foreach ($left_column as $icon => $value) { ?>
+                <div class="row mx-3 fa-footer-icons">
+                    <i class="fa <?php echo $icon; ?>"></i>
+                    <p class="py-3"><?php echo $value; ?></p>
+                </div>
             <?php } ?>
         </div>
-
         <div class="col-12 col-md-7">
             <p class="footer-company-about">
                 <span>About the company</span>
                 <?php echo $about; ?>
             </p>
-
             <div class="footer-icons">
-                <?php foreach ($social_links as $icon => $link) {?>
-                <a href="<?php echo $link; ?>"><i class="fa <?php echo $icon; ?>"></i></a>
+                <?php foreach ($social_links as $icon => $link) { ?>
+                    <a href="<?php echo $link; ?>"><i class="fa <?php echo $icon; ?>"></i></a>
                 <?php } ?>
             </div>
-
         </div>
-
     </div>
 </footer>
-
-
 </body>
 </html>

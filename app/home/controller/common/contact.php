@@ -1,6 +1,6 @@
 <?php
 
-class ControllerContactIndex extends Controller {
+class ControllerCommonContact extends Controller {
 
     public function index() {
         $data['header'] = $this->load->controller('common/header/index');

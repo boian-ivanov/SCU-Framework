@@ -1,4 +1,8 @@
 <?php
+/* TODO: maybe best case scenario for dynamic routing is just to recompile routes depending on files in structure
+ * current URL structure is still not good, admin links have too many trailing "/index/index" because of way routing is working, to be redone (at some point, after 1.0.x), NOT IMPORTANT BEFORE RELEASE
+ */
+
 
 class Router {
     private $uri;
@@ -103,6 +107,8 @@ class Router {
     public function dispatch() {
         $controller_name = $this->getClassName();
         $action_name = $this->method;
+        /*echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
+        var_dump($controller_name, $action_name);*/
         try { // TODO : try and refactor current code to not be that messy (maybe something close to commented part at the bottom)
             if(class_exists($controller_name)) {
                 $controller = new $controller_name(); // main controller object // new $controller_name($this->registry);
@@ -120,10 +126,10 @@ class Router {
                                 return $controller->$action_name();
                             }
                         } else {
-                            throw new Exception('Class method does not exists'); // throw exception
+                            throw new Exception('Class method does not exists:1'); // throw exception
                         }
                     } else {
-                        throw new Exception('Class method does not exists'); // throw exception
+                        throw new Exception('Class method does not exists:2'); // throw exception
                     }
                 }
             } else {
@@ -138,13 +144,13 @@ class Router {
                             return $controller->$action_name();
                         }
                     } else {
-                        throw new Exception('Class method does not exists'); // throw exception
+                        throw new Exception('Class method does not exists:3'); // throw exception
                     }
                 } else {
-                    throw new Exception('Class method does not exists'); // throw exception
+                    throw new Exception('Class method does not exists:4'); // throw exception
                 }
             }
-            throw new Exception('Class method does not exists'); // throw exception
+            throw new Exception('Class method does not exists:5'); // throw exception
 
             /*if(!class_exists($controller_name)) {
                 $this->arguments = implode(array_splice($this->elements, -1, 1));
@@ -162,6 +168,8 @@ class Router {
 
 
         } catch (Exception $e) {
+            /*var_dump($this->elements, $this->controller, $this->controller_path, $this->getClassName(), $this->arguments, $e->getMessage());
+            die();*/
             echo 'Caught exception: ',  $e->getMessage(), "\n"; // echo the exception. TODO : update that to be logged and not displayed
             //$this->load('ControllerErrorNot_found');
         }
