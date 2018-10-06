@@ -119,55 +119,104 @@
   font-family: 'Century Gothic', sans-serif; }
 
 /* END font family*/
-/* BEGIN color */
+/* BEGIN colours */
 .c-000 {
-  color: #000000; }
+  color: #000; }
 
 .c-111 {
-  color: #111111; }
+  color: #111; }
 
 .c-222 {
-  color: #222222; }
+  color: #222; }
 
 .c-333 {
-  color: #333333; }
+  color: #333; }
 
 .c-444 {
-  color: #444444; }
+  color: #444; }
 
 .c-555 {
-  color: #555555; }
+  color: #555; }
 
 .c-666 {
-  color: #666666; }
+  color: #666; }
 
 .c-777 {
-  color: #777777; }
+  color: #777; }
 
 .c-888 {
-  color: #888888; }
+  color: #888; }
 
 .c-999 {
-  color: #999999; }
+  color: #999; }
 
 .c-aaa {
-  color: #aaaaaa; }
+  color: #aaa; }
 
 .c-bbb {
-  color: #bbbbbb; }
+  color: #bbb; }
 
 .c-ccc {
-  color: #cccccc; }
+  color: #ccc; }
 
 .c-ddd {
-  color: #dddddd; }
+  color: #ddd; }
 
 .c-eee {
-  color: #eeeeee; }
+  color: #eee; }
 
 .c-fff {
-  color: #ffffff; }
+  color: #fff; }
 
+.bc-000 {
+  background-color: #000; }
+
+.bc-111 {
+  background-color: #111; }
+
+.bc-222 {
+  background-color: #222; }
+
+.bc-333 {
+  background-color: #333; }
+
+.bc-444 {
+  background-color: #444; }
+
+.bc-555 {
+  background-color: #555; }
+
+.bc-666 {
+  background-color: #666; }
+
+.bc-777 {
+  background-color: #777; }
+
+.bc-888 {
+  background-color: #888; }
+
+.bc-999 {
+  background-color: #999; }
+
+.bc-aaa {
+  background-color: #aaa; }
+
+.bc-bbb {
+  background-color: #bbb; }
+
+.bc-ccc {
+  background-color: #ccc; }
+
+.bc-ddd {
+  background-color: #ddd; }
+
+.bc-eee {
+  background-color: #eee; }
+
+.bc-fff {
+  background-color: #fff; }
+
+/* END colours */
 /* BTN colors */
 /* btn-main */
 .btn-main {
@@ -254,5 +303,6 @@ fieldset[disabled] .btn-sec.active {
   background-color: #69E000; }
 
 /* btn-sec */
+/* BTN colors */
 
 /*# sourceMappingURL=styles-extended.css.map */

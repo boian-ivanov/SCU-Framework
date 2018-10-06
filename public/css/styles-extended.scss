@@ -22,63 +22,21 @@
 }
 /* END font family*/
 
-/* BEGIN color */
-.c-000 {
-	color: #000000;
+/* BEGIN colours */
+$colors: "000", "111", "222", "333", "444", "555", "666", "777", "888", "999", "aaa", "bbb", "ccc", "ddd", "eee", "fff";
+@each $color in $colors {
+	.c-#{$color} {
+		color: unquote("#" + $color);
+	}
 }
-.c-111 {
-	color: #111111;
+@each $color in $colors {
+	.bc-#{$color} {
+		background-color: unquote("#" + $color);
+	}
 }
-.c-222 {
-	color: #222222;
-}
-.c-333 {
-	color: #333333;
-}
-.c-444 {
-	color: #444444;
-}
-.c-555 {
-	color: #555555;
-}
-.c-666 {
-	color: #666666;
-}
-.c-777 {
-	color: #777777;
-}
-.c-888 {
-	color: #888888;
-}
-.c-999 {
-	color: #999999;
-}
-.c-aaa {
-	color: #aaaaaa;
-}
-.c-bbb {
-	color: #bbbbbb;
-}
-.c-ccc {
-	color: #cccccc;
-}
-.c-ddd {
-	color: #dddddd;
-}
-.c-eee {
-	color: #eeeeee;
-}
-.c-fff {
-	color: #ffffff;
-}
-
-
-
-
-
+/* END colours */
 
 /* BTN colors */
-
 /* btn-main */
 .btn-main {
 	color: #FFFFFF;
@@ -173,3 +131,4 @@ fieldset[disabled] .btn-sec.active {
 	background-color: #69E000;
 }
 /* btn-sec */
+/* BTN colors */
