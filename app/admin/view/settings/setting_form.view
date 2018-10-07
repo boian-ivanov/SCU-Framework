@@ -1,0 +1,57 @@
+<?php echo $header; ?>
+    <h2 class="pb-3"><?php echo $title; ?></h2>
+    <form method="post" action="<?php echo $form_post_link; ?>" enctype="multipart/form-data">
+        <?= $setting_data; ?>
+        <!--<div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="name"
+                       placeholder="Enter name" value="<?php /*echo $setting_data['name'] ?? ''; */?>">
+                <small id="nameHelp" class="form-text text-muted">Name of setting</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="description" class="col-sm-2 col-form-label">Key name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="description" name="short_description"
+                       aria-describedby="description" placeholder="Enter short description"
+                       value="<?php /*echo $setting_data['key'] ?? ''; */?>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="active" class="col-sm-2 col-form-label">Displayed</label>
+            <div class="col-sm-10">
+                <input type="checkbox" id="active" name="active" <?php /*if(isset($setting_data['displayed']) && $setting_data['displayed']) echo 'checked'; */?>>
+            </div>
+        </div>
+        <?php /*/*
+        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
+        var_dump($setting_data['data']);
+        die();*/?>
+        <?php /*foreach ($setting_data['data'] as $key => $datum) { */?>
+            <?php /*if(is_array($datum)) { */?>
+                <fieldset>
+                <legend><?/*= $key; */?></legend>
+                <?php /*foreach ($datum as $name => $value) { */?>
+                    <div class="form-group row">
+                        <label for="description" class="col-sm-2 col-form-label"><?/*= $name; */?></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="data[<?/*= $key; */?>][<?/*= $name; */?>]"
+                                   value="<?php /*echo $value ?? ''; */?>">
+                        </div>
+                    </div>
+                <?php /*} */?>
+                </fieldset>
+            <?php /*} else { */?>
+                <div class="form-group row">
+                    <label for="description" class="col-sm-2 col-form-label"><?/*= $key; */?></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="data[<?/*= $key; */?>]"
+                               value="<?php /*echo $datum ?? ''; */?>">
+                    </div>
+                </div>
+            <?php /*} */?>
+        --><?php /*} */?>
+        <button type="submit" class="btn btn-main">Submit</button>
+    </form>
+<?php echo $footer; ?>

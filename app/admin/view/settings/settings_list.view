@@ -18,7 +18,7 @@
     <?php } ?>
 <?php } ?>
     <div class="row py-2">
-        <div class="col mr-auto fs-35">Team members</div>
+        <div class="col mr-auto fs-35">Global Settings</div>
         <div class="col-auto">
             <a href="<?php echo $add_link; ?>">
                 <button type="button" class="btn btn-main">

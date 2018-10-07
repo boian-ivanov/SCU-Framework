@@ -100,9 +100,6 @@ class ControllerSettingsTeam extends Controller {
         if(isset($this->request->get['id'])) {
             $model = $this->load->model('settings/team');
             if($this->request->files['profileImage']['name'] != '') { // image file update
-                echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
-                var_dump(ini_get("upload_max_filesize"),$this->upload($this->request->files['profileImage']));
-                die();
                 $this->upload($this->request->files['profileImage']);
                 if($this->upload->uploaded && !$this->upload->error){
                     $this->upload->file_new_name_body = md5(date('now'));
