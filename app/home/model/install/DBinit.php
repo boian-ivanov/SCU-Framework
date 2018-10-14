@@ -37,6 +37,14 @@ class ModelInstallDbinit extends Model {
             'name' => 'TEXT NOT NULL',
             'data' => 'JSON NOT NULL',
             'displayed' => 'TINYINT NOT NULL DEFAULT \'0\''
+        ],
+        'messages' => [
+            'message_id' => 'INT NOT NULL',
+            'name' => 'VARCHAR(20) NOT NULL',
+            'email' => 'VARCHAR(100) NOT NULL',
+            'telephone' => 'INT(15) NOT NULL',
+            'message' => 'TEXT NOT NULL',
+            'office' => 'INT(2) NOT NULL'
         ]
     ];
 

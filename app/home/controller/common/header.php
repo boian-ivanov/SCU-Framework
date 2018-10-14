@@ -30,7 +30,8 @@ class ControllerCommonHeader extends Controller {
             '/node_modules/moment/moment.js',
             $this->url->root . '/public/js/jquery.bcSwipe.min.js',
             $this->url->root . '/public/js/main.js',
-            $this->url->root . '/public/js/slick.min.js'
+            $this->url->root . '/public/js/slick.min.js',
+            'https://www.google.com/recaptcha/api.js?render='.RECAPTCHA['site_key']
 //            $this->url->root . '/public/js/speed.js'
         ];
 

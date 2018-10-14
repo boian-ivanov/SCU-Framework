@@ -1,11 +1,11 @@
 <div class="col-12 mt-4">
-    <form action="/" id="contact_form" class="contact-form" method="POST" novalidate>
+    <form action="/send/new/mail" id="contact_form" class="contact-form" method="POST"> <!--novalidate-->
         <div class="row mb-md-3">
             <div class="col-12 col-md-6 my-2">
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <label class="check-container checked">Бул. Стефан Стамболов 73
-                            <input type="radio" name="radio" value="1" checked>
+                            <input type="radio" name="office" value="1" checked>
                             <span class="radiobtn"></span>
                         </label>
                     </div>
@@ -15,7 +15,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <label class="check-container">Меден Рудник, блок 185 , вход поликлиника , кабинет 3
-                            <input type="radio" name="radio" value="2">
+                            <input type="radio" name="office" value="2">
                             <span class="radiobtn"></span>
                         </label>
                     </div>
@@ -29,7 +29,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Name" aria-label="Name" required>
+                        <input type="text" class="form-control" placeholder="Name" name="name" aria-label="Name" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -37,7 +37,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                         </div>
-                        <input type="email" class="form-control" placeholder="E-mail" aria-label="E-mail" required>
+                        <input type="email" class="form-control" placeholder="E-mail" name="email" aria-label="E-mail" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -45,7 +45,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-phone"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Telephone" aria-label="Telephone" required>
+                        <input type="text" class="form-control" placeholder="Telephone" name="telephone" aria-label="Telephone" required>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-pencil"></i></span>
                         </div>
-                        <textarea class="form-control" placeholder="Message" name="" id="" cols="30"
+                        <textarea class="form-control" placeholder="Message" name="message" id="" cols="30"
                                   rows="10"></textarea>
                     </div>
                 </div>
