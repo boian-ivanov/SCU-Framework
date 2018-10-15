@@ -2,7 +2,7 @@
 
 class Form {
     private $data = array();
-    private $form_data = array();
+    private $form_data = '';
 
     public function loadData($data = array()) {
         if(!empty($data))
@@ -12,50 +12,60 @@ class Form {
     public function getForm() {
         if(empty($this->data)) return false;
 
-        $this->generateFormFromData();
+        $this->generateFormFromJson($this->data);
 
-        return implode('',$this->form_data);
-    }
-
-    private function generateFormFromData() {
-//        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
-        /*foreach ($this->data as $key => $value) {
-            if(!is_array($value)) {
-                $this->textInputRow($key, $value);
-            } else {
-                echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
-                var_dump($value);
-                die();
-            }
-        }*/
-        /*array_walk($this->data, function ($value, $key) {
-            if(is_array($value)) {
-                echo '->';
-                foreach ($value as $k => $v) {
-                    var_dump($k, $v);
-                    //echo $k . " => " . $v . PHP_EOL;
-                }
-            } else {
-                echo $key . " => " . $value . PHP_EOL;
-            }
-        });
-        var_dump($this->data);
-        die();*/
+        return $this->form_data;
     }
 
     private function generateFormFromJson ($input) {
-        $input = json_decode($input); // in case it's directly in json format
+        if(!is_array($input)) // in case it's directly in json format
+            $input = json_decode($input);
 
-
+        $this->listArrayRecursive($input);
     }
 
-    private function textInputRow ($key, $value) {
+    private function listArrayRecursive($someArray) {
+        $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($someArray), RecursiveIteratorIterator::SELF_FIRST);
+        $this->startFieldset('');
+        foreach ($iterator as $k => $v) {
+            $indent = str_repeat('&nbsp;', 2 * $iterator->getDepth());
+            // Not at end: show key only
+            /*if(!$iterator->hasNext())
+                $this->closeFieldset();*/
+
+            if ($iterator->hasChildren()) {
+                $this->closeFieldset();
+                $this->startFieldset($k);
+                //echo "$indent$k :<br>";
+                // At end: show key, value and path
+            } else {
+                for ($p = array(), $i = 0, $z = $iterator->getDepth(); $i <= $z; $i++) {
+                    $p[] = $iterator->getSubIterator($i)->key();
+                }
+                $path = '['.implode('][', $p).']';
+                $this->textInputRow($k, $path, $v);
+//                echo "$indent$k : $v : path -> $path<br>";
+            }
+        }
+    }
+
+    private function textInputRow ($key, $path, $value) {
         $form  = "<div class='form-group row'>";
-        $form .=    "<label for='name' class='col-sm-2 col-form-label'>$key</label>";
+        $form .=    "<label for='name' class='col-sm-2 col-form-label'>".ucfirst($key)."</label>";
         $form .=    "<div class='col-sm-10'>";
-        $form .=        "<input type='text' class='form-control' name='$key' value='$value'/>";
+        $form .=        "<input type='text' class='form-control' name='data$path' value='$value'/>";
         $form .=    "</div>";
         $form .= "</div>";
-        $this->form_data[] = $form;
+        $this->form_data .= $form;
+    }
+
+    private function startFieldset($key) {
+        $form  = "<fieldset>";
+        $form .=    "<legend>".ucfirst($key)."</legend>";
+        $this->form_data .= $form;
+    }
+
+    private function closeFieldset() {
+        $this->form_data .= "</fieldset>";
     }
 }

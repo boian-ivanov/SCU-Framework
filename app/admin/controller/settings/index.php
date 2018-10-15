@@ -96,8 +96,8 @@ class ControllerSettingsIndex extends Controller {
 
         if(!$data['setting_data']) $this->redirect($this->url->admin . "/settings/index/index");
 
-        $this->form->loadData($data['setting_data']);
-        $data['setting_data'] = $this->form->getForm();
+        $this->form->loadData($data['setting_data']['data']);
+        $data['setting_data']['data'] = $this->form->getForm();
 
         $data['form_post_link'] = $this->url->admin . "/settings/index/edit/" . $id;
 
