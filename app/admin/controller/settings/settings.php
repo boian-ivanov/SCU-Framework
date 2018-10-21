@@ -27,12 +27,12 @@ class ControllerSettingsSettings extends Controller {
 
             $model = $this->load->model('settings/settings');
 
-            $data['setting_data'] = $model->getSettingData();
+            $data['setting_data'] = $model->getSettingData('general_settings'); // add settings key
 
-            $this->form->loadData($data['setting_data']['data']);
-            $data['setting_data']['data'] = $this->form->getForm();
+            /*$this->form->loadData($data['setting_data']['data']);
+            $data['setting_data']['data'] = $this->form->getForm();*/
 
-            $data['form_post_link'] = $this->url->admin . "/settings/settings/edit/" . $id;
+            $data['form_post_link'] = $this->url->admin . "/settings/settings/edit";
 
             $data['title'] = "Edit setting";
             return $this->load->view('settings/setting_form', $data);

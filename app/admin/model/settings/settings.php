@@ -6,13 +6,12 @@ class ModelSettingsSettings extends Model {
         return $this->db->query("SELECT * FROM `".DB_PREFIX."settings` WHERE `displayed` = 1 LIMIT $limit")->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getSettingData() {
-        $key = 'general_settings';
-        $stmt = $this->db->prepare("SELECT * FROM `" . DB_PREFIX . "settings` WHERE `key` = :key");
+    public function getSettingData($key) {
+        $stmt = $this->db->prepare("SELECT `data` FROM `" . DB_PREFIX . "settings` WHERE `key` = :key");
         $stmt->execute(['key' => $key]);
         $return = $stmt->fetch(PDO::FETCH_ASSOC);
         if(empty($return)) return false;
         $return['data'] = json_decode($return['data'], true);
-        return $return;
+        return $return['data'];
     }
 }
