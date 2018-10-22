@@ -120,7 +120,7 @@ body {
     width: 35px;
     height: 35px;
     background-size: 35px;
-    background-image: url("/public/images/logo.png");
+    background-image: url("/public/images/logo.svg");
     background-repeat: no-repeat;
     display: inline-block;
 }
