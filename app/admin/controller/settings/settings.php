@@ -8,12 +8,11 @@ class ControllerSettingsSettings extends Controller {
 
     public function edit() {
         $messages = array();
-        if(isset($this->request->get['id'])) {
-            $model = $this->load->model('settings/index');
-            if(!empty($this->request->post)) {
-                if($model->updateMemberData($this->request->get['id'], $this->validate($this->request->post))){
-                    $messages['success'][] = "Member data has been updated.";
-                }
+
+        $model = $this->load->model('settings/settings');
+        if(!empty($this->request->post)) {
+            if($model->updateSettings('general_settings', $this->validate($this->request->post['data']))) {
+                $messages['success'][] = "Settings have been updated.";
             }
         }
 
@@ -29,9 +28,6 @@ class ControllerSettingsSettings extends Controller {
 
             $data['setting_data'] = $model->getSettingData('general_settings'); // add settings key
 
-            /*$this->form->loadData($data['setting_data']['data']);
-            $data['setting_data']['data'] = $this->form->getForm();*/
-
             $data['form_post_link'] = $this->url->admin . "/settings/settings/edit";
 
             $data['title'] = "Edit setting";
@@ -39,5 +35,10 @@ class ControllerSettingsSettings extends Controller {
         } else {
             $this->redirect('/admin');
         }
+    }
+
+    private function validate($data) {
+        // TODO : secure that data is what is expected, remove unexpected ones and remove empty data
+        return $data;
     }
 }

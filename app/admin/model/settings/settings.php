@@ -2,16 +2,46 @@
 
 class ModelSettingsSettings extends Model {
 
-    public function getSettings($limit = 10) {
-        return $this->db->query("SELECT * FROM `".DB_PREFIX."settings` WHERE `displayed` = 1 LIMIT $limit")->fetchAll(PDO::FETCH_ASSOC);
+    public function getSettingData($code) {
+        $stmt = $this->db->prepare("SELECT `key`, `data` FROM `" . DB_PREFIX . "settings` WHERE `code` = :code");
+        $stmt->execute(['code' => $code]);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $return[$row['key']] = json_decode($row['data'], true);
+        }
+        return isset($return) ? $return : false;
     }
 
-    public function getSettingData($key) {
-        $stmt = $this->db->prepare("SELECT `data` FROM `" . DB_PREFIX . "settings` WHERE `key` = :key");
-        $stmt->execute(['key' => $key]);
-        $return = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(empty($return)) return false;
-        $return['data'] = json_decode($return['data'], true);
-        return $return['data'];
+    public function updateSettings($code, $data) {
+        $insert_stmt = $this->db->prepare(
+            "INSERT INTO `" . DB_PREFIX . "settings` " .
+            "SET `key` = :key, `data` = :data, `code` = :code;"
+        );
+        $update_stmt = $this->db->prepare(
+            "UPDATE `" . DB_PREFIX . "settings` ".
+            "SET `data` = :data " .
+            "WHERE `code` = :code AND `key` = :key;"
+        );
+        foreach ($data as $key => $value) {
+            $params = array(
+                'code' => $code,
+                'key' => $key,
+                'data' => json_encode($value)
+            );
+            if($this->getSettingExists($code, $key))
+                $update_stmt->execute($params);
+            else
+                $insert_stmt->execute($params);
+        }
+        return true;
+    }
+
+    public function getSettingExists($code, $key) {
+        $stmt = $this->db->prepare("SELECT COUNT(*) count FROM `" . DB_PREFIX . "settings` WHERE `code` = :code AND `key` = :key");
+        $stmt->execute([
+            'code' => $code,
+            'key' => $key
+        ]);
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $res['count'] > 0;
     }
 }

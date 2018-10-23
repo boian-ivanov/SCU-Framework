@@ -33,8 +33,8 @@ class ModelInstallDbinit extends Model {
         ],
         'settings' => [
             'settings_id' => 'INT NOT NULL',
+            'code' => 'VARCHAR(50) NOT NULL',
             'key' => 'VARCHAR(50) NOT NULL',
-            'name' => 'TEXT NOT NULL',
             'data' => 'TEXT NOT NULL',
             'displayed' => 'TINYINT NOT NULL DEFAULT \'0\''
         ],
