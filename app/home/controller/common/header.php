@@ -13,9 +13,9 @@ class ControllerCommonHeader extends Controller {
         $links = [
             '/node_modules/bootstrap/dist/css/bootstrap.min.css',
             '/node_modules/font-awesome/css/font-awesome.min.css',
-            'http://fonts.googleapis.com/css?family=Roboto:400,700',
-            'http://fonts.googleapis.com/css?family=Open+Sans',
-            'https://fonts.googleapis.com/css?family=Lobster|Oswald|Raleway|PT+Sans&subset=latin,cyrillic',
+            '//fonts.googleapis.com/css?family=Roboto:400,700',
+            '//fonts.googleapis.com/css?family=Open+Sans',
+            '//fonts.googleapis.com/css?family=Lobster|Oswald|Raleway|PT+Sans&subset=latin,cyrillic',
             $this->url->root . '/public/css/master.css',
             $this->url->root . '/public/css/styles-extended.css',
             $this->url->root . '/public/css/media-queries.css',
@@ -31,8 +31,7 @@ class ControllerCommonHeader extends Controller {
             $this->url->root . '/public/js/jquery.bcSwipe.min.js',
             $this->url->root . '/public/js/main.js',
             $this->url->root . '/public/js/slick.min.js',
-            'https://www.google.com/recaptcha/api.js?render='.RECAPTCHA['site_key']
-//            $this->url->root . '/public/js/speed.js'
+            '//www.google.com/recaptcha/api.js?render='.RECAPTCHA['site_key']
         ];
 
         $data['links'] = $this->head->addLinks($links);
