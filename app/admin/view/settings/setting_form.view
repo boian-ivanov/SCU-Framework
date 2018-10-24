@@ -13,26 +13,41 @@
             <legend>Cards Data - Card 1</legend>
                 <div class="form-group row">
                     <label for="description" class="col-sm-2 col-form-label">Description - Line 1</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="data[card1][line1]"
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="data[card1][line1][left]"
                                aria-describedby="description" placeholder="Enter short description"
-                               value="<?php echo $setting_data['card1']['line1'] ?? ''; ?>">
+                               value="<?php echo $setting_data['card1']['line1']['left'] ?? ''; ?>">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="data[card1][line1][right]"
+                               aria-describedby="description" placeholder="Enter short description"
+                               value="<?php echo $setting_data['card1']['line1']['right'] ?? ''; ?>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="description" class="col-sm-2 col-form-label">Description - Line 2</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="data[card1][line2]"
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="data[card1][line2][left]"
                                aria-describedby="description" placeholder="Enter short description"
-                               value="<?php echo $setting_data['card1']['line2'] ?? ''; ?>">
+                               value="<?php echo $setting_data['card1']['line2']['left'] ?? ''; ?>">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="data[card1][line2][right]"
+                               aria-describedby="description" placeholder="Enter short description"
+                               value="<?php echo $setting_data['card1']['line2']['right'] ?? ''; ?>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="description" class="col-sm-2 col-form-label">Description - Line 3</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="data[card1][line3]"
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="data[card1][line3][left]"
                                aria-describedby="description" placeholder="Enter short description"
-                               value="<?php echo $setting_data['card1']['line3'] ?? ''; ?>">
+                               value="<?php echo $setting_data['card1']['line3']['left'] ?? ''; ?>">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="data[card1][line3][right]"
+                               aria-describedby="description" placeholder="Enter short description"
+                               value="<?php echo $setting_data['card1']['line3']['right'] ?? ''; ?>">
                     </div>
                 </div>
         </fieldset>
@@ -41,17 +56,59 @@
                 <div class="form-group row">
                     <label for="description" class="col-sm-2 col-form-label">Card 2 - Text</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" name="data[card2][description]"
-                               aria-describedby="description" placeholder="Enter short description">
-                            <?php echo $setting_data['card2']['description'] ?? ''; ?>
-                        </textarea>
+                        <textarea class="form-control"
+                                  name="data[card2][description]"
+                                  aria-describedby="description"
+                            ><?php echo $setting_data['card2']['description'] ?? ''; ?></textarea>
                     </div>
                 </div>
         </fieldset>
-        <div class="form-group row">
+        <fieldset>
+            <legend>Cards Data - Card 3</legend>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description - Line 3</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="data[card3][line1][left]"
+                           aria-describedby="description" placeholder="Enter short description"
+                           value="<?php echo $setting_data['card3']['line1']['left'] ?? ''; ?>">
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="data[card3][line1][right]"
+                           aria-describedby="description" placeholder="Enter short description"
+                           value="<?php echo $setting_data['card3']['line1']['right'] ?? ''; ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description - Line 2</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="data[card3][line2][left]"
+                           aria-describedby="description" placeholder="Enter short description"
+                           value="<?php echo $setting_data['card3']['line2']['left'] ?? ''; ?>">
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="data[card3][line2][right]"
+                           aria-describedby="description" placeholder="Enter short description"
+                           value="<?php echo $setting_data['card3']['line2']['right'] ?? ''; ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description - Line 3</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="data[card3][line3][left]"
+                           aria-describedby="description" placeholder="Enter short description"
+                           value="<?php echo $setting_data['card3']['line3']['left'] ?? ''; ?>">
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="data[card3][line3][right]"
+                           aria-describedby="description" placeholder="Enter short description"
+                           value="<?php echo $setting_data['card3']['line3']['right'] ?? ''; ?>">
+                </div>
+            </div>
+        </fieldset>
+        <!--<div class="form-group row">
             <label for="active" class="col-sm-2 col-form-label">Displayed</label>
             <div class="col-sm-10">
-                <input type="checkbox" id="active" name="active"<?php if(isset($setting_data['displayed']) && $setting_data['displayed']) echo 'checked'; ?>>
+                <input type="checkbox" id="active" name="active"<?php /*if(isset($setting_data['displayed']) && $setting_data['displayed']) echo 'checked'; */?>>
             </div>
         </div>
         <div class="form-group row">
@@ -62,12 +119,12 @@
                     <label class="custom-file-label" for="profileImage">Choose file...</label>
                 </div>
             </div>
-            <?php if (isset($member_data['image']) && ($member_data['image'] != null || $member_data['image'] != '')) { ?>
+            <?php /*if (isset($member_data['image']) && ($member_data['image'] != null || $member_data['image'] != '')) { */?>
                 <div class="col-sm-2">
-                    <img class="img-thumbnail" src="<?= $image_path . $member_data['image'] ?>" alt="">
+                    <img class="img-thumbnail" src="<?/*= $image_path . $member_data['image'] */?>" alt="">
                 </div>
-            <?php } ?>
-        </div>
+            <?php /*} */?>
+        </div>-->
 
         <button type="submit" class="btn btn-main">Submit</button>
     </form>

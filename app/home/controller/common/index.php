@@ -45,8 +45,11 @@ class ControllerCommonIndex extends Controller{
     }
 
     private function cards() {
+        $model = $this->load->model('settings/settings');
 
-        return $this->load->view('common/addons/cards');
+        $data = $model->getSettingData('general_settings', ['card1', 'card2', 'card3']);
+
+        return $this->load->view('common/addons/cards', $data);
     }
 
     private function slider() {

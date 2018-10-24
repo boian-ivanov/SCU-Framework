@@ -3,16 +3,16 @@
         <div class="col inside-card mx-2 py-2 c-fff century-gothic p-0 p-sm-2" style="background-color: #82E42C;">
             <div class="card-title">График на зъболекар</div>
             <div class="row border-bottom py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto">Понеделник - Петък</div>
-                <div class="col-auto"> 9:00 - 18:00</div>
+                <div class="col-auto mr-auto"><?php echo $card1['line1']['left']; ?></div>
+                <div class="col-auto"><?php echo $card1['line1']['right']; ?></div>
             </div>
             <div class="row border-bottom py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto">Понеделник - Петък</div>
-                <div class="col-auto"> 9:00 - 18:00</div>
+                <div class="col-auto mr-auto"><?php echo $card1['line2']['left']; ?></div>
+                <div class="col-auto"><?php echo $card1['line2']['right']; ?></div>
             </div>
             <div class="row py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto">Понеделник - Петък</div>
-                <div class="col-auto"> 9:00 - 18:00</div>
+                <div class="col-auto mr-auto"><?php echo $card1['line3']['left']; ?></div>
+                <div class="col-auto"><?php echo $card1['line3']['right']; ?></div>
             </div>
         </div>
     </div>
@@ -22,15 +22,11 @@
         <div class="col inside-card mx-2 py-2 c-fff" style="background-color: #69E000;">
             <div class="card-title">Преглед при нас</div>
             <div class="f-18 my-4 px-2">
-                Заповядайте в приветливата и модерна обстановка на нашите кабинети,
-                в която ще получите качествен преглед, разбираема информация за състоянието на
-                вашата усмивка и заедно ще стигнем до отличното и безболезнено  лечение, което очаквате.
-                за нас важните сте вие !
+                <?php echo $card2['description']; ?>
             </div>
-            <!--<div class="py-3 px-2">
-                Запазете час <a href="#contact">тук</a>!
-            </div>-->
-            <div class="ml-2 mt-3 btn btn-main">Запазете час</div>
+            <a href="#contact" class="ml-2 mt-3 btn btn-main">
+                Запазете час
+            </a>
         </div>
     </div>
 </div>
@@ -39,16 +35,16 @@
         <div class="col inside-card mx-2 py-2 c-fff" style="background-color: #56B800;">
             <div class="card-title">Телефон за връзка</div>
             <div class="row border-bottom py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto">Служебен</div>
-                <div class="col-auto">087 713 3257</div>
+                <div class="col-auto mr-auto"><?php echo $card3['line1']['left']; ?></div>
+                <div class="col-auto"><?php echo $card3['line1']['right']; ?></div>
             </div>
             <div class="row border-bottom py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto">Д-р Р. Градинаров</div>
-                <div class="col-auto">088 914 6226</div>
+                <div class="col-auto mr-auto"><?php echo $card3['line2']['left']; ?></div>
+                <div class="col-auto"><?php echo $card3['line2']['right']; ?></div>
             </div>
             <div class="row py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto">Д-р Ив. Ангелов</div>
-                <div class="col-auto">088 334 8048</div>
+                <div class="col-auto mr-auto"><?php echo $card3['line3']['left']; ?></div>
+                <div class="col-auto"><?php echo $card3['line3']['right']; ?></div>
             </div>
         </div>
     </div>
