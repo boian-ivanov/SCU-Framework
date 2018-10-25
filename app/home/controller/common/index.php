@@ -25,8 +25,9 @@ class ControllerCommonIndex extends Controller{
         /*$model = $this->load->model('common/index');
         $model->index();*/
 //        $this->registry->set('foo', 'bar');
+        $data['heading'] = 'Easy Dent';
 
-        $data['header'] = $this->load->controller('common/header/index');
+        $data['header'] = $this->load->controller('common/header/index', $data);
 
         $data['slider'] = $this->slider();
         $data['actions'] = $this->actions();

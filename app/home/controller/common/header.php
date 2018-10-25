@@ -9,7 +9,7 @@ class ControllerCommonHeader extends Controller {
     }*/
     /* https://realfavicongenerator.net/favicon_result?file_id=p1cfslp8chvhjtbk1t29jak18f97#.WyEjR0gvy71 */
 
-    public function index() {
+    public function index($data = array()) {
         $links = [
             '/node_modules/bootstrap/dist/css/bootstrap.min.css',
             '/node_modules/font-awesome/css/font-awesome.min.css',
