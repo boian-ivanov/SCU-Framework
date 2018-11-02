@@ -79,7 +79,7 @@ class ControllerCommonIndex extends Controller{
     }
 
     private function testimonials() {
-        $data['heading'] = 'Testimonials';
+        $data['heading'] = 'Доволни клиенти';
 
         $i = 0;
         while($i++ < 5) {

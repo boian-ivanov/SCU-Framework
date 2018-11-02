@@ -42,7 +42,7 @@ class ModelInstallDbinit extends Model {
             'message_id' => 'INT NOT NULL',
             'name' => 'VARCHAR(20) NOT NULL',
             'email' => 'VARCHAR(100) NOT NULL',
-            'telephone' => 'INT(15) NOT NULL',
+            'telephone' => 'BIGINT(20) NOT NULL',
             'message' => 'TEXT NOT NULL',
             'office' => 'INT(2) NOT NULL'
         ]

@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="submit" class="form-control btn-sec py-3">
+            <input type="submit" class="form-control btn btn-sec py-3" style="height: 55px;">
         </div>
     </form>
     <script>
