@@ -1,6 +1,6 @@
 <?php
 
-class ControllerCalendarIndex extends Controller {
+class ControllerCommonCalendar extends Controller {
 
     public function index() {
         if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {

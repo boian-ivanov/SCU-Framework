@@ -77,18 +77,6 @@ class ModelCommonIndex extends Model {
                 'icon' => 'fa-calendar'
             ],
             [
-                'name' => 'Radoslava',
-                'link' => '/radi',
-                'icon' => 'fa-paw',
-                'submenu' => [
-                    [
-                        'name' => 'Radi',
-                        'link' => '/radi',
-                        'icon' => 'fa-paw'
-                    ]
-                ]
-            ],
-            [
                 'name' => 'Users',
                 'icon' => 'fa-address-card',
                 'submenu' => [

@@ -45,6 +45,13 @@ class ModelInstallDbinit extends Model {
             'telephone' => 'BIGINT(20) NOT NULL',
             'message' => 'TEXT NOT NULL',
             'office' => 'INT(2) NOT NULL'
+        ],
+        'testimonials' => [
+            'testimonial_id' => 'INT NOT NULL',
+            'heading' => 'TEXT NOT NULL',
+            'text' => 'TEXT NOT NULL',
+            'active' => "INT(1) NOT NULL DEFAULT '0'",
+            'image' => 'TEXT NOT NULL'
         ]
     ];
 

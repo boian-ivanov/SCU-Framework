@@ -27,7 +27,6 @@ class ControllerCommonHeader extends Controller {
             '/node_modules/jquery/dist/jquery.min.js',
             '/node_modules/popper.js/dist/umd/popper.min.js',
             '/node_modules/bootstrap/dist/js/bootstrap.min.js',
-            '/node_modules/moment/moment.js',
             $this->url->root . '/public/js/jquery.bcSwipe.min.js',
             $this->url->root . '/public/js/main.js',
             $this->url->root . '/public/js/slick.min.js',
@@ -40,9 +39,8 @@ class ControllerCommonHeader extends Controller {
         $nav['nav'] = [
             'Начало' => $this->url->root,
             'Екипа ни' => '/team',
-//            'Prices' => '',
-//            'About Us' => '',
-            'Контакти' => '/contact'
+            'Контакти' => '/contact',
+            'Запазете час' => '#contact'
         ];
 
         $data['top_wrapper'] = $this->load->view('common/top_wrapper', $nav);
