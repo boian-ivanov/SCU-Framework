@@ -9,7 +9,7 @@ class ControllerCommonHeader extends Controller {
     }*/
     /* https://realfavicongenerator.net/favicon_result?file_id=p1cfslp8chvhjtbk1t29jak18f97#.WyEjR0gvy71 */
 
-    public function index() {
+    public function index($data = array()) {
         $links = [
             '/node_modules/bootstrap/dist/css/bootstrap.min.css',
             '/node_modules/font-awesome/css/font-awesome.min.css',
@@ -27,7 +27,6 @@ class ControllerCommonHeader extends Controller {
             '/node_modules/jquery/dist/jquery.min.js',
             '/node_modules/popper.js/dist/umd/popper.min.js',
             '/node_modules/bootstrap/dist/js/bootstrap.min.js',
-            '/node_modules/moment/moment.js',
             $this->url->root . '/public/js/jquery.bcSwipe.min.js',
             $this->url->root . '/public/js/main.js',
             $this->url->root . '/public/js/slick.min.js',
@@ -38,11 +37,10 @@ class ControllerCommonHeader extends Controller {
         $data['scripts'] = $this->head->addScripts($scripts);
 
         $nav['nav'] = [
-            'Home' => $this->url->root,
-            'Our team' => '/team',
-            'Prices' => '',
-            'About Us' => '',
-            'Contacts' => '/contact'
+            'Начало' => $this->url->root,
+            'Екипа ни' => '/team',
+            'Контакти' => '/contact',
+            'Запазете час' => '#contact'
         ];
 
         $data['top_wrapper'] = $this->load->view('common/top_wrapper', $nav);

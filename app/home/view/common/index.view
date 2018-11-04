@@ -36,14 +36,13 @@
     <div class="row justify-content-center">
         <div class="col-lg-10 col-12">
             <div class="row justify-content-center">
-                <h2 class="title">Testimonials</h2>
                 <?php echo $testimonials; ?>
             </div>
         </div>
     </div>
     <?php echo $seperator; ?>
     <div class="row justify-content-center">
-        <h2 class="title">Contact Us</h2>
+        <h2 class="title" id="contact">Contact Us</h2>
         <div class="col-md-12 col-11">
             <div class="row">
                 <?php echo $map; ?>

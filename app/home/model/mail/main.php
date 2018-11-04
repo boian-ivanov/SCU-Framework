@@ -17,8 +17,8 @@ class ModelMailMain extends Model {
     }
 
     public function sendMail($data) {
-        $from = $data['email'];
-        $to = 'deadneon4@gmail.com';
+        $from = 'mail@easydent.bg';
+        $to = $data['email'];
         $subject = 'Testing php mail';
         $message = $data['message'];
         $headers = "From:".$from;

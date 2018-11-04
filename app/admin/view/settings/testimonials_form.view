@@ -1,0 +1,46 @@
+<?php echo $header; ?>
+    <h2 class="pb-3"><?php echo $title; ?></h2>
+    <form method="post" action="<?php echo $form_post_link; ?>" enctype="multipart/form-data">
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Heading</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="heading" name="heading" aria-describedby="heading"
+                       placeholder="Enter heading" value="<?php echo $testimonial_data['heading'] ?? ''; ?>">
+<!--                <small id="nameHelp" class="form-text text-muted">Doctor's name</small>-->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="description" class="col-sm-2 col-form-label">Testimonial</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="text" name="text"
+                       aria-describedby="testimonial" placeholder="Enter user's testimonial"
+                       value="<?php echo $testimonial_data['text'] ?? ''; ?>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="active" class="col-sm-2 col-form-label">Active</label>
+            <div class="col-sm-10">
+                <input type="checkbox" id="active" name="active" <?php if(isset($testimonial_data['active']) && $testimonial_data['active']) echo 'checked'; ?>>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="profileImage" class="col-sm-2 col-form-label">Image file</label>
+            <div class="col-sm-auto">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="profileImage" name="profileImage">
+                    <label class="custom-file-label" for="profileImage">Choose file...</label>
+                </div>
+            </div>
+            <?php if (isset($member_data['image']) && ($member_data['image'] != null || $member_data['image'] != '')) { ?>
+                <div class="col-sm-2">
+                    <img class="img-thumbnail" src="<?= $image_path . $member_data['image'] ?>" alt="">
+                </div>
+            <?php } ?>
+        </div>
+        <!--<div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>-->
+        <button type="submit" class="btn btn-main">Submit</button>
+    </form>
+<?php echo $footer; ?>

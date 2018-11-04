@@ -1,3 +1,4 @@
+<h2 class="title pb-1"><?php echo $heading; ?></h2>
 <div id="testimonials" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <?php for($i = 0; $i < count($testimonials); $i++) { ?>
@@ -8,11 +9,6 @@
         <?php foreach ($testimonials as $key => $testimonial) { ?>
             <div class="carousel-item text-center p-4 <?php echo $key == 0 ? 'active' : '' ?>">
                 <div class="row">
-                    <?php /*if($key % 2 == 0) {*/?><!--
-                    <div class="col-3">
-                        <img class="img-thumbnail" src="<?/*= $testimonial['image']; */?>" alt="<?/*= $testimonial['name']; */?>">
-                    </div>
-                    --><?php /*} */?>
                     <div class="col-12">
                         <div class="justify-content-center">
                             <img style="height: 150px;" class="img-thumbnail" src="<?php echo $testimonial['image']; ?>" alt="<?php echo $testimonial['name']; ?>">
@@ -20,11 +16,6 @@
                         <div class="row justify-content-center pb-2" style="font-size: 24px;"><?php echo $testimonial['heading']; ?></div>
                         <p><?php echo $testimonial['text']; ?></p>
                     </div>
-                    <?php /*if($key % 2 == 1) {*/?><!--
-                        <div class="col-3">
-                            <img class="img-thumbnail" src="<?/*= $testimonial['image']; */?>" alt="<?/*= $testimonial['name']; */?>">
-                        </div>
-                    --><?php /*} */?>
                 </div>
             </div>
         <?php } ?>
