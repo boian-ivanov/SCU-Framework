@@ -13,9 +13,9 @@ class ControllerSendNew extends Controller {
                 $data['error'] = false; // send false response
             }
         }
-        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
+        /*echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
         var_dump($data);
-        die();
+        die();*/
         $this->redirect($this->url->root, $data);
     }
 
