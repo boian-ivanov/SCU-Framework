@@ -18,4 +18,8 @@ class ModelCommonIndex extends Model{
 //        var_dump($this->db->select('test', ['col1', 'col2', 'col3'])->where(['col1 = 1', 'col2 = 2'])->dump());
         //var_dump($this->db->query('SELECT * FROM test')->exec());
     }
+
+    public function getTestimonials() {
+        return $this->db->query("SELECT * FROM `".DB_PREFIX."testimonials` WHERE active = 1")->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

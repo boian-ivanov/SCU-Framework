@@ -27,13 +27,13 @@
             <label for="profileImage" class="col-sm-2 col-form-label">Image file</label>
             <div class="col-sm-auto">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="profileImage" name="profileImage">
-                    <label class="custom-file-label" for="profileImage">Choose file...</label>
+                    <input type="file" class="custom-file-input" id="testimonial_image" name="testimonial_image">
+                    <label class="custom-file-label" for="testimonial_image">Choose file...</label>
                 </div>
             </div>
-            <?php if (isset($member_data['image']) && ($member_data['image'] != null || $member_data['image'] != '')) { ?>
+            <?php if (isset($testimonial_data['image']) && ($testimonial_data['image'] != null || $testimonial_data['image'] != '')) { ?>
                 <div class="col-sm-2">
-                    <img class="img-thumbnail" src="<?= $image_path . $member_data['image'] ?>" alt="">
+                    <img class="img-thumbnail" src="<?= $image_path . $testimonial_data['image'] ?>" alt="">
                 </div>
             <?php } ?>
         </div>
