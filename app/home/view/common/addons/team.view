@@ -1,7 +1,7 @@
 <?php foreach ($columns as $column) { ?>
     <div class="col-xl-3 col-md-4 col-sm-6 col-12 text-center team my-2">
         <div class="row inner my-2 my-sm-0 justify-content-center h-100">
-            <div class="col-11 shadow-sm" style="background-color: #FFFFFF">
+            <a href="<?php echo sprintf($team_link, $column['member_id']); ?>" class="col-11 shadow-sm" style="color: inherit;text-decoration: none;background-color: #FFFFFF">
                 <div class="team_image row d-block">
                     <?php if($column['image'] != '' || $column['image'] != null) { ?>
                     <img class="img-fluid border-0 w-100 " src="<?php echo $image_path . $column['image']; ?>"
@@ -14,12 +14,12 @@
                 <div class="team_details row" href="<?php echo sprintf($team_link, $column['member_id']); ?>" role="button">
                     <div class="col-12 mb-auto team_details-title border-bottom fs-26 lobster pb-2 pt-3"><?php echo $column['name']; ?></div>
                     <div class="col-12 text text-center px-3 py-3 fs-14"><?php echo $column['short_description']; ?></div>
-                    <div class="col-12 team_details-btn border-top">
-                        <a class="w-100 btn" href="<?php echo sprintf($team_link, $column['member_id']); ?>" role="button">Show more
+                    <!--<div class="col-12 team_details-btn border-top">
+                        <a class="w-100 btn" href="<?php /*echo sprintf($team_link, $column['member_id']); */?>" role="button">Show more
                             »</a>
-                    </div>
+                    </div>-->
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 <?php } ?>
