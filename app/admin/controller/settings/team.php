@@ -169,7 +169,7 @@ class ControllerSettingsTeam extends Controller {
     }
 
     private function validate($data) {
-        $allowed_fields = ['name', 'short_description', 'description', 'active'];
+        $allowed_fields = ['name', 'short_description', 'description', 'url_slug', 'active'];
         $return = array();
         foreach($data as $key => $item) {
             if(in_array($key, $allowed_fields)) {

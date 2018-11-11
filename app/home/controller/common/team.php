@@ -17,10 +17,14 @@ class ControllerCommonTeam extends Controller {
         $data['image_path'] = $this->url->root . "/public/images/profile_images/";
 
         if(isset($this->request->get['member_id'])) {
-            $data['member'] = $model->getTeamMemberById($this->request->get['member_id']);
+            $data['member'] = $model->getTeamMemberBySlug($this->request->get['member_id']);
             $data['background_image'] = "http://via.placeholder.com/1280x300";//$this->url->root . '/public/images/team_member/background1.jpg';
 
-            return $this->load->view('team/team_member', $data);
+            if($data['member']) {
+                return $this->load->view('team/team_member', $data);
+            } else {
+                $this->load->controller('error/not_found/index');
+            }
         } else {
             $data['columns'] = $model->getActiveTeam();
             $data['team_link'] = $this->url->root . '/team/%s';

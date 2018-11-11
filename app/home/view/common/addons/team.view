@@ -1,7 +1,7 @@
 <?php foreach ($columns as $column) { ?>
     <div class="col-xl-3 col-md-4 col-sm-6 col-12 text-center team my-2">
         <div class="row inner my-2 my-sm-0 justify-content-center h-100">
-            <a href="<?php echo sprintf($team_link, $column['member_id']); ?>" class="col-11 shadow-sm" style="color: inherit;text-decoration: none;background-color: #FFFFFF">
+            <a href="<?php echo sprintf($team_link, $column['url_slug']); ?>" class="col-11 shadow-sm" style="color: inherit;text-decoration: none;background-color: #FFFFFF">
                 <div class="team_image row d-block">
                     <?php if($column['image'] != '' || $column['image'] != null) { ?>
                     <img class="img-fluid border-0 w-100 " src="<?php echo $image_path . $column['image']; ?>"

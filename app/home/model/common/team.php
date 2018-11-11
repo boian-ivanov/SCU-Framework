@@ -6,6 +6,13 @@ class ModelCommonTeam extends Model {
         return $this->db->query("SELECT * FROM `".DB_PREFIX."team` WHERE `active` = 1")->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getTeamMemberBySlug($slug) {
+        $query = "SELECT * FROM `" . DB_PREFIX . "team` WHERE `url_slug` = :slug";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['slug' => $slug]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function getTeamMemberById($id) {
         $query = "SELECT * FROM `" . DB_PREFIX . "team` WHERE `member_id` = :id";
         $stmt = $this->db->prepare($query);

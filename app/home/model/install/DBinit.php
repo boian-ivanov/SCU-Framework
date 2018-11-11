@@ -22,6 +22,7 @@ class ModelInstallDbinit extends Model {
             'name' => 'VARCHAR(100) NOT NULL',
             'short_description' => 'TEXT NOT NULL',
             'description' => 'TEXT NULL',
+            'url_slug' => 'VARCHAR(100) NULL',
             'additional_data' => 'TEXT NULL',
             'active' => "INT(1) NOT NULL DEFAULT '0'",
             'image' => 'VARCHAR(256) NOT NULL'
