@@ -91,8 +91,8 @@ class ControllerSettingsTestimonials extends Controller {
                 if($this->upload->uploaded && !$this->upload->error){
                     $this->upload->file_new_name_body = md5(date('now'));
                     $this->upload->image_resize = true;
-                    $this->upload->image_ratio_crop = true;
-                    $this->upload->image_x = '250';
+                    $this->upload->image_ratio = true;
+//                    $this->upload->image_x = '250';
                     $this->upload->image_y = '250';
                     $this->upload->process(PUBLIC_PATH . 'images/testimonials/');
                     if($this->upload->processed){

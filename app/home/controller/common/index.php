@@ -80,17 +80,11 @@ class ControllerCommonIndex extends Controller{
 
     private function testimonials() {
         $data['heading'] = 'Доволни клиенти';
-
-        $i = 0;
-        while($i++ < 5) {
-            $data['testimonials'][] = [
-                'name' => 'Lorem Ipsum, Burgas',
-                'heading' => 'Eheu, teres idoleum!',
-                'text' => 'Danistas crescere! Pol, regius ausus! Vae, flavum solem! Cum barcas credere, omnes hippotoxotaes carpseris mirabilis, bi-color liberies. A falsis, candidatus emeritis vortex. Nunquam manifestum genetrix. Nunquam pugna nomen. Victrixs trabem in rugensis civitas!',
-                'image' => $this->url->root . '/public/images/testimonials/img_1.jpg'
-            ];
-
-        }
+        
+        $model = $this->load->model('common/index');
+        
+        $data['testimonials'] = $model->getTestimonials();
+        $data['image_path'] = $this->url->root . '/public/images/testimonials/';
 
         return $this->load->view('common/testimonials', $data);
     }

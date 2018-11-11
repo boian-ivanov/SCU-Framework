@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="justify-content-center">
-                            <img style="height: 150px;" class="img-thumbnail" src="<?php echo $testimonial['image']; ?>" alt="<?php echo $testimonial['name']; ?>">
+                            <img style="height: 150px;" class="img-thumbnail" src="<?php echo $image_path . $testimonial['image']; ?>" alt="<?php echo $testimonial['name']; ?>">
                         </div>
                         <div class="row justify-content-center pb-2" style="font-size: 24px;"><?php echo $testimonial['heading']; ?></div>
                         <p><?php echo $testimonial['text']; ?></p>
