@@ -40,7 +40,7 @@ class ControllerCommonHeader extends Controller {
             'Начало' => $this->url->root,
             'Екипа ни' => '/team',
             'Контакти' => '/contact',
-            'Запазете час' => '#contact'
+            'Запазете час' => $this->url->root.'#contact'
         ];
 
         $data['top_wrapper'] = $this->load->view('common/top_wrapper', $nav);

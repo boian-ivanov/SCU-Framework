@@ -58,12 +58,9 @@
                 </div>
                 <div class="col-6 text-right d-none d-md-block">
                     <h4>Меню</h4>
-                    <p>
-                        Lorem Ipsum No. 123,<br>
-                        Dolor Sit Amet,<br>
-                        XYZ 123,<br>
-                        Consectetur, LI
-                    </p>
+                    <?php foreach ($menu as $text => $url) { ?>
+                        <div class="row"><a href="<?php echo $url; ?>" class="col"><?php echo $text; ?></a></div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ class ControllerCommonFooter extends Controller {
 
         $data = array();
 
-        $address_1 = 'Bulevard Stefan Stambolov 73, 412,';
+        /*$address_1 = 'Bulevard Stefan Stambolov 73, 412,';
         $address_2 = '8000 Burgas, Bulgaria';
         $phone = '087 713 3257';
         $mail = 'info@easydent.bg';
@@ -17,11 +17,18 @@ class ControllerCommonFooter extends Controller {
             'fa-envelope' => "<a href=\"mailto:$mail\">$mail</a>"
         );
 
-        $data['about'] = 'Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.';
+        $data['about'] = 'Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.';*/
 
         $data['social_links'] = array(
             'fa-facebook' => 'https://www.facebook.com/eazydent/',
         );
+
+        $data['menu'] = [
+            'Начало' => $this->url->root,
+            'Екипа ни' => '/team',
+            'Контакти' => '/contact',
+            'Запазете час' => $this->url->root.'#contact'
+        ];
 
         if($this->classLoaded()) {
             return $this->load->view('common/footer', $data);
