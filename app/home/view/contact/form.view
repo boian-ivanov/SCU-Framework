@@ -64,6 +64,7 @@
         <div class="form-group">
             <input type="submit" class="form-control btn btn-sec py-3" style="height: 55px;">
         </div>
+        <input type="hidden" id="grecaptcha_key" name="grecaptcha_key" value="">
     </form>
     <script>
         var r = document.getElementsByName('office');
@@ -84,6 +85,15 @@
             var toggle = ($(this).val() == 1) ? true : false;
             $('.google_map').toggle(toggle);
             $('.google_map_2').toggle(!toggle);
+        });
+    </script>
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('<?php echo $captcha['site_key']; ?>', {action: 'action_name'})
+                .then(function(token) {
+                    document.getElementById('grecaptcha_key').value = token;
+                    console.log(token);
+                });
         });
     </script>
 </div>

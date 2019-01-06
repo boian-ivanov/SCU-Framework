@@ -35,8 +35,12 @@ class ControllerCommonIndex extends Controller{
         $data['testimonials'] = $this->testimonials();
         $data['cards'] = $this->cards();
 
+        $model = $this->load->model('settings/settings');
+
+        $settings = $model->getSettingData('general_settings'); // add settings key
+
         $data['map'] = $this->load->view('contact/map');
-        $data['form'] = $this->load->view('contact/form');
+        $data['form'] = $this->load->view('contact/form', $settings);
 
         $data['seperator'] = $this->load->view('common/addons/seperator');
 

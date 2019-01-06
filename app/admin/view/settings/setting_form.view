@@ -105,6 +105,22 @@
                 </div>
             </div>
         </fieldset>
+        <fieldset>
+            <legend>Captcha Settings</legend>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Api Keys</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="data[captcha][site_key]"
+                           aria-describedby="site key" placeholder="Enter site key"
+                           value="<?php echo $setting_data['captcha']['site_key'] ?? ''; ?>">
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="data[captcha][secret_key]"
+                           aria-describedby="secret key" placeholder="Enter secret key"
+                           value="<?php echo $setting_data['captcha']['secret_key'] ?? ''; ?>">
+                </div>
+            </div>
+        </fieldset>
         <!--<div class="form-group row">
             <label for="active" class="col-sm-2 col-form-label">Displayed</label>
             <div class="col-sm-10">

@@ -10,6 +10,10 @@ class ControllerCommonHeader extends Controller {
     /* https://realfavicongenerator.net/favicon_result?file_id=p1cfslp8chvhjtbk1t29jak18f97#.WyEjR0gvy71 */
 
     public function index($data = array()) {
+        $model = $this->load->model('settings/settings');
+
+        $settings = $model->getSettingData('general_settings'); // add settings key
+        
         $links = [
             '/node_modules/bootstrap/dist/css/bootstrap.min.css',
             '/node_modules/font-awesome/css/font-awesome.min.css',
@@ -30,7 +34,7 @@ class ControllerCommonHeader extends Controller {
             $this->url->root . '/public/js/jquery.bcSwipe.min.js',
             $this->url->root . '/public/js/main.js',
             $this->url->root . '/public/js/slick.min.js',
-            '//www.google.com/recaptcha/api.js?render='.RECAPTCHA['site_key']
+            '//www.google.com/recaptcha/api.js?render=' . $settings['captcha']['site_key']
         ];
 
         $data['links'] = $this->head->addLinks($links);
