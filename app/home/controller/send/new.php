@@ -19,7 +19,7 @@ class ControllerSendNew extends Controller {
     }
 
     private function validate (&$data) {
-        $required = array('office', 'name', 'email', 'telephone', 'message', 'grecaptcha_key');
+        $required = array('office', 'name', 'email', 'telephone', 'message');
         foreach ($data as $key => $value) { // remove unnecessary key value pairs
             if(!in_array($key, $required))
                 unset($data[$key]);
@@ -33,11 +33,14 @@ class ControllerSendNew extends Controller {
         $model = $this->load->model('settings/settings');
         $settings = $model->getSettingData('general_settings'); // add settings key
 
-        $postdata = http_build_query([
+        $postdata = [
             "secret" => $settings['captcha']['secret_key'],
-            "response"=> $token,
-            "remoteip" => $_SERVER['REMOTE_ADDR']
-        ]);
+            "response"=> $token
+        ];
+
+        if($_SERVER['REMOTE_ADDR']) $postdata["remoteip"] = $_SERVER['REMOTE_ADDR'];
+
+        $postdata = http_build_query($postdata);
 
         $opts =
             ['http' =>
