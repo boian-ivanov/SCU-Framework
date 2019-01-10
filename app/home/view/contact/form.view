@@ -89,7 +89,7 @@
     </script>
     <script>
         grecaptcha.ready(function() {
-            grecaptcha.execute('<?php echo $captcha['site_key']; ?>', {action: 'action_name'})
+            grecaptcha.execute('<?php echo $captcha['site_key']; ?>', {action: 'contact_form'})
                 .then(function(token) {
                     document.getElementById('grecaptcha_key').value = token;
                     console.log(token);

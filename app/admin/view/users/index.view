@@ -3,16 +3,14 @@
     <?php foreach ($messages as $key => $message) { ?>
         <?php if ($key == 'success') { ?>
             <div class="alert alert-success">
-                <?php foreach ($message as $item) { ?>
-                    <div class="row"><?php echo $item ?></div>
-                <?php } ?>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <?php echo $message ?>
             </div>
         <?php } ?>
         <?php if ($key == 'error') { ?>
             <div class="alert alert-danger">
-                <?php foreach ($message as $item) { ?>
-                    <div class="row"><?php echo $item ?></div>
-                <?php } ?>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <?php echo $message ?>
             </div>
         <?php } ?>
     <?php } ?>

@@ -16,8 +16,13 @@ class ControllerCommonUsers extends Controller {
             $model = $this->load->model('common/users');
             $data['users'] = $model->getUsers();
 
+            $session_storage_data = $this->getStorage();
+            if(!empty($session_storage_data)) {
+                $data['messages'] = $session_storage_data;
+            }
+
             $data['add_link'] = $this->url->admin . "/users/add";
-            $data['edit_link'] = $this->url->admin . "/users/view/";
+            $data['edit_link'] = $this->url->admin . "/users/edit/";
             $data['delete_link'] = $this->url->admin . "/users/delete?id=";
 
             return $this->load->view('users/index', $data);
@@ -30,17 +35,23 @@ class ControllerCommonUsers extends Controller {
         if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {
 
             if (!empty($this->request->post)) {
-                $user = $this->load->model('account/user');
-                $this->createUser($this->request->post);
-                echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
-                var_dump($this->request->post);
-                die();
+                $res = $this->createUser($this->request->post);
 
-                $this->redirect($this->url->admin . "/users");
+                if(isset($res['error'])) {
+                    $redirect_url = $this->url->admin . "/users/add"; // go back
+                } else {
+                    $redirect_url = $this->url->admin . "/users";
+                }
+                $this->redirect($redirect_url, $res);
             } else {
                 $data['title'] = "Add a user";
                 $data['header'] = $this->load->controller('common/header/index', $data['title']);
                 $data['footer'] = $this->load->view('common/footer');
+
+                $session_storage_data = $this->getStorage();
+                if(!empty($session_storage_data)) {
+                    $data['messages'] = $session_storage_data;
+                }
 
                 $model = $this->load->model('common/users');
                 $data['user_status'] = $model->getUserStatus();
@@ -97,9 +108,9 @@ class ControllerCommonUsers extends Controller {
                 throw new Exception('User data is not valid!');
             }
 
-            $model = $this->load->model('account/user'); // Load user model
+            $user = $this->load->model('account/user'); // Load user model
             // Get user data
-            if($model->findByEmail($user_data['email'])) {
+            if($user->findByEmail($user_data['email'])) {
                 throw new Exception('User already exists!');
             }
             // Verify password are the same
@@ -110,12 +121,12 @@ class ControllerCommonUsers extends Controller {
             $currentHashAlgorithm = PASSWORD_DEFAULT;
             $currentHashOptions = array('cost' => 15);
 
-            $password_hash = password_hash(
+            $user_data['password_hash'] = password_hash(
                 $user_data['password'],
                 $currentHashAlgorithm,
                 $currentHashOptions
             );
-            // TODO : Create a user record
+            $user_id = $user->create($user_data);
 //            $model->save($user->user_id, ['passcode' => $password_hash]);
         } catch (Exception $e) {
             return array(
@@ -123,11 +134,29 @@ class ControllerCommonUsers extends Controller {
             );
         }
         return array(
-            'success' => "User has been created successfully"
+            'success' => "User with id '$user_id' has been created successfully"
         );
     }
 
     private function validateUserData(&$userData) {
-        // TODO : Validate user input data
+        if(empty($userData)) return false;
+
+        $required = array('email', 'display_name', 'status', 'password', 'confirm_password');
+        foreach ($userData as $key => $value) { // remove unnecessary key value pairs
+            if(!in_array($key, $required))
+                unset($userData[$key]);
+        }
+
+        if(empty($userData) && !isset($userData['email']) && $userData != '') return false;
+
+        $userData['email'] = filter_var($userData['email'], FILTER_SANITIZE_EMAIL);
+
+        if(isset($userData['display_name']))
+            $userData['display_name'] = filter_var($userData['display_name'], FILTER_SANITIZE_STRING);
+
+        if(isset($userData['status']))
+            $userData['status'] =       filter_var($userData['status'], FILTER_SANITIZE_NUMBER_INT);
+
+        return true; // return a bool value
     }
 }

@@ -15,7 +15,9 @@ class ModelInstallDbinit extends Model {
             'passcode' => 'VARCHAR(255) NOT NULL',
             'display_name' => 'VARCHAR(100) NOT NULL',
             'status' => 'INT(11) NOT NULL',
-            'token' => 'VARCHAR(255) NOT NULL'
+            'token' => 'VARCHAR(255) NOT NULL',
+            'date_created' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'date_modified' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
         ],
         'team' => [
             'member_id' => 'INT(11) NOT NULL',
@@ -43,9 +45,10 @@ class ModelInstallDbinit extends Model {
             'message_id' => 'INT NOT NULL',
             'name' => 'VARCHAR(20) NOT NULL',
             'email' => 'VARCHAR(100) NOT NULL',
-            'telephone' => 'BIGINT(20) NOT NULL',
+            'telephone' => 'VARCHAR(20) NOT NULL',
             'message' => 'TEXT NOT NULL',
-            'office' => 'INT(2) NOT NULL'
+            'office' => 'INT(2) NOT NULL',
+            'date' => 'DATETIME NOT NULL'
         ],
         'testimonials' => [
             'testimonial_id' => 'INT NOT NULL',

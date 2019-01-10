@@ -38,4 +38,27 @@ class ModelAccountUser extends Model {
             }
         }
     }
+
+    public function create($userData) {
+        $insertData = array(
+            'email' => $userData['email'],
+            'passcode' => $userData['password_hash']
+        );
+
+        if(isset($userData['display_name'])) $insertData['display_name'] = $userData['display_name'];
+        if(isset($userData['status']))       $insertData['status'] = $userData['status'];
+
+        $query =
+            "INSERT INTO `" . DB_PREFIX . "users` " .
+            "(`" . implode("`, `", array_keys($insertData)) . "`) " .
+            "VALUES " .
+            "(:" . implode(", :", array_keys($insertData)) . ");";
+
+        $stmt = $this->db->prepare($query);
+        if($stmt->execute($insertData)) {
+            return $this->db->lastInsertId();
+        } else {
+            return false;
+        }
+    }
 }
