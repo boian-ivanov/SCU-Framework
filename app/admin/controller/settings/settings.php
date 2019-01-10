@@ -33,7 +33,7 @@ class ControllerSettingsSettings extends Controller {
             $data['title'] = "Edit setting";
             return $this->load->view('settings/setting_form', $data);
         } else {
-            $this->redirect('/admin');
+            $this->redirect($this->url->admin);
         }
     }
 

@@ -41,7 +41,7 @@ class ControllerSettingsTeam extends Controller {
                 return $this->load->view('settings/team_list', $data);
             }
         } else {
-            $this->redirect('/admin');
+            $this->redirect($this->url->admin);
         }
     }
 
@@ -91,7 +91,7 @@ class ControllerSettingsTeam extends Controller {
                 return $this->load->view('settings/team_form', $data);
             }
         } else {
-            $this->redirect('/admin');
+            $this->redirect($this->url->admin);
         }
     }
 
@@ -164,7 +164,7 @@ class ControllerSettingsTeam extends Controller {
             }
             $this->redirect($this->url->admin . "/settings/team/index", $messages);
         } else {
-            $this->redirect('/admin');
+            $this->redirect($this->url->admin);
         }
     }
 

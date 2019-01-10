@@ -28,7 +28,7 @@ class ControllerSettingsTestimonials extends Controller {
 
             return $this->load->view('settings/testimonials_list', $data);
         } else {
-            $this->redirect('/admin');
+            $this->redirect($this->url->admin);
         }
     }
 
@@ -78,7 +78,7 @@ class ControllerSettingsTestimonials extends Controller {
                 return $this->load->view('settings/testimonials_form', $data);
             }
         } else {
-            $this->redirect('/admin');
+            $this->redirect($this->url->admin);
         }
     }
 
@@ -151,7 +151,7 @@ class ControllerSettingsTestimonials extends Controller {
             }
             $this->redirect($this->url->admin . "/settings/testimonials/index", $messages);
         } else {
-            $this->redirect('/admin');
+            $this->redirect($this->url->admin);
         }
     }
 

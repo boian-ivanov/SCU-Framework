@@ -7,7 +7,7 @@ class ControllerAccountLogin extends Controller {
             session_start();
         }
         try {
-            $model = $this->load->model('account/user'); // Load used model
+            $model = $this->load->model('account/user'); // Load user model
             // Get email address from request body
             $email = filter_input(INPUT_POST, 'email'); //'foo@bar.baz';
             // Get password from request body

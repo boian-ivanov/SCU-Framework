@@ -10,7 +10,7 @@ class ControllerCommonCalendar extends Controller {
 
             return $this->load->view('calendar/index', $data);
         } else {
-            $this->redirect('/admin');
+            $this->redirect($this->url->admin);
         }
     }
 }

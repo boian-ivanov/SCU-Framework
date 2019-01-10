@@ -1,0 +1,52 @@
+<?php echo $header; ?>
+    <h2 class="pb-3"><?php echo $title; ?></h2>
+    <form method="post" class="" action="<?php echo $form_post_link; ?>">
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="email" name="email" aria-describedby="email"
+                       placeholder="Enter email" value="<?php echo $user->email ?? ''; ?>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="display_name" class="col-sm-2 col-form-label">Display Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="display_name" name="display_name"
+                       aria-describedby="display_name" placeholder="Enter the displayed name"
+                       value="<?php echo $user->display_name ?? ''; ?>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="status" class="col-sm-2 col-form-label">Status</label>
+            <div class="col-sm-10">
+                <select name="status" id="status" class="form-control">
+                    <option value="0">Select user status</option>
+                    <?php foreach ($user_status as $status) {?>
+                        <option value="<?php echo $status['status_id']; ?>" <?php if(isset($user) && $user->status === $status['status_id']) echo "selected"?>>
+                            <?php echo $status['status_message']; ?>
+                        </option>
+                    <?php }?>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="password" class="col-sm-2 col-form-label">
+                <?php echo isset($user) ? "Change" : "Enter"; ?> password
+            </label>
+            <div class="col-sm-10">
+                <input type="password" placeholder="Enter a new password" name="password" name="password" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="confirm_password" class="col-sm-2 col-form-label">Confirm password</label>
+            <div class="col-sm-10">
+                <input type="password" placeholder="Repeat the same password" name="confirm_password" name="confirm_password" class="form-control">
+            </div>
+        </div>
+        <!--<div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>-->
+        <button type="submit" class="btn btn-main">Submit</button>
+    </form>
+<?php echo $footer; ?>
