@@ -114,6 +114,10 @@ class ControllerCommonUsers extends Controller {
                 throw new Exception('User already exists!');
             }
             // Verify password are the same
+            if ($user_data['password'] == "" || $user_data['confirm_password'] == "") {
+                throw new Exception('Password field is empty!');
+            }
+            // Verify password are the same
             if ($user_data['password'] !== $user_data['confirm_password']) {
                 throw new Exception('Passwords do not match!');
             }
@@ -143,11 +147,15 @@ class ControllerCommonUsers extends Controller {
 
         $required = array('email', 'display_name', 'status', 'password', 'confirm_password');
         foreach ($userData as $key => $value) { // remove unnecessary key value pairs
-            if(!in_array($key, $required))
+            if(!in_array($key, $required)) {
                 unset($userData[$key]);
+            }
         }
 
-        if(empty($userData) && !isset($userData['email']) && $userData != '') return false;
+        if( empty($userData)
+            && !isset($userData['email']) && $userData['email'] == ""
+            && !isset($userData['display_name']) && $userData['display_name'] == ""
+            && !isset($userData['status']) && !is_numeric($userData['status']) ) return false;
 
         $userData['email'] = filter_var($userData['email'], FILTER_SANITIZE_EMAIL);
 

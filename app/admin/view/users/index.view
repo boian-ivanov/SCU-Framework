@@ -3,14 +3,22 @@
     <?php foreach ($messages as $key => $message) { ?>
         <?php if ($key == 'success') { ?>
             <div class="alert alert-success">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <?php echo $message ?>
+                <div class="row">
+                    <div class="col-1 alert-icon-col">
+                        <span class="fa fa-check fa-fw"></span>
+                    </div>
+                    <div class="col"><?php echo $message ?></div>
+                </div>
             </div>
         <?php } ?>
         <?php if ($key == 'error') { ?>
             <div class="alert alert-danger">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <?php echo $message ?>
+                <div class="row">
+                    <div class="col-1 alert-icon-col">
+                        <span class="fa fa-exclamation-circle fa-fw"></span>
+                    </div>
+                    <div class="col"><?php echo $message ?></div>
+                </div>
             </div>
         <?php } ?>
     <?php } ?>

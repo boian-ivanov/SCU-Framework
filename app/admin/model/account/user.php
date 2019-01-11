@@ -48,11 +48,17 @@ class ModelAccountUser extends Model {
         if(isset($userData['display_name'])) $insertData['display_name'] = $userData['display_name'];
         if(isset($userData['status']))       $insertData['status'] = $userData['status'];
 
+        $insertData['token'] = $this->generateToken($userData);
+
         $query =
             "INSERT INTO `" . DB_PREFIX . "users` " .
             "(`" . implode("`, `", array_keys($insertData)) . "`) " .
             "VALUES " .
             "(:" . implode(", :", array_keys($insertData)) . ");";
+
+        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
+        var_dump($userData, $insertData, $query);
+        die();
 
         $stmt = $this->db->prepare($query);
         if($stmt->execute($insertData)) {
@@ -60,5 +66,18 @@ class ModelAccountUser extends Model {
         } else {
             return false;
         }
+    }
+
+    private function generateToken($userData) {
+        return hash('sha256',
+            md5(date('Y-m-d H:i:s', strtotime('now'))) .
+            hash('sha1', strrev($userData['email'])) .
+            base64_encode(
+                rand(
+                    rand(0,1000000),
+                    rand(0,1000000)
+                )
+            )
+        );
     }
 }
