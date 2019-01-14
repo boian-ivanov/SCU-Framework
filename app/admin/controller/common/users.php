@@ -56,6 +56,8 @@ class ControllerCommonUsers extends Controller {
                 $model = $this->load->model('common/users');
                 $data['user_status'] = $model->getUserStatus();
 
+                $data['password_show'] = true;
+
                 $data['form_post_link'] = $this->url->admin . "/users/add";
                 return $this->load->view('users/user_form', $data);
             }
@@ -69,7 +71,6 @@ class ControllerCommonUsers extends Controller {
             $model = $this->load->model('account/user');
 
             if (!empty($this->request->post)) {
-                $model = $this->load->model('account/user');
                 try {
                     // User cannot change user's permissions, if he's the last one with those
                     //
@@ -90,13 +91,19 @@ class ControllerCommonUsers extends Controller {
                 $data['footer'] = $this->load->view('common/footer');
 
                 $data['user'] = $model->getUserById($this->request->get['id']);
+                if($data['user']) {
+                    $data['form_post_link'] = $this->url->admin . "/users/edit";
 
-                $data['form_post_link'] = $this->url->admin . "/users/edit";
+                    $users_model = $this->load->model('common/users');
+                    $data['user_status'] = $users_model->getUserStatus();
 
-                $users_model = $this->load->model('common/users');
-                $data['user_status'] = $users_model->getUserStatus();
+                    $data['password_show'] = $this->request->get['id'] == $_SESSION['user_id'];
 
-                return $this->load->view('users/user_form', $data);
+                    return $this->load->view('users/user_form', $data);
+                } else {
+                    $message['error'] = 'User does not exist.';
+                    $this->redirect($this->url->admin . "/users", $message);
+                }
             }
         } else {
             $this->redirect($this->url->admin);
