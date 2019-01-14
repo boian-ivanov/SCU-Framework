@@ -69,7 +69,19 @@ class ControllerCommonUsers extends Controller {
             $model = $this->load->model('account/user');
 
             if (!empty($this->request->post)) {
+                $model = $this->load->model('account/user');
+                try {
+                    // User cannot change user's permissions, if he's the last one with those
+                    //
 
+
+                    if ($model->getUserCount($model->getUserPermissions($this->request->get['id'])) <= 1) {
+                        throw new Exception("There are no more users with this status. User cannot be deleted");
+                    }
+
+                } catch (Exception $e) {
+
+                }
 
                 $this->redirect($this->url->admin . "/users");
             } else {
@@ -132,12 +144,15 @@ class ControllerCommonUsers extends Controller {
                 throw new Exception('User data is not valid!');
             }
 
-            $user = $this->load->model('account/user'); // Load user model
+            $model = $this->load->model('account/user'); // Load user model
             // Get user data
-            if($user->findByEmail($user_data['email'])) {
+            if($model->findByEmail($user_data['email'])) {
                 throw new Exception('User already exists!');
             }
-            // Verify password are the same
+            if(!$model->statusExists($user_data['status'])) {
+                throw new Exception('Status does not exists.');
+            }
+            // Verify password are not empty
             if ($user_data['password'] == "" || $user_data['confirm_password'] == "") {
                 throw new Exception('Password field is empty!');
             }
@@ -154,7 +169,7 @@ class ControllerCommonUsers extends Controller {
                 $currentHashAlgorithm,
                 $currentHashOptions
             );
-            $user_id = $user->create($user_data);
+            $user_id = $model->create($user_data);
 //            $model->save($user->user_id, ['passcode' => $password_hash]);
         } catch (Exception $e) {
             return array(

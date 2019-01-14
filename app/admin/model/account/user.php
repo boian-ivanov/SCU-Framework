@@ -65,6 +65,13 @@ class ModelAccountUser extends Model {
         }
     }
 
+    public function statusExists($status_id) {
+        $query = "SELECT COUNT(*) count FROM `" . DB_PREFIX . "user_status` WHERE status_id = :status_id";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['status_id' => $status_id]);
+        return (int)$stmt->fetchColumn() > 0;
+    }
+
     public function create($userData) {
         $insertData = array(
             'email' => $userData['email'],
@@ -81,10 +88,6 @@ class ModelAccountUser extends Model {
             "(`" . implode("`, `", array_keys($insertData)) . "`) " .
             "VALUES " .
             "(:" . implode(", :", array_keys($insertData)) . ");";
-
-        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
-        var_dump($userData, $insertData, $query);
-        die();
 
         $stmt = $this->db->prepare($query);
         if($stmt->execute($insertData)) {
