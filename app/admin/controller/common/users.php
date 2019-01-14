@@ -92,9 +92,33 @@ class ControllerCommonUsers extends Controller {
     }
 
     public function delete() {
-        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
-        var_dump($_GET);
-        die();
+        if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == 'yes') {
+            $model = $this->load->model('account/user');
+            try {
+                if ($_SESSION['user_id'] == $this->request->get['id']) {
+                    throw new Exception("You can not delete the current user!");
+                }
+
+                $currentUserPermissions = $model->getUserPermissions($_SESSION['user_id']);
+                if ($currentUserPermissions !== "USER::ADMIN") {
+                    throw new Exception("User does not have permission to delete this user.");
+                }
+                if ($model->getUserCount($model->getUserPermissions($this->request->get['id'])) <= 1) {
+                    throw new Exception("There are no more users with this status. User cannot be deleted");
+                }
+
+                if (!isset($data['error']) && $model->deleteByUserId($this->request->get['id'])) {
+                    $data['success'] = "User with id " . $this->request->get['id'] . " has been deleted successfully.";
+                } else {
+                    throw new Exception("User could not be deleted");
+                }
+            } catch (Exception $e) {
+                $data['error'] = $e->getMessage();
+            }
+            $this->redirect($this->url->admin . "/users", $data);
+        } else {
+            $this->redirect($this->url->admin);
+        }
     }
 
     /*

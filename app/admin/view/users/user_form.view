@@ -4,7 +4,7 @@
             <?php if ($key == 'success') { ?>
                 <div class="alert alert-success">
                     <div class="row">
-                        <div class="col-1 alert-icon-col">
+                        <div class="col-auto alert-icon-col">
                             <span class="fa fa-check fa-fw"></span>
                         </div>
                         <div class="col"><?php echo $message ?></div>
@@ -14,7 +14,7 @@
             <?php if ($key == 'error') { ?>
                 <div class="alert alert-danger">
                     <div class="row">
-                        <div class="col-1 alert-icon-col">
+                        <div class="col-auto alert-icon-col">
                             <span class="fa fa-exclamation-circle fa-fw"></span>
                         </div>
                         <div class="col"><?php echo $message ?></div>
