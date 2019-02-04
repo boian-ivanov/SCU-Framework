@@ -1,6 +1,6 @@
 {
   "name": "scu-framework",
-  "version": "uknown",
+  "version": "1.0.0",
   "main": "index.php",
   "repository": "https://github.com/boian-ivanov/SCU-Framework.git",
   "author": "boian-ivanov <mail@boian.io>",
@@ -10,6 +10,7 @@
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
     "fullcalendar": "^3.9.0",
+    "moment": "^2.23.0",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3"
   }
