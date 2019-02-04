@@ -25,7 +25,7 @@
                     <i class="fa fa-user"></i> <?php echo $display_name; ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="<?php echo $edit_profile_link; ?>">Edit profile</a>
                     <a class="dropdown-item" href="/admin/account/logout/index">Logout</a>
                 </div>
             </li>

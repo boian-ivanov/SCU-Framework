@@ -18,6 +18,7 @@ class ControllerCommonSnippets extends Controller {
             '/node_modules/bootstrap/dist/js/bootstrap.min.js',
             '/node_modules/moment/moment.js',
             '/node_modules/fullcalendar/dist/fullcalendar.min.js',
+            '/node_modules/fullcalendar/dist/gcal.min.js',
             $this->url->root . '/public/js/admin.js',
 //            $this->url->root . '/public/js/speed.js'
         ];
@@ -39,6 +40,8 @@ class ControllerCommonSnippets extends Controller {
         $data['weather'] = $model->getUserWeatherData();
         $data['display_name'] = $user->display_name;
         $data['title'] = $title;
+
+        $data['edit_profile_link'] = $this->url->admin . '/users/edit/' . $_SESSION['user_id'];
 
         return $this->load->view('common/nav', $data);
     }

@@ -5,14 +5,14 @@
             <label for="name" class="col-sm-2 col-form-label">Global name</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="data[name]" aria-describedby="name"
-                       placeholder="Enter name" value="<?php echo $setting_data['name'] ?? ''; ?>">
+                       placeholder="Enter name" id="name" value="<?php echo $setting_data['name'] ?? ''; ?>">
                 <small id="nameHelp" class="form-text text-muted">Global website name (used in headings, settings, etc.)</small>
             </div>
         </div>
         <fieldset>
             <legend>Cards Data - Card 1</legend>
                 <div class="form-group row">
-                    <label for="description" class="col-sm-2 col-form-label">Description - Line 1</label>
+                    <label class="col-sm-2 col-form-label">Description - Line 1</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="data[card1][line1][left]"
                                aria-describedby="description" placeholder="Enter short description"
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="description" class="col-sm-2 col-form-label">Description - Line 2</label>
+                    <label class="col-sm-2 col-form-label">Description - Line 2</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="data[card1][line2][left]"
                                aria-describedby="description" placeholder="Enter short description"
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="description" class="col-sm-2 col-form-label">Description - Line 3</label>
+                    <label class="col-sm-2 col-form-label">Description - Line 3</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="data[card1][line3][left]"
                                aria-describedby="description" placeholder="Enter short description"
@@ -57,6 +57,7 @@
                     <label for="description" class="col-sm-2 col-form-label">Card 2 - Text</label>
                     <div class="col-sm-10">
                         <textarea class="form-control"
+                                  id="description"
                                   name="data[card2][description]"
                                   aria-describedby="description"
                             ><?php echo $setting_data['card2']['description'] ?? ''; ?></textarea>
@@ -66,55 +67,136 @@
         <fieldset>
             <legend>Cards Data - Card 3</legend>
             <div class="form-group row">
-                <label for="description" class="col-sm-2 col-form-label">Description - Line 3</label>
+                <label class="col-sm-2 col-form-label">Description - Line 3</label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" name="data[card3][line1][left]"
-                           aria-describedby="description" placeholder="Enter short description"
+                           aria-describedby="Card 3 details" placeholder="Enter short description"
                            value="<?php echo $setting_data['card3']['line1']['left'] ?? ''; ?>">
                 </div>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" name="data[card3][line1][right]"
-                           aria-describedby="description" placeholder="Enter short description"
+                           aria-describedby="Card 3 details" placeholder="Enter short description"
                            value="<?php echo $setting_data['card3']['line1']['right'] ?? ''; ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="description" class="col-sm-2 col-form-label">Description - Line 2</label>
+                <label class="col-sm-2 col-form-label">Description - Line 2</label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" name="data[card3][line2][left]"
-                           aria-describedby="description" placeholder="Enter short description"
+                           aria-describedby="Card 3 details" placeholder="Enter short description"
                            value="<?php echo $setting_data['card3']['line2']['left'] ?? ''; ?>">
                 </div>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" name="data[card3][line2][right]"
-                           aria-describedby="description" placeholder="Enter short description"
+                           aria-describedby="Card 3 details" placeholder="Enter short description"
                            value="<?php echo $setting_data['card3']['line2']['right'] ?? ''; ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="description" class="col-sm-2 col-form-label">Description - Line 3</label>
+                <label class="col-sm-2 col-form-label">Description - Line 3</label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" name="data[card3][line3][left]"
-                           aria-describedby="description" placeholder="Enter short description"
+                           aria-describedby="Card 3 details" placeholder="Enter short description"
                            value="<?php echo $setting_data['card3']['line3']['left'] ?? ''; ?>">
                 </div>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" name="data[card3][line3][right]"
-                           aria-describedby="description" placeholder="Enter short description"
+                           aria-describedby="Card 3 details" placeholder="Enter short description"
                            value="<?php echo $setting_data['card3']['line3']['right'] ?? ''; ?>">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Office 1 Settings</legend>
+            <div class="form-group">
+                <label for="description" class="col-form-label">Address</label>
+                <input type="text" class="form-control" name="data[office][0][address_1]"
+                       aria-describedby="Office 1 Address 1" placeholder="1234 Main St"
+                       value="<?php echo $setting_data['office'][0]['address_1'] ?? ''; ?>">
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-form-label">Address 2</label>
+                <input type="text" class="form-control" name="data[office][0][address_2]"
+                       aria-describedby="Office 1 Address 2" placeholder="Apartment, studio, or floor"
+                       value="<?php echo $setting_data['office'][0]['address_2'] ?? ''; ?>">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="office_1_city">City</label>
+                    <input type="text" class="form-control" name="data[office][0][city]"
+                           id="office_1_city" aria-describedby="Office 1 City" placeholder="City"
+                           value="<?php echo $setting_data['office'][0]['city'] ?? ''; ?>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="office_1_post_code">Post Code</label>
+                    <input type="text" class="form-control" name="data[office][0][post_code]"
+                           id="office_1_post_code" aria-describedby="Office 1 Post Code" placeholder="Post Code"
+                           value="<?php echo $setting_data['office'][0]['post_code'] ?? ''; ?>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="office_1_country">Country</label>
+                    <input type="text" class="form-control" name="data[office][0][country]"
+                           id="office_1_country" aria-describedby="Office 1 Country" placeholder="Country"
+                           value="<?php echo $setting_data['office'][0]['country'] ?? ''; ?>">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Office 2 Settings</legend>
+            <div class="form-group">
+                <label for="description" class="col-form-label">Address</label>
+                <input type="text" class="form-control" name="data[office][1][address_1]"
+                       aria-describedby="Office 2 Address 1" placeholder="1234 Main St"
+                       value="<?php echo $setting_data['office'][1]['address_1'] ?? ''; ?>">
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-form-label">Address 2</label>
+                <input type="text" class="form-control" name="data[office][1][address_2]"
+                       aria-describedby="Office 2 Address 2" placeholder="Apartment, studio, or floor"
+                       value="<?php echo $setting_data['office'][1]['address_2'] ?? ''; ?>">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="office_2_city">City</label>
+                    <input type="text" class="form-control" name="data[office][1][city]"
+                           id="office_2_city" aria-describedby="Office 2 City" placeholder="City"
+                           value="<?php echo $setting_data['office'][1]['city'] ?? ''; ?>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="office_2_post_code">Post Code</label>
+                    <input type="text" class="form-control" name="data[office][1][post_code]"
+                           id="office_2_post_code" aria-describedby="Office 2 Post Code" placeholder="Post Code"
+                           value="<?php echo $setting_data['office'][1]['post_code'] ?? ''; ?>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="office_2_country">Country</label>
+                    <input type="text" class="form-control" name="data[office][1][country]"
+                           id="office_2_country" aria-describedby="Office 2 Country" placeholder="Country"
+                           value="<?php echo $setting_data['office'][1]['country'] ?? ''; ?>">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Social Settings</legend>
+            <div class="form-group row">
+                <label for="facebook_link" class="col-sm-2 col-form-label">Facebook Link</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="data[social][facebook]"
+                           aria-describedby="Facebook page link" placeholder="Enter facebook page link" id="facebook_link"
+                           value="<?php echo $setting_data['social']['facebook'] ?? ''; ?>">
                 </div>
             </div>
         </fieldset>
         <fieldset>
             <legend>Captcha Settings</legend>
             <div class="form-group row">
-                <label for="description" class="col-sm-2 col-form-label">Api Keys</label>
-                <div class="col-sm-5">
+                <label for="description" class="col-md-2 col-form-label">Api Keys</label>
+                <div class="col-md-5">
                     <input type="text" class="form-control" name="data[captcha][site_key]"
                            aria-describedby="site key" placeholder="Enter site key"
                            value="<?php echo $setting_data['captcha']['site_key'] ?? ''; ?>">
                 </div>
-                <div class="col-sm-5">
+                <div class="col-md-5">
                     <input type="text" class="form-control" name="data[captcha][secret_key]"
                            aria-describedby="secret key" placeholder="Enter secret key"
                            value="<?php echo $setting_data['captcha']['secret_key'] ?? ''; ?>">

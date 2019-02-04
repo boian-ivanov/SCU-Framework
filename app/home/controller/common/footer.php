@@ -3,8 +3,13 @@
 class ControllerCommonFooter extends Controller {
 
     public function index() {
-
         $data = array();
+
+        $model = $this->load->model('settings/settings');
+        $settings = $model->getSettingData('general_settings',array('office', 'social'));
+
+        $data['office_data'] = $settings['office'];
+        $data['social_links'] = $settings['social'];
 
         /*$address_1 = 'Bulevard Stefan Stambolov 73, 412,';
         $address_2 = '8000 Burgas, Bulgaria';
@@ -17,11 +22,11 @@ class ControllerCommonFooter extends Controller {
             'fa-envelope' => "<a href=\"mailto:$mail\">$mail</a>"
         );
 
-        $data['about'] = 'Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.';*/
+        $data['about'] = 'Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.';
 
         $data['social_links'] = array(
             'fa-facebook' => 'https://www.facebook.com/eazydent/',
-        );
+        );*/
 
         $data['menu'] = [
             'Начало' => $this->url->root,

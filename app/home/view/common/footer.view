@@ -1,59 +1,31 @@
-<!--<footer class="container-fluid mt-2 py-3">
-    <div class="row">
-        <div class="col-12 col-md-5">
-            <?php /*foreach ($left_column as $icon => $value) { */?>
-                <div class="row mx-3 fa-footer-icons">
-                    <i class="fa <?php /*echo $icon; */?>"></i>
-                    <p class="py-3"><?php /*echo $value; */?></p>
-                </div>
-            <?php /*} */?>
-        </div>
-        <div class="col-12 col-md-7">
-            <p class="footer-company-about">
-                <span>About the company</span>
-                <?php /*echo $about; */?>
-            </p>
-            <div class="footer-icons">
-                <?php /*foreach ($social_links as $icon => $link) { */?>
-                    <a href="<?php /*echo $link; */?>"><i class="fa <?php /*echo $icon; */?>"></i></a>
-                <?php /*} */?>
-            </div>
-        </div>
-    </div>
-</footer>-->
 <footer class="container">
     <div class="row py-2 py-sm-4">
         <div class="col-12 col-md-7">
             <div class="row">
-                <div class="col-12 col-sm-6">
-                    <h4>Офис №1</h4>
-                    <p>
-                        Lorem Ipsum No. 123,<br>
-                        Dolor Sit Amet,<br>
-                        XYZ 123,<br>
-                        Consectetur, LI
-                    </p>
-                </div>
-                <div class="col-12 col-sm-6">
-                    <h4>Офис №1</h4>
-                    <p>
-                        Lorem Ipsum No. 123,<br>
-                        Dolor Sit Amet,<br>
-                        XYZ 123,<br>
-                        Consectetur, LI
-                    </p>
-                </div>
+                <?php foreach ($office_data as $key => $office) { ?>
+                    <div class="col-12 col-sm-6">
+                        <h4>Офис №<?php echo $key+1;?></h4>
+                        <p>
+                            <?php echo $office['address_1'] !== '' ? $office['address_1'] . '<br>' : '' ; ?>
+                            <?php echo $office['address_2'] !== '' ? $office['address_2'] . '<br>' : '' ; ?>
+                            <?php echo $office['city'] !== ''      ? $office['city']      . '<br>' : '' ; ?>
+                            <?php echo $office['post_code'] !== '' ? $office['post_code'] . '<br>' : '' ; ?>
+                            <?php echo $office['country'] !== ''   ? $office['country']   . '<br>' : '' ; ?>
+                        </p>
+                    </div>
+                <?php } ?>
             </div>
         </div>
         <div class="col-12 col-md-5">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <h4>Follow us</h4>
+                    <h4>Последвайте Ни</h4>
                     <p>
-                        FB,<br>
-                        Dolor Sit Amet,<br>
-                        XYZ 123,<br>
-                        Consectetur, LI
+                        <?php foreach ($social_links as $key => $link) { ?>
+                            <a target="_blank" href="<?php echo $link; ?>">
+                                <i class="fa-<?php echo $key; ?>"></i> <?php echo ucfirst($key); ?>
+                            </a><br>
+                        <?php } ?>
                     </p>
                 </div>
                 <div class="col-6 text-right d-none d-md-block">

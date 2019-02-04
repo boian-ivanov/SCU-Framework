@@ -10,6 +10,7 @@ class ControllerSettingsSettings extends Controller {
         $messages = array();
 
         $model = $this->load->model('settings/settings');
+
         if(!empty($this->request->post)) {
             if($model->updateSettings('general_settings', $this->validate($this->request->post['data']))) {
                 $messages['success'][] = "Settings have been updated.";
@@ -39,6 +40,11 @@ class ControllerSettingsSettings extends Controller {
 
     private function validate($data) {
         // TODO : secure that data is what is expected, remove unexpected ones and remove empty data
+        $required = array('name', 'card1', 'card2', 'card3', 'captcha', 'office', 'social');
+        foreach ($data as $key => $value) { // remove unnecessary key value pairs
+            if(!in_array($key, $required))
+                unset($data[$key]);
+        }
         return $data;
     }
 }
