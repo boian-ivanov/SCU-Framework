@@ -20,7 +20,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbar">
-                <div class="col-auto">
+                <div class="row">
                     <ul class="navbar-nav mr-auto">
                         <?php foreach ($nav as $text => $links) { ?>
                             <li class="nav-item px-3 py-2 px-sm-4 px-md-5">

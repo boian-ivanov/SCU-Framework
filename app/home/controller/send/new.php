@@ -9,13 +9,46 @@ class ControllerSendNew extends Controller {
         if(!empty($request)) {
             if ($this->validateCaptcha($request['grecaptcha_key']) // validate captcha
                 && $this->validate($request) // validate input
-                && $model->storeMail($request)) { // succeeds to send email
+                && $model->storeMail($request) // succeeds to store email
+                && $this->sendMail($request)) { // succeeds to send email
                 $data['success'] = true; // send true response
             } else {
                 $data['error'] = false; // send false response
             }
         }
         $this->redirect($this->url->root, $data);
+    }
+
+    private function sendMail($data) {
+        $from = 'mail@easydent.bg';
+        $to = $data['email'];
+        $subject = 'Testing mail';
+
+        $message = $this->prepareTemplate($data);
+
+//        $headers = "From:".$from;
+        $headers  = array(
+            'MIME-Version: 1.0',
+            'Content-type: text/html; charset=iso-8859-1',
+            'Content-Transfer-Encoding: 7bit',
+            'Date: ' . date('r', $_SERVER['REQUEST_TIME']),
+            'Message-ID: <' . $_SERVER['REQUEST_TIME'] . md5($_SERVER['REQUEST_TIME']) . '@' . $_SERVER['SERVER_NAME'] . '>',
+            'From: ' . $from,
+            'Reply-To: ' . $from,
+            'Return-Path: ' . $from,
+            'X-Originating-IP: ' . $_SERVER['SERVER_ADDR'],
+            'Subject: '.$subject,
+        );
+        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
+        var_dump(mail($to,$subject,$message, $headers));
+        die();
+        return mail($to,$subject,$message, $headers);
+    }
+
+    private function prepareTemplate ($data, $template = 'generic') {
+        $data['img_path'] = $this->url->home . '/public/images/logo.svg';
+
+        return $this->load->view('email/' . $template, $data);
     }
 
     private function validate (&$data) {
