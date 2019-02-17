@@ -61,9 +61,9 @@
                 <div class="alert alert-danger"><?php echo $error; ?></div>
             <?php } ?>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="text" name="email" id="inputEmail" class="form-control" value="foo@bar.baz" placeholder="Email address" required autofocus>
+            <input type="text" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" value="123456" placeholder="Password" required>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me

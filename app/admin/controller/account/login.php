@@ -14,11 +14,11 @@ class ControllerAccountLogin extends Controller {
             $password = filter_input(INPUT_POST, 'password'); //'123456';
             // Get user data
             if(!$user = $model->findByEmail($email)) {
-                throw new Exception('User not found');
+                throw new Exception('Email or password do not match.'); // User not found
             }
             // Verify password with account password hash
             if (password_verify($password, $user->passcode) === false) {
-                throw new Exception('Invalid password');
+                throw new Exception('Email or password do not match.'); //
             }
             // Re-hash password if necessary
             $currentHashAlgorithm = PASSWORD_DEFAULT;
