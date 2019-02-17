@@ -6,10 +6,10 @@ class ControllerCommonFooter extends Controller {
         $data = array();
 
         $model = $this->load->model('settings/settings');
-        $settings = $model->getSettingData('general_settings',array('office', 'social'));
+        $settings = $model->getSettingData('general_settings', array('office', 'social'));
 
-        $data['office_data'] = $settings['office'];
-        $data['social_links'] = $settings['social'];
+        $data['office_data'] = $settings['office'] ?? [];
+        $data['social_links'] = $settings['social'] ?? [];
 
         /*$address_1 = 'Bulevard Stefan Stambolov 73, 412,';
         $address_2 = '8000 Burgas, Bulgaria';
@@ -29,10 +29,10 @@ class ControllerCommonFooter extends Controller {
         );*/
 
         $data['menu'] = [
-            'Начало' => $this->url->root,
-            'Екипа ни' => '/team',
-            'Контакти' => '/contact',
-            'Запазете час' => $this->url->root.'#contact'
+            'Начало'        => $this->url->root,
+            'Екипа ни'      => '/team',
+            'Контакти'      => '/contact',
+            'Запазете час'  => $this->url->root.'#contact'
         ];
 
         if($this->classLoaded()) {

@@ -1,6 +1,6 @@
 <?php
 
-class ControllerCommonIndex extends Controller{
+class ControllerCommonIndex extends Controller {
     /*private $registry;
 
     public function __construct($registry){
@@ -30,7 +30,7 @@ class ControllerCommonIndex extends Controller{
         $data['header'] = $this->load->controller('common/header/index', $data);
 
         $data['slider'] = $this->slider();
-        $data['actions'] = $this->actions();
+        $data['services'] = $this->services();
         $data['team'] = $this->ourTeam();
         $data['testimonials'] = $this->testimonials();
         $data['cards'] = $this->cards();
@@ -60,14 +60,25 @@ class ControllerCommonIndex extends Controller{
     private function slider() {
         $path = '/public/images/slider/';
         $data['images'] = [
-            $path.'img_1.jpg',
-            $path.'img_2.jpg',
-            $path.'img_3.jpg'
+            $path . 'img_1.jpg',
+            $path . 'img_2.jpg',
+            $path . 'img_3.jpg'
         ];
+
         return $this->load->view('common/slider', $data);
     }
 
-    private function actions() {
+    private function services() {
+        $model = $this->load->model('common/index');
+        $data['services'] = $model->getServices();
+
+        if ($data['services'] && !empty($data['services'])) {
+            return $this->load->view('common/addons/services', $data);
+        }
+        return false;
+    }
+
+    /*private function actions() {
 
         for ($i = 0; $i < 4; $i++) {
             $data['columns'][] = [
@@ -80,13 +91,13 @@ class ControllerCommonIndex extends Controller{
         }
 
         return $this->load->view('common/addons/actions', $data);
-    }
+    }*/
 
     private function testimonials() {
         $data['heading'] = 'Доволни клиенти';
-        
+
         $model = $this->load->model('common/index');
-        
+
         $data['testimonials'] = $model->getTestimonials();
         $data['image_path'] = $this->url->root . '/public/images/testimonials/';
 

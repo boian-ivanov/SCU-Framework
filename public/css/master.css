@@ -221,6 +221,26 @@ body {
     box-shadow: none;
 }
 
+.services-list {
+    list-style: none;
+    margin: 0;
+    padding:0;
+}
+
+ul.services-list li > i[class^="flaticon-"]:before,
+ul.services-list li > i[class*=" flaticon-"]:before {
+    font-size: 40px;
+}
+
+ul.services-list > li.list-group-item {
+    background: inherit;
+    border: 0;
+}
+
+ul.services-list > li > .service-text {
+    padding-left: 1em;
+}
+
 /* custom radio button */
 .check-container {
     display: block;
@@ -259,7 +279,7 @@ body {
     background-color: #ccc;
 }
 
-/* When the radio button is checked, add a blue background */
+/* When the radio button is checked, add a green background */
 .check-container input:checked ~ .radiobtn{
     background-color: #69E000;
 }

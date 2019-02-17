@@ -56,6 +56,13 @@ class ModelInstallDbinit extends Model {
             'text' => 'TEXT NOT NULL',
             'active' => "INT(1) NOT NULL DEFAULT '0'",
             'image' => 'TEXT NOT NULL'
+        ],
+        'services' => [
+            'service_id' => 'INT NOT NULL',
+            'text' => 'TEXT NOT NULL',
+            'description' => 'TEXT NOT NULL',
+            'active' => "INT(1) NOT NULL DEFAULT '0'",
+            'icon' => 'TEXT NOT NULL'
         ]
     ];
 

@@ -24,7 +24,7 @@ class ModelSettingsTestimonials extends Model {
             $stmt = $this->db->prepare($query);
             return $stmt->execute(array_merge($data, ['id'=>$id]));
         }
-        throw new Exception("User with id '$id' does not exist.");
+        throw new Exception("Testimonial with id '$id' does not exist.");
     }
 
     public function updateTestimonialImage($id, $imagePath) {

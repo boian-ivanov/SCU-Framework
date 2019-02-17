@@ -1,0 +1,10 @@
+<div class="col-12">
+    <ul class="row services-list">
+        <?php foreach ($services as $key => $service) { ?>
+            <li class="align-items-center col-12 col-md-4 col-sm-6 d-flex justify-content-center list-group-item">
+                <i class="<?php echo $service['icon']; ?>"></i>
+                <span class="service-text"><?php echo $service['text']; ?></span>
+            </li>
+        <?php } ?>
+    </ul>
+</div>

@@ -1,0 +1,70 @@
+<?php echo $header; ?>
+<?php if (isset($messages)) { ?>
+    <?php foreach ($messages as $key => $message) { ?>
+        <?php if ($key == 'success') { ?>
+            <div class="alert alert-success">
+                <div class="row">
+                    <div class="col-auto alert-icon-col">
+                        <span class="fa fa-check fa-fw"></span>
+                    </div>
+                    <div class="col"><?php echo $message ?></div>
+                </div>
+            </div>
+        <?php } ?>
+        <?php if ($key == 'error') { ?>
+            <div class="alert alert-danger">
+                <div class="row">
+                    <div class="col-auto alert-icon-col">
+                        <span class="fa fa-exclamation-circle fa-fw"></span>
+                    </div>
+                    <div class="col"><?php echo $message ?></div>
+                </div>
+            </div>
+        <?php } ?>
+    <?php } ?>
+<?php } ?>
+    <div class="row py-2">
+        <div class="col mr-auto fs-35"><?php echo $heading; ?></div>
+        <div class="col-auto">
+            <a href="<?php echo $add_link; ?>">
+                <button type="button" class="btn btn-main">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Text</th>
+                <th>Description</th>
+                <th>Actions</th>
+                <th>Icon</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($services as $service) { ?>
+                <tr>
+                    <td><?php echo $service['service_id']; ?></td>
+                    <td><?php echo $service['text']; ?></td>
+                    <td><?php echo $service['description']; ?></td>
+                    <td><?php echo $service['icon']; ?></td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Edit">
+                            <a href="<?php echo $edit_link . $service['service_id'] ?>">
+                                <button type="button" class="btn btn-main"><i class="fa fa-pencil"></i></button>
+                            </a>
+                            <a href="<?php echo $delete_link . $service['service_id'] ?>">
+                                <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
+<?php echo $footer; ?>

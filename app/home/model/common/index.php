@@ -22,4 +22,8 @@ class ModelCommonIndex extends Model{
     public function getTestimonials() {
         return $this->db->query("SELECT * FROM `".DB_PREFIX."testimonials` WHERE active = 1")->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getServices() {
+        return $this->db->query("SELECT * FROM `".DB_PREFIX."services` WHERE active = 1")->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

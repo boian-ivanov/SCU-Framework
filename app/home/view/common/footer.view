@@ -8,9 +8,9 @@
                         <p>
                             <?php echo $office['address_1'] !== '' ? $office['address_1'] . '<br>' : '' ; ?>
                             <?php echo $office['address_2'] !== '' ? $office['address_2'] . '<br>' : '' ; ?>
-                            <?php echo $office['city'] !== ''      ? $office['city']      . '<br>' : '' ; ?>
+                            <?php echo $office['city']      !== '' ? $office['city']      . '<br>' : '' ; ?>
                             <?php echo $office['post_code'] !== '' ? $office['post_code'] . '<br>' : '' ; ?>
-                            <?php echo $office['country'] !== ''   ? $office['country']   . '<br>' : '' ; ?>
+                            <?php echo $office['country']   !== '' ? $office['country']   . '<br>' : '' ; ?>
                         </p>
                     </div>
                 <?php } ?>

@@ -1,0 +1,119 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 01/08/2017 08:18
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-001-tooth-6:before { content: "\f100"; }
+.flaticon-002-protection:before { content: "\f101"; }
+.flaticon-003-tooth-5:before { content: "\f102"; }
+.flaticon-004-dentist:before { content: "\f103"; }
+.flaticon-005-tooth-4:before { content: "\f104"; }
+.flaticon-006-implants-1:before { content: "\f105"; }
+.flaticon-007-prosthesis:before { content: "\f106"; }
+.flaticon-008-lips:before { content: "\f107"; }
+.flaticon-009-implants:before { content: "\f108"; }
+.flaticon-010-braces:before { content: "\f109"; }
+.flaticon-011-pills:before { content: "\f10a"; }
+.flaticon-012-boy:before { content: "\f10b"; }
+.flaticon-013-girl:before { content: "\f10c"; }
+.flaticon-014-family:before { content: "\f10d"; }
+.flaticon-015-doctor-3:before { content: "\f10e"; }
+.flaticon-016-doctor-2:before { content: "\f10f"; }
+.flaticon-017-broken-tooth:before { content: "\f110"; }
+.flaticon-018-brushing-teeth-1:before { content: "\f111"; }
+.flaticon-019-chair:before { content: "\f112"; }
+.flaticon-020-tooth-pliers-1:before { content: "\f113"; }
+.flaticon-021-tooth-pliers:before { content: "\f114"; }
+.flaticon-022-apple:before { content: "\f115"; }
+.flaticon-023-consult:before { content: "\f116"; }
+.flaticon-024-tooth-3:before { content: "\f117"; }
+.flaticon-025-appointment:before { content: "\f118"; }
+.flaticon-026-folder:before { content: "\f119"; }
+.flaticon-027-molar:before { content: "\f11a"; }
+.flaticon-028-mouthwash:before { content: "\f11b"; }
+.flaticon-029-brushing-teeth:before { content: "\f11c"; }
+.flaticon-030-doctor-1:before { content: "\f11d"; }
+.flaticon-031-toothbrush-2:before { content: "\f11e"; }
+.flaticon-032-doctor:before { content: "\f11f"; }
+.flaticon-033-toothbrush-1:before { content: "\f120"; }
+.flaticon-034-tooth-2:before { content: "\f121"; }
+.flaticon-035-medical-record:before { content: "\f122"; }
+.flaticon-036-anesthesia:before { content: "\f123"; }
+.flaticon-037-tooth-1:before { content: "\f124"; }
+.flaticon-038-drill:before { content: "\f125"; }
+.flaticon-039-toothbrush:before { content: "\f126"; }
+.flaticon-040-tooth:before { content: "\f127"; }
+    
+    $font-Flaticon-001-tooth-6: "\f100";
+    $font-Flaticon-002-protection: "\f101";
+    $font-Flaticon-003-tooth-5: "\f102";
+    $font-Flaticon-004-dentist: "\f103";
+    $font-Flaticon-005-tooth-4: "\f104";
+    $font-Flaticon-006-implants-1: "\f105";
+    $font-Flaticon-007-prosthesis: "\f106";
+    $font-Flaticon-008-lips: "\f107";
+    $font-Flaticon-009-implants: "\f108";
+    $font-Flaticon-010-braces: "\f109";
+    $font-Flaticon-011-pills: "\f10a";
+    $font-Flaticon-012-boy: "\f10b";
+    $font-Flaticon-013-girl: "\f10c";
+    $font-Flaticon-014-family: "\f10d";
+    $font-Flaticon-015-doctor-3: "\f10e";
+    $font-Flaticon-016-doctor-2: "\f10f";
+    $font-Flaticon-017-broken-tooth: "\f110";
+    $font-Flaticon-018-brushing-teeth-1: "\f111";
+    $font-Flaticon-019-chair: "\f112";
+    $font-Flaticon-020-tooth-pliers-1: "\f113";
+    $font-Flaticon-021-tooth-pliers: "\f114";
+    $font-Flaticon-022-apple: "\f115";
+    $font-Flaticon-023-consult: "\f116";
+    $font-Flaticon-024-tooth-3: "\f117";
+    $font-Flaticon-025-appointment: "\f118";
+    $font-Flaticon-026-folder: "\f119";
+    $font-Flaticon-027-molar: "\f11a";
+    $font-Flaticon-028-mouthwash: "\f11b";
+    $font-Flaticon-029-brushing-teeth: "\f11c";
+    $font-Flaticon-030-doctor-1: "\f11d";
+    $font-Flaticon-031-toothbrush-2: "\f11e";
+    $font-Flaticon-032-doctor: "\f11f";
+    $font-Flaticon-033-toothbrush-1: "\f120";
+    $font-Flaticon-034-tooth-2: "\f121";
+    $font-Flaticon-035-medical-record: "\f122";
+    $font-Flaticon-036-anesthesia: "\f123";
+    $font-Flaticon-037-tooth-1: "\f124";
+    $font-Flaticon-038-drill: "\f125";
+    $font-Flaticon-039-toothbrush: "\f126";
+    $font-Flaticon-040-tooth: "\f127";

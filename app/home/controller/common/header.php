@@ -24,7 +24,8 @@ class ControllerCommonHeader extends Controller {
             $this->url->root . '/public/css/styles-extended.css',
             $this->url->root . '/public/css/media-queries.css',
             $this->url->root . '/public/css/slick.css',
-            $this->url->root . '/public/css/slick-theme.css'
+            $this->url->root . '/public/css/slick-theme.css',
+            $this->url->root . '/public/fonts/flaticon.css'
         ];
 
         $scripts = [
