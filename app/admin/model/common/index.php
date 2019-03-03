@@ -3,19 +3,17 @@
 class ModelCommonIndex extends Model {
     private $location;
 
-    public function index() {
-        /*$query = $this->db->query("SELECT * FROM `test`")->fetchAll(PDO::FETCH_ASSOC);
+    /*public function index() {
+        $query = $this->db->query("SELECT * FROM `test`")->fetchAll(PDO::FETCH_ASSOC);
         echo '<pre>' . __FILE__ . ' : ' . __LINE__ . ' -> ' . __METHOD__ . '<br>';
         var_dump($query);
-        die();*/
-    }
+        die();
+    }*/
 
     public function getWelcomeMessage() {
-        $weather = $this->getUserWeatherData();
-        $icon = $weather['weather'][0]['icon'] ? "<img src='http://openweathermap.org/img/w/".$weather['weather'][0]['icon'].".png'>" : false;
         $location = $this->getUserLocation();
-        $city = $location['city'];
-        $date = new DateTime(null, $location['timezone'] ? new DateTimeZone($location['timezone']) : null);
+
+        $date = new DateTime(null, isset($location['timezone']) ? new DateTimeZone($location['timezone']) : null);
         
         $hour = $date->format('H');
         if($hour > 0 && $hour <= 12)
@@ -25,22 +23,29 @@ class ModelCommonIndex extends Model {
         else
             $welcome = "Good evening";
 
-        return $welcome . ", %s! Currently at " . $city . " the date is " . $date->format('l jS \of F Y') . " and the weather is set to be " . $weather['weather'][0]['main'] . " with " . $weather['weather'][0]['description'] . ".$icon";
+        $welcome .= ", %s!";
+
+        if($location) {
+            $weather = $this->getUserWeatherData($location);
+
+            $icon = $weather['weather'][0]['icon'] ? "<img src='http://openweathermap.org/img/w/" . $weather['weather'][0]['icon'] . ".png'>" : false;
+
+            $welcome .=  " Currently at " . $location['city'] . " the date is " . $date->format('l jS \of F Y') . " and the weather is set to be " . $weather['weather'][0]['main'] . " with " . $weather['weather'][0]['description'] . ".$icon";
+        }
+
+        return $welcome;
     }
 
-    public function getUserWeatherData($defalt = 'city') {
+    public function getUserWeatherData($location = null) {
         $appid = 'e4834a68505cb92baf641b01d35d63fd';
-        $loc = $this->getUserLocation();
+        $loc = $location ?? $this->getUserLocation();
         $json = file_get_contents("http://api.openweathermap.org/data/2.5/weather?lon=".$loc['lon']."&lat=".$loc['lat']."&units=metric&appid=$appid");
-        $json = json_decode($json, true);
-
-        return $json;
+        return json_decode($json, true) ?? false;
     }
 
     public function getUserLocation() {
-        $json  = file_get_contents("http://ip-api.com/json/" . $this->get_client_ip());
-        $json  =  json_decode($json ,true);
-        //$city = str_replace(' ', '+', $json['city']);
+        $json = file_get_contents("http://ip-api.com/json/" . $this->get_client_ip());
+        $json = json_decode($json, true);
 
         return $json;
     }
@@ -62,6 +67,28 @@ class ModelCommonIndex extends Model {
         else
             $ipaddress = false;
         return $ipaddress;
+    }
+
+    public function getLatestMessages() {
+        return $this->db->query(
+            "SELECT * FROM `".DB_PREFIX."messages` " .
+            "WHERE checked_by IS NULL"
+        )->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function checkMessageById($message_id, $user_id) {
+        $query = "UPDATE `" . DB_PREFIX . "messages` SET `checked_by` = :user_id WHERE `message_id` = :message_id";
+        $stmt = $this->db->prepare($query);
+        $return = $stmt->execute([
+            'message_id' => $message_id,
+            'user_id'    => $user_id
+        ]);
+
+        if($return) {
+            return $return;
+        } else {
+            return $stmt->errorCode();
+        }
     }
 
     public function getNavItems() {

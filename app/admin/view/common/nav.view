@@ -4,6 +4,7 @@
     <a class="navbar-brand" href="#"><i class="fa fa-code-branch"></i> <?php echo $title; ?></a>
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav ml-auto">
+            <?php if($weather) { ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navWeatherApp" data-toggle="dropdown">
                     <?php echo round($weather['main']['temp']); ?>&deg;C
@@ -20,6 +21,7 @@
                     <div class="dropdown-item text-center"><?php echo $weather['weather'][0]['description']?></div>
                 </div>
             </li>
+            <?php } ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
                     <i class="fa fa-user"></i> <?php echo $display_name; ?>

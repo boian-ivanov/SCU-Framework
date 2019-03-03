@@ -30,8 +30,7 @@ class ControllerCommonSnippets extends Controller {
     }
 
     public function navbar($title = '') {
-        if(empty($title))
-            $title = '';
+        if(empty($title)) $title = '';
 
         $model = $this->load->model('account/user');
         $user = $model->getUserById($_SESSION['user_id']);
