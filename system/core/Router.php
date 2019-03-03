@@ -170,8 +170,10 @@ class Router {
         } catch (Exception $e) {
             /*var_dump($this->elements, $this->controller, $this->controller_path, $this->getClassName(), $this->arguments, $e->getMessage());
             die();*/
-            echo 'Caught exception: ',  $e->getMessage(), "\n"; // echo the exception. TODO : update that to be logged and not displayed
-            //$this->load('ControllerErrorNot_found');
+            header("HTTP/1.0 404 Not Found");
+            // TODO : update that to be logged and not displayed
+            echo 'Caught exception: ' .   $e->getMessage(); // echo the exception.
+//            $this->load('ControllerErrorNot_found');
         }
     }
 
