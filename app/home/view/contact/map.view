@@ -1,10 +1,10 @@
-<div class="google_map w-100">
+<div class="google_map col-12 col-sm-6">
     <iframe class="w-100" style="height: 400px;" frameborder="0"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAmvM4YkfcLTykN7uw7NKxXq7AXAWNEfUU&q=42.513930+27.465839"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAmvM4YkfcLTykN7uw7NKxXq7AXAWNEfUU&q=place_id:ChIJqagaxoOUpkARHB0HZnM9yvY&"
             allowfullscreen>
     </iframe>
 </div>
-<div class="google_map_2 w-100" style="display: none;">
+<div class="google_map_2 col-12 col-sm-6">
     <iframe class="w-100" style="height: 400px;" frameborder="0"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAmvM4YkfcLTykN7uw7NKxXq7AXAWNEfUU&q=Hospital+Burgasmed"
             allowfullscreen>

@@ -81,11 +81,11 @@
             };
         });
 
-        $(r).bind('change',function(){
+        /*$(r).bind('change',function(){
             var toggle = ($(this).val() == 1) ? true : false;
             $('.google_map').toggle(toggle);
             $('.google_map_2').toggle(!toggle);
-        });
+        });*/
     </script>
     <script>
         grecaptcha.ready(function() {
