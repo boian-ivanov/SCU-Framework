@@ -1,6 +1,7 @@
 <div class="row w-100 m-auto justify-content-center">
     <div class="table-responsive border border-top-0 rounded">
-        <table class="table table-striped">
+        <table class="table table-striped mb-0">
+            <?php if(!empty($messages)) {?>
             <thead>
                 <tr class="">
                     <td>Name</td>
@@ -21,7 +22,7 @@
                     <td><?php echo $message['office']; ?></td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Check">
-                            <a href="<?php echo sprintf($check_link, $message['message_id']); ?>">
+                            <a onclick="sure(this);" href="<?php echo sprintf($check_link, $message['message_id']); ?>">
                                 <button type="button" class="btn btn-main"><i class="fa fa-check"></i></button>
                             </a>
                         </div>
@@ -29,6 +30,26 @@
                 </tr>
             <?php } ?>
             </tbody>
+            <?php } else { ?>
+            <tr>
+                <td colspan="6" class="text-center">No new messages</td>
+            </tr>
+            <?php } ?>
         </table>
     </div>
 </div>
+<script>
+    function sure(e) {
+        window.event.preventDefault();
+        return confirmDialog('Are you sure you want to confirm as read?')
+            .then(() => window.location.href = e.href)
+            .catch(e => console.log('Could not remove!'));
+    }
+
+    function confirmDialog(msg) {
+        return new Promise(function (resolve, reject) {
+            let confirmed = window.confirm(msg);
+            return confirmed ? resolve(true) : reject(false);
+        });
+    }
+</script>

@@ -2,18 +2,14 @@
     <div class="row">
         <div class="col inside-card mx-2 py-2 c-fff century-gothic p-0 p-sm-2" style="background-color: #82E42C;">
             <div class="card-title">График на зъболекар</div>
-            <div class="row border-bottom py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto"><?php echo $card1['line1']['left']; ?></div>
-                <div class="col-auto"><?php echo $card1['line1']['right']; ?></div>
-            </div>
-            <div class="row border-bottom py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto"><?php echo $card1['line2']['left']; ?></div>
-                <div class="col-auto"><?php echo $card1['line2']['right']; ?></div>
-            </div>
-            <div class="row py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto"><?php echo $card1['line3']['left']; ?></div>
-                <div class="col-auto"><?php echo $card1['line3']['right']; ?></div>
-            </div>
+            <?php foreach ($card1 as $line => $column) { ?>
+                <?php if(!empty($column['left']) && !empty($column['right'])) {?>
+                <div class="row border-bottom py-4 mx-3 fs-18">
+                    <div class="col-auto mr-auto"><?php echo $column['left']; ?></div>
+                    <div class="col-auto"><?php echo $column['right']; ?></div>
+                </div>
+                <?php } ?>
+            <?php } ?>
         </div>
     </div>
 </div>
@@ -34,18 +30,14 @@
     <div class="row">
         <div class="col inside-card mx-2 py-2 c-fff" style="background-color: #56B800;">
             <div class="card-title">Телефон за връзка</div>
-            <div class="row border-bottom py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto"><?php echo $card3['line1']['left']; ?></div>
-                <div class="col-auto"><?php echo $card3['line1']['right']; ?></div>
-            </div>
-            <div class="row border-bottom py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto"><?php echo $card3['line2']['left']; ?></div>
-                <div class="col-auto"><?php echo $card3['line2']['right']; ?></div>
-            </div>
-            <div class="row py-4 mx-3 fs-18">
-                <div class="col-auto mr-auto"><?php echo $card3['line3']['left']; ?></div>
-                <div class="col-auto"><?php echo $card3['line3']['right']; ?></div>
-            </div>
+            <?php foreach ($card3 as $line => $column) { ?>
+                <?php if(!empty($column['left']) && !empty($column['right'])) {?>
+                    <div class="row border-bottom py-4 mx-3 fs-18">
+                        <div class="col-auto mr-auto"><?php echo $column['left']; ?></div>
+                        <div class="col-auto"><?php echo $column['right']; ?></div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
         </div>
     </div>
 </div>

@@ -24,8 +24,8 @@ class ControllerCommonIndex extends Controller {
             ]);
 
 //            if(!$_SERVER['HTTP_ASYNC']) {
-                $data['header'] = $this->load->controller('common/header/index', 'Dashboard');
-                $data['footer'] = $this->load->view('common/footer');
+            $data['header'] = $this->load->controller('common/header/index', 'Dashboard');
+            $data['footer'] = $this->load->view('common/footer');
 //            }
 
             return $this->load->view('common/index', $data);
