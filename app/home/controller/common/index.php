@@ -35,6 +35,11 @@ class ControllerCommonIndex extends Controller {
         $data['testimonials'] = $this->testimonials();
         $data['cards'] = $this->cards();
 
+        $session_storage_data = $this->getStorage();
+        if(!empty($session_storage_data)) {
+            $data['messages'] = $session_storage_data;
+        }
+
         $model = $this->load->model('settings/settings');
 
         $settings = $model->getSettingData('general_settings'); // add settings key

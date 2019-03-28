@@ -27,7 +27,7 @@ class Controller {
         $_SESSION['storage_data'] = $data;
     }
 
-    protected function getStorage() {
+    protected final function getStorage() {
         if(session_id() != '' && isset($_SESSION['storage_data'])) {
             $data = $_SESSION['storage_data'];
             unset($_SESSION['storage_data']);

@@ -1,5 +1,18 @@
 <?php echo $header; ?>
-
+<?php if(isset($messages) && isset($messages['emailSent'])) {?>
+<script>
+    Swal.fire(
+        'Изпратено съобщение',
+        <?php if($messages['emailSent'] == true) {?>
+        'Съобщението Ви беше изпратено',
+        'success'
+        <?php } else {?>
+        'Възникна грешка при изпращането на вашето съобщение. Моля опитайте пак.',
+        'error'
+        <?php } ?>
+    );
+</script>
+<?php }?>
 <?php echo $slider; ?>
 <div class="container-fluid main">
     <!--<div class="row px-5 py-2" id="reservation-popup">

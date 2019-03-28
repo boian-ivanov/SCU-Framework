@@ -11,9 +11,9 @@ class ControllerSendNew extends Controller {
                 && $this->validate($request) // validate input
                 && $model->storeMail($request) // succeeds to store email
                 && $this->sendMail($request)) { // succeeds to send email
-                $data['success'] = true; // send true response
+                $data['emailSent'] = true; // send true response
             } else {
-                $data['error'] = false; // send false response
+                $data['emailSent'] = false; // send false response
             }
         }
         $this->redirect($this->url->root, $data);
@@ -22,11 +22,10 @@ class ControllerSendNew extends Controller {
     private function sendMail($data) {
         $from = 'mail@easydent.bg';
         $to = $data['email'];
-        $subject = 'Testing mail';
+        $data['subject'] = 'EasyDent - Съобщението Ви беше изпратено';
 
-        $message = $this->prepareTemplate($data);
+        $message = $this->prepareTemplate($data, 'generic');
 
-//        $headers = "From:".$from;
         $headers  = array(
             'MIME-Version: 1.0',
             'Content-type: text/html; charset=iso-8859-1',
@@ -37,16 +36,15 @@ class ControllerSendNew extends Controller {
             'Reply-To: ' . $from,
             'Return-Path: ' . $from,
             'X-Originating-IP: ' . $_SERVER['SERVER_ADDR'],
-            'Subject: '.$subject,
+            'Subject: '.$data['subject'],
         );
-        echo "<pre>" . __FILE__ . '-->' . __METHOD__ . ':' . __LINE__ . PHP_EOL;
-        var_dump(mail($to,$subject,$message, $headers));
-        die();
-        return mail($to,$subject,$message, $headers);
+
+        return mail($to,$data['subject'],$message, implode(PHP_EOL, $headers));
     }
 
     private function prepareTemplate ($data, $template = 'generic') {
-        $data['img_path'] = $this->url->home . '/public/images/logo.svg';
+        $data['root_url'] = $this->url->root;
+        $data['img_path'] = $this->url->root . '/public/images/logo.svg';
 
         return $this->load->view('email/' . $template, $data);
     }

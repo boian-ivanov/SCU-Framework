@@ -17,6 +17,7 @@ class ControllerCommonHeader extends Controller {
         $links = [
             '/node_modules/bootstrap/dist/css/bootstrap.min.css',
             '/node_modules/font-awesome/css/font-awesome.min.css',
+            '/node_modules/sweetalert2/dist/sweetalert2.min.css',
             '//fonts.googleapis.com/css?family=Roboto:400,700',
             '//fonts.googleapis.com/css?family=Open+Sans',
             '//fonts.googleapis.com/css?family=Lobster|Oswald|Raleway|PT+Sans&subset=latin,cyrillic',
@@ -32,6 +33,7 @@ class ControllerCommonHeader extends Controller {
             '/node_modules/jquery/dist/jquery.min.js',
             '/node_modules/popper.js/dist/umd/popper.min.js',
             '/node_modules/bootstrap/dist/js/bootstrap.min.js',
+            '/node_modules/sweetalert2/dist/sweetalert2.min.js',
             $this->url->root . '/public/js/jquery.bcSwipe.min.js',
             $this->url->root . '/public/js/main.js',
             $this->url->root . '/public/js/slick.min.js',
