@@ -180,6 +180,7 @@ class ControllerSettingsTeam extends Controller {
             $return['active'] = 1;
         else
             $return['active'] = 0;
+
         return $return;
     }
 

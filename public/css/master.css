@@ -314,7 +314,7 @@ ul.services-list > li > .service-text {
 
 .team-member__block {
     background-color: #fff;
-    min-height: 500px;
+    /*min-height: 500px;*/
 }
 
 /*.check-container.checked {

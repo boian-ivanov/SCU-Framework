@@ -13,7 +13,7 @@
         <div class="row justify-content-center background-parallax"></div>
         <div class="row justify-content-center">
             <div class="col-11 col-sm-10 team-member__block mb-3">
-                <div class="row justify-content-center justify-content-sm-start mb-3" style="margin-top: -150px;">
+                <div class="row justify-content-center justify-content-sm-start" style="margin-top: -150px;">
                     <div class="col-12 col-sm-6 col-md-4"> <!-- block 1 image -->
                         <div class="row d-block">
                             <?php if($member['image'] != '' || $member['image'] != null) { ?>
@@ -25,7 +25,14 @@
                             <?php } ?>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-11">
+                            <div class="col-12">
+                                <div class="row px-3">
+                                    <hr class="w-100"><!-- style="border: 1px solid #444;">-->
+                                    <div class="col text-center">
+                                        <p class="fs-16 text"><?php echo $member['short_description']; ?></p>
+                                    </div>
+                                    <hr class="w-100"><!-- style="border: 1px solid #444;">-->
+                                </div>
                                 <!--<div class="row">
                                     <div class="col">
                                         <h3 class="text-center">Working Hours</h3>
@@ -75,13 +82,6 @@
                             <div class="col ml-md-2 ml-sm-1">
                                 <h2 class="text-center text-sm-left"><?php echo $member['name']; ?></h2>
                             </div>
-                        </div>
-                        <div class="row p-3">
-                            <hr class="w-100"><!-- style="border: 1px solid #444;">-->
-                            <div class="col text-center">
-                                <p class="fs-16 text"><?php echo $member['short_description']; ?></p>
-                            </div>
-                            <hr class="w-100"><!-- style="border: 1px solid #444;">-->
                         </div>
                         <div class="row p-3">
                             <p><?php echo nl2br($member['description']); ?></p>
