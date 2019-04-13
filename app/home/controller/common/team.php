@@ -18,7 +18,11 @@ class ControllerCommonTeam extends Controller {
 
         if(isset($this->request->get['member_id'])) {
             $data['member'] = $model->getTeamMemberBySlug($this->request->get['member_id']);
-            $data['background_image'] = "http://via.placeholder.com/1280x300";//$this->url->root . '/public/images/team_member/background1.jpg';
+            if($data['member']['background_image'] != '' || $data['member']['background_image'] != null) {
+                $data['background_image'] = $this->url->root . '/public/images/profile_images/' . $data['member']['background_image'];
+            } else {
+                $data['background_image'] = $this->url->root . '/public/images/team_member/background1.jpg';
+            }
 
             if($data['member']) {
                 return $this->load->view('team/team_member', $data);

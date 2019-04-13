@@ -54,29 +54,26 @@ class ControllerSettingsTeam extends Controller {
             if(!empty($this->request->post)) {
                 $model = $this->load->model('settings/team');
 
+                $validated_data = $this->validate($this->request->post);
+
                 if($this->request->files['profileImage']['name'] != '') { // image file update
-                    $this->upload($this->request->files['profileImage']);
-                    if($this->upload->uploaded && !$this->upload->error){
-                        $this->upload->file_new_name_body = md5(date('now'));
-                        $this->upload->image_resize = true;
-                        $this->upload->image_ratio_crop = true;
-                        $this->upload->image_x = '250';
-                        $this->upload->image_y = '250';
-                        $this->upload->process(PUBLIC_PATH . 'images/profile_images/');
-                        if($this->upload->processed){
-                            $messages['success'][] = "Image has been uploaded successfully.";
-                            $image_name = $this->upload->file_dst_name;
-                            $this->upload->clean();
-                        } else {
-                            $messages['error'][] = "Image has not been uploaded. Please try again. [Error : ".$this->upload->error."]";
-                        }
-                    } else {
-                        $messages['error'][] = $this->upload->error;
+                    $upload = $this->uploadFile($this->request->files['profileImage']);
+                    $messages = $upload['message'];
+                    if(isset($upload['file_name'])) {
+                        $validated_data = array_merge($validated_data, ['image' => $upload['file_name']]);
                     }
                 }
 
-                $validated_data = $this->validate($this->request->post);
-                if(isset($image_name)) $validated_data = array_merge($validated_data, ['image'=> $image_name]);
+                if($this->request->files['profileBackgroundImage']['name'] != '') { // background image file update
+                    $upload = $this->uploadFile($this->request->files['profileBackgroundImage'], [
+                        "x" => 1280,
+                        "y" => 500
+                    ]);
+                    $messages = array_merge(($messages ?? []), $upload['message']);
+                    if(isset($upload['file_name'])) {
+                        $validated_data = array_merge($validated_data, ['background_image' => $upload['file_name']]);
+                    }
+                }
 
                 if(!empty($validated_data) && $id = $model->addMember($validated_data)) {
                     $messages['success'][] = "Member with ID : '" . $id . "' has been added";
@@ -100,28 +97,24 @@ class ControllerSettingsTeam extends Controller {
         if(isset($this->request->get['id'])) {
             $model = $this->load->model('settings/team');
             if($this->request->files['profileImage']['name'] != '') { // image file update
-                $this->upload($this->request->files['profileImage']);
-                if($this->upload->uploaded && !$this->upload->error){
-                    $this->upload->file_new_name_body = md5(date('now'));
-                    $this->upload->image_resize = true;
-                    $this->upload->image_ratio_crop = true;
-                    $this->upload->image_x = '250';
-                    $this->upload->image_y = '250';
-                    $this->upload->process(PUBLIC_PATH . 'images/profile_images/');
-                    if($this->upload->processed){
-                        if($res = $model->updateMemberImage($this->request->get['id'], $this->upload->file_dst_name)){
-                            $messages['success'][] = "Image has been updated successfully.";
-                        } else {
-                            $messages['error'][] = "Image has not been updated. Please try again.";
-                        }
-                        $this->upload->clean();
-                    } else {
-                        $messages['error'][] = "Image has not been updated. Please try again. [Error : ".$this->upload->error."]";
-                    }
-                } else {
-                    $messages['error'][] = $this->upload->error;
+                $upload = $this->uploadFile($this->request->files['profileImage']);
+                $messages = $upload['message'];
+                if(isset($upload['file_name'])) {
+                    $res = $model->updateMemberImage($this->request->get['id'], $this->upload->file_dst_name);
                 }
             }
+
+            if($this->request->files['profileBackgroundImage']['name'] != '') { // background image file update
+                $upload = $this->uploadFile($this->request->files['profileBackgroundImage'], [
+                    "x" => 1280,
+                    "y" => 500
+                ]);
+                $messages = array_merge(($messages ?? []), $upload['message']);
+                if(isset($upload['file_name'])) {
+                    $res = $model->updateMemberBackgroundImage($this->request->get['id'], $this->upload->file_dst_name);
+                }
+            }
+
             if(!empty($this->request->post)) {
                 if($model->updateMemberData($this->request->get['id'], $this->validate($this->request->post))){
                     $messages['success'][] = "Member data has been updated.";
@@ -193,5 +186,39 @@ class ControllerSettingsTeam extends Controller {
             }
         }
         return $members;
+    }
+
+    private function uploadFile($fileObject, $options = array()) {
+        $defaults = [
+            "file_name" => md5(date('now')),
+            "resize" => true,
+            "ratio_crop" => true,
+            "x" => "250",
+            "y" => "250",
+        ];
+
+        if(!empty($options)) {
+            $defaults = array_replace($defaults, $options);
+        }
+
+        $this->upload($fileObject);
+        if($this->upload->uploaded && !$this->upload->error){
+            $this->upload->file_new_name_body = $defaults['file_name'];
+            $this->upload->image_resize = $defaults['resize'];
+            $this->upload->image_ratio_crop = $defaults['ratio_crop'];
+            $this->upload->image_x = $defaults['x'];
+            $this->upload->image_y = $defaults['y'];
+            $this->upload->process(PUBLIC_PATH . 'images/profile_images/');
+            if($this->upload->processed){
+                $response['message']['success'][] = "Image has been uploaded successfully.";
+                $response['file_name'] = $this->upload->file_dst_name;
+                $this->upload->clean();
+            } else {
+                $response['message']['error'][] = "Image has not been uploaded. Please try again. [Error : ".$this->upload->error."]";
+            }
+        } else {
+            $response['message']['error'][] = $this->upload->error;
+        }
+        return $response;
     }
 }

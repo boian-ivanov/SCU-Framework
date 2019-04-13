@@ -34,6 +34,14 @@ class ModelSettingsTeam extends Model {
         throw new Exception("User with id '$id' does not exist.");
     }
 
+    public function updateMemberBackgroundImage($id, $imagePath) {
+        if($this->teamMemberExists($id)) {
+            $stmt = $this->db->prepare("UPDATE `" . DB_PREFIX . "team` SET `background_image` = :image WHERE `member_id` = :id");
+            return $stmt->execute(['image'=> $imagePath , 'id' => $id]);
+        }
+        throw new Exception("User with id '$id' does not exist.");
+    }
+
     public function addMember($data) {
         $query = "INSERT INTO `" . DB_PREFIX . "team` SET ";
         foreach($data as $key => $datum) {

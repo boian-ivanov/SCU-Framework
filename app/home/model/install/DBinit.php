@@ -25,9 +25,10 @@ class ModelInstallDbinit extends Model {
             'short_description' => 'TEXT NOT NULL',
             'description' => 'TEXT NULL',
             'url_slug' => 'VARCHAR(100) NULL',
-            'additional_data' => 'TEXT NULL',
+//            'additional_data' => 'TEXT NULL',
             'active' => "INT(1) NOT NULL DEFAULT '0'",
-            'image' => 'VARCHAR(256) NOT NULL'
+            'image' => 'VARCHAR(256) NOT NULL',
+            'background_image' => 'VARCHAR(256) NOT NULL'
         ],
         'user_status' => [
             'status_id' => 'INT(11) NOT NULL',
